@@ -1349,10 +1349,10 @@
 |                       | LMB                   | Slide Marker                      |
 |                       | Ctrl LMB              | Add Marker and Slide              |
 | Console               | LMB                   | Set Selection                     |
-| File Browser Main     | Double LMB            | Execute File Window               |
-|                       | LMB                   | Activate/Select File              |
+| File Browser Main     | LMB                   | Activate/Select File              |
 |                       | Alt LMB               |                                   |
 |                       | Ctrl LMB              | Rename File or Directory          |
+|                       | Double LMB            | Execute File Window               |
 |                       | Shift LMB             | Activate/Select File              |
 | Gesture Border        | LMB                   |                                   |
 |                       | Any LMB               |                                   |
@@ -1373,10 +1373,10 @@
 |                       | Ctrl LMB              | Link Nodes                        |
 |                       | Shift LMB             | Add Reroute                       |
 |                       | Shift Ctrl LMB        | Link Viewer                       |
-| Outliner              | Double LMB            | Rename Item                       |
-|                       | LMB                   | Activate Item                     |
+| Outliner              | LMB                   | Activate Item                     |
 |                       | Ctrl LMB              |                                   |
 |                       | Ctrl LMB              | Rename Item                       |
+|                       | Double LMB            |                                   |
 |                       | Shift LMB             | Activate Item                     |
 |                       | Shift Ctrl LMB        |                                   |
 | Particle              | LMB                   | Brush Edit                        |
@@ -1390,9 +1390,9 @@
 |                       | Ctrl LMB              |                                   |
 |                       | Shift LMB             |                                   |
 | Standard Modal Map    | Any LMB               |                                   |
-| Text                  | Double LMB            | Select Word                       |
-|                       | LMB                   | Scrollbar                         |
+| Text                  | LMB                   | Scrollbar                         |
 |                       | LMB                   | Set Cursor                        |
+|                       | Double LMB            | Select Word                       |
 |                       | Shift LMB             | Set Selection                     |
 | Transform Modal Map   | Any LMB               |                                   |
 | UV Sculpt             | LMB                   | Sculpt UVs                        |

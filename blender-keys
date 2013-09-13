@@ -150,7 +150,6 @@ class Main:
                     else:
                         sort1 = 1
                     hotkey += type
-                    sort2 = len(hotkey.split())
                     if keymap_item.key_modifier != 'NONE':
                         hotkey += ' ' + keymap_item.key_modifier
                     if keymap_item.value == 'DOUBLE_CLICK':
@@ -158,6 +157,7 @@ class Main:
                     else:
                         assert keymap_item.value in (
                             'ANY', 'CLICK', 'PRESS', 'RELEASE')
+                    sort2 = len(hotkey.split())
                     info = self.info.get(keymap_item.map_type)
                     if info is None:
                         info = self.info[keymap_item.map_type] = []
