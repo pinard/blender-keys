@@ -11,6 +11,84 @@ import sys
 write = sys.stdout.write
 
 
+replaced_substrings = [
+    ('EVT_TWEAK_', 'Tweak '),
+    ('NDOF_', ''),
+]
+
+
+replaced_words = {
+    'ACCENT_GRAVE': '`',
+    'ACTIONMOUSE': 'Action',
+    'BACK_SPACE': 'Backspace',
+    'BUTTON4MOUSE': '4MB',
+    'BUTTON5MOUSE': '5MB',
+    'COMMA': ',',
+    'DEL': 'Delete',
+    'DOWN_ARROW': 'Down',
+    'EIGHT': '8',
+    'END': 'End',
+    'EQUAL': '=',
+    'ESC': 'Escape',
+    'FIVE': '5',
+    'FOUR': '4',
+    'HOME': 'Home',
+    'INSERT': 'Insert',
+    'LEFTMOUSE': 'LMB',
+    'LEFT_ALT': 'LeftAlt',
+    'LEFT_ARROW': 'Left',
+    'LEFT_BRACKET': '[',
+    'LEFT_CTRL': 'LeftCtrl',
+    'LEFT_SHIFT': 'LeftShift',
+    'MIDDLEMOUSE': 'MMB',
+    'MINUS': '-',
+    'MOUSEMOVE': 'Move',
+    'NINE': '9',
+    'NONE': None,
+    'NUMPAD_0': 'Num0',
+    'NUMPAD_1': 'Num1',
+    'NUMPAD_2': 'Num2',
+    'NUMPAD_3': 'Num3',
+    'NUMPAD_4': 'Num4',
+    'NUMPAD_5': 'Num5',
+    'NUMPAD_6': 'Num6',
+    'NUMPAD_7': 'Num7',
+    'NUMPAD_8': 'Num8',
+    'NUMPAD_9': 'Num9',
+    'NUMPAD_ENTER': 'NumEnter',
+    'NUMPAD_MINUS': 'Num-',
+    'NUMPAD_PERIOD': 'Num.',
+    'NUMPAD_PLUS': 'Num+',
+    'NUMPAD_SLASH': 'Num/',
+    'ONE': '1',
+    'PAGE_DOWN': 'PgDn',
+    'PAGE_UP': 'PgUp',
+    'PERIOD': '.',
+    'RET': 'Enter',
+    'RIGHTMOUSE': 'RMB',
+    'RIGHT_ALT': 'RightAlt',
+    'RIGHT_ARROW': 'Right',
+    'RIGHT_BRACKET': ']',
+    'RIGHT_CTRL': 'RightCtrl',
+    'RIGHT_SHIFT': 'RightShift',
+    'SELECTMOUSE': 'RMB',
+    'SEVEN': '7',
+    'SIX': '6',
+    'SPACE': 'Space',
+    'TAB': 'Tab',
+    'THREE': '3',
+    'TRACKPADPAN': 'Pan',
+    'TRACKPADZOOM': 'Zoom',
+    'TWO': '2',
+    'UP_ARROW': 'Up',
+    'WHEELDOWNMOUSE': 'WheelDn',
+    'WHEELINMOUSE': 'WheelIn',
+    'WHEELOUTMOUSE': 'WheelOut',
+    'WHEELUPMOUSE': 'WheelUp',
+    'ZERO': '0',
+}
+
+
 class Main:
 
     def main(self, *arguments):
@@ -27,8 +105,8 @@ class Main:
             print()
         print(value)
         print()
-        for attr in sorted(dir(value)):
-            print('%-20s' % attr, getattr(value, attr))
+        for attribute in dir(value):
+            print('%-20s' % attribute, getattr(value, attribute))
         print()
 
     def extract_keys(self):
@@ -55,65 +133,14 @@ class Main:
                             hotkey += 'Ctrl '
                         if keymap_item.alt:
                             hotkey += 'Alt '
-                    type = (keymap_item.type
-                            .replace('ACCENT_GRAVE', '`')
-                            .replace('ACTIONMOUSE', 'Action')
-                            .replace('BACK_SPACE', 'Backspace')
-                            .replace('BUTTON4MOUSE', '4MB')
-                            .replace('BUTTON5MOUSE', '5MB')
-                            .replace('COMMA', ',')
-                            .replace('DEL', 'Delete')
-                            .replace('DOWN_ARROW', 'Down')
-                            .replace('EQUAL', '=')
-                            .replace('END', 'End')
-                            .replace('ENTER', 'Enter')
-                            .replace('ESC', 'Escape')
-                            .replace('EVT_TWEAK_', 'Tweak ')
-                            .replace('HOME', 'Home')
-                            .replace('INSERT', 'Insert')
-                            .replace('LEFT_ALT', 'LeftAlt')
-                            .replace('LEFT_ARROW', 'Left')
-                            .replace('LEFT_BRACKET', '[')
-                            .replace('LEFT_CTRL', 'LeftCtrl')
-                            .replace('LEFT_SHIFT', 'LeftShift')
-                            .replace('LEFTMOUSE', 'LMB')
-                            .replace('MIDDLEMOUSE', 'MMB')
-                            .replace('MINUS', '-')
-                            .replace('MOUSEMOVE', 'Move')
-                            .replace('NDOF_', '')
-                            .replace('NUMPAD_', 'Num')
-                            .replace('PAGE_DOWN', 'PgDn')
-                            .replace('PAGE_UP', 'PgUp')
-                            .replace('PERIOD', '.')
-                            .replace('PLUS', '+')
-                            .replace('RET', 'Enter')
-                            .replace('RIGHT_ALT', 'RightAlt')
-                            .replace('RIGHT_ARROW', 'Right')
-                            .replace('RIGHT_BRACKET', ']')
-                            .replace('RIGHT_CTRL', 'RightCtrl')
-                            .replace('RIGHT_SHIFT', 'RightShift')
-                            .replace('RIGHTMOUSE', 'RMB')
-                            .replace('SELECTMOUSE', 'RMB')
-                            .replace('SLASH', '/')
-                            .replace('SPACE', 'Space')
-                            .replace('TAB', 'Tab')
-                            .replace('TRACKPADPAN', 'Pan')
-                            .replace('TRACKPADZOOM', 'Zoom')
-                            .replace('UP_ARROW', 'Up')
-                            .replace('WHEELDOWNMOUSE', 'WheelDn')
-                            .replace('WHEELUPMOUSE', 'WheelUp')
-                            .replace('WHEELINMOUSE', 'WheelIn')
-                            .replace('WHEELOUTMOUSE', 'WheelOut')
-                            .replace('ZERO', '0')
-                            .replace('ONE', '1')
-                            .replace('TWO', '2')
-                            .replace('THREE', '3')
-                            .replace('FOUR', '4')
-                            .replace('FIVE', '5')
-                            .replace('SIX', '6')
-                            .replace('SEVEN', '7')
-                            .replace('EIGHT', '8')
-                            .replace('NINE', '9'))
+                    fragments = []
+                    for word in keymap_item.type.split():
+                        fragment = replaced_words.get(word, word)
+                        if fragment is not None:
+                            fragments.append(fragment)
+                    type = ''.join(fragments)
+                    for before, after in replaced_substrings:
+                        type = type.replace(before, after)
                     if len(type) == 1:
                         sort1 = 0
                     elif re.match('F[1-9]$', type):

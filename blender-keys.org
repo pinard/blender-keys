@@ -909,6 +909,11 @@
 | 3D View                       | `                | Layers                            |
 | Armature                      | Ctrl `           | Show All Layers                   |
 | Pose                          | Ctrl `           | Show All Layers                   |
+| Screen Editing                |                  | Join Area                         |
+|                               |                  | Scale Region Size                 |
+|                               |                  | Split Area                        |
+|                               | Ctrl             | Swap Areas                        |
+|                               | Shift            | Duplicate Area into New Window    |
 | Console                       | Backspace        | Delete                            |
 |                               | Ctrl Backspace   |                                   |
 |                               | Shift Backspace  |                                   |
@@ -1055,11 +1060,6 @@
 | Frames                        | MEDIA_LAST       | Jump to Keyframe                  |
 | Frames                        | MEDIA_PLAY       | Play Animation                    |
 | Frames                        | MEDIA_STOP       | Cancel Animation                  |
-| Screen Editing                | N1               | Join Area                         |
-|                               | N1               | Scale Region Size                 |
-|                               | N1               | Split Area                        |
-|                               | Ctrl N1          | Swap Areas                        |
-|                               | Shift N1         | Duplicate Area into New Window    |
 | 3D View                       | Num+             | Zoom View                         |
 | Animation Channels            | Num+             | Expand Channels                   |
 |                               | Ctrl Num+        |                                   |
@@ -1611,10 +1611,6 @@
 |-------------+--------------------+---------------------------|
 | NDOF        |                    |                           |
 |-------------+--------------------+---------------------------|
-| Window      | BUTTON_+           | Change NDOF Sensitivity   |
-|             | Shift BUTTON_+     |                           |
-| Window      | BUTTON_-           | Change NDOF Sensitivity   |
-|             | Shift BUTTON_-     |                           |
 | 3D View     | BUTTON_BACK        | View Numpad               |
 | 3D View     | BUTTON_BOTTOM      | View Numpad               |
 | 3D View     | BUTTON_FIT         | View Selected             |
@@ -1624,6 +1620,10 @@
 |             | Shift BUTTON_FRONT |                           |
 | 3D View     | BUTTON_LEFT        | View Numpad               |
 | Window      | BUTTON_MENU        | Call Menu                 |
+| Window      | BUTTON_MINUS       | Change NDOF Sensitivity   |
+|             | Shift BUTTON_MINUS |                           |
+| Window      | BUTTON_PLUS        | Change NDOF Sensitivity   |
+|             | Shift BUTTON_PLUS  |                           |
 | 3D View     | BUTTON_RIGHT       | View Numpad               |
 |             | Shift BUTTON_RIGHT |                           |
 | 3D View     | BUTTON_TOP         | View Numpad               |
