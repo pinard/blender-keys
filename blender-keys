@@ -1,0 +1,194 @@
+#!/usr/bin/env python3
+
+"""\
+Extract all current Blender hotkeys into an Org mode table.
+"""
+
+import bpy
+import re
+import sys
+
+write = sys.stdout.write
+
+
+class Main:
+
+    def main(self, *arguments):
+        self.info = {}
+        self.extract_keys()
+        self.write_table()
+
+    def study(self, title, value):
+        print('-------------------------------------------------------')
+        print(title)
+        if hasattr(value, '__iter__'):
+            print(value, ':', len(value), 'items')
+            value = value[0]
+            print()
+        print(value)
+        print()
+        for attr in sorted(dir(value)):
+            print('%-20s' % attr, getattr(value, attr))
+        print()
+
+    def extract_keys(self):
+        write('\n')
+        for keyconfig in bpy.data.window_managers['WinMan'].keyconfigs:
+            keyconfig_name = keyconfig.name
+            if keyconfig_name != 'Blender':
+                # Either 'Blender Addon' or 'Blender User'.
+                continue
+            for keymap in keyconfig.keymaps:
+                keymap_name = keymap.name
+                for keymap_item in keymap.keymap_items:
+                    hotkey = ''
+                    if keymap_item.any:
+                        hotkey += 'Any '
+                        assert keymap_item.shift
+                        assert keymap_item.ctrl
+                        assert keymap_item.alt
+                    else:
+                        assert not keymap_item.oskey
+                        if keymap_item.shift:
+                            hotkey += 'Shift '
+                        if keymap_item.ctrl:
+                            hotkey += 'Ctrl '
+                        if keymap_item.alt:
+                            hotkey += 'Alt '
+                    type = (keymap_item.type
+                            .replace('ACCENT_GRAVE', '`')
+                            .replace('ACTIONMOUSE', 'Action')
+                            .replace('BACK_SPACE', 'Backspace')
+                            .replace('BUTTON4MOUSE', '4MB')
+                            .replace('BUTTON5MOUSE', '5MB')
+                            .replace('COMMA', ',')
+                            .replace('DEL', 'Delete')
+                            .replace('DOWN_ARROW', 'Down')
+                            .replace('EQUAL', '=')
+                            .replace('END', 'End')
+                            .replace('ENTER', 'Enter')
+                            .replace('ESC', 'Escape')
+                            .replace('EVT_TWEAK_', 'Tweak ')
+                            .replace('HOME', 'Home')
+                            .replace('INSERT', 'Insert')
+                            .replace('LEFT_ALT', 'LeftAlt')
+                            .replace('LEFT_ARROW', 'Left')
+                            .replace('LEFT_BRACKET', '[')
+                            .replace('LEFT_CTRL', 'LeftCtrl')
+                            .replace('LEFT_SHIFT', 'LeftShift')
+                            .replace('LEFTMOUSE', 'LMB')
+                            .replace('MIDDLEMOUSE', 'MMB')
+                            .replace('MINUS', '-')
+                            .replace('MOUSEMOVE', 'Move')
+                            .replace('NDOF_', '')
+                            .replace('NUMPAD_', 'Num')
+                            .replace('PAGE_DOWN', 'PgDn')
+                            .replace('PAGE_UP', 'PgUp')
+                            .replace('PERIOD', '.')
+                            .replace('PLUS', '+')
+                            .replace('RIGHT_ALT', 'RightAlt')
+                            .replace('RIGHT_ARROW', 'Right')
+                            .replace('RIGHT_BRACKET', ']')
+                            .replace('RIGHT_CTRL', 'RightCtrl')
+                            .replace('RIGHT_Shift', 'RightShift')
+                            .replace('RIGHTMOUSE', 'RMB')
+                            .replace('SELECTMOUSE', 'RMB')
+                            .replace('SLASH', '/')
+                            .replace('SPACE', 'SPC')
+                            .replace('TRACKPADPAN', 'Pan')
+                            .replace('TRACKPADZOOM', 'Zoom')
+                            .replace('UP_ARROW', 'Up')
+                            .replace('WHEELDOWNMOUSE', 'WheelDn')
+                            .replace('WHEELUPMOUSE', 'WheelUp')
+                            .replace('WHEELINMOUSE', 'WheelIn')
+                            .replace('WHEELOUTMOUSE', 'WheelOut')
+                            .replace('ZERO', '0')
+                            .replace('ONE', '1')
+                            .replace('TWO', '2')
+                            .replace('THREE', '3')
+                            .replace('FOUR', '4')
+                            .replace('FIVE', '5')
+                            .replace('SIX', '6')
+                            .replace('SEVEN', '7')
+                            .replace('EIGHT', '8')
+                            .replace('NINE', '9'))
+                    if len(type) == 1:
+                        sort = 0
+                    elif re.match('F[1-9]$', type):
+                        sort = 2
+                    elif re.match('F1[0-9]$', type):
+                        sort = 3
+                    else:
+                        sort = 1
+                    hotkey += type
+                    if keymap_item.key_modifier != 'NONE':
+                        hotkey += ' ' + keymap_item.key_modifier
+                    if keymap_item.value == 'DOUBLE_CLICK':
+                        hotkey = 'Double ' + hotkey
+                    else:
+                        assert keymap_item.value in (
+                            'ANY', 'CLICK', 'PRESS', 'RELEASE')
+                    info = self.info.get(keymap_item.map_type)
+                    if info is None:
+                        info = self.info[keymap_item.map_type] = []
+                    info.append(
+                        (keymap_item.map_type, sort, type,
+                         keymap_name, hotkey, keymap_item.name))
+
+    def write_table(self):
+
+        def separator():
+            for counter, width in enumerate(widths):
+                if counter == 0:
+                    write('|-%s-' % ('-' * width))
+                else:
+                    write('+-%s-' % ('-' * width))
+            write('|\n')
+
+        table = []
+        widths = None
+        for keymap_name, info in sorted(self.info.items()):
+            row = None
+            previous_key = None
+            previous_name = None
+            for _, _, type, keymap, hotkey, name in sorted(info):
+                if (type, keymap) == previous_key:
+                    keymap = ''
+                    if name == previous_name:
+                        name = ''
+                    else:
+                        previous_name = name
+                else:
+                    previous_key = type, keymap
+                    previous_name = name
+                if row is None:
+                    row = keymap, hotkey, name
+                    if widths is None:
+                        widths = [0] * len(row)
+                    table.append((keymap_name,) + (None,) * (len(row) - 1))
+                else:
+                    row = keymap, hotkey, name
+                for counter, cell in enumerate(row):
+                    if cell is not None and len(cell) > widths[counter]:
+                        widths[counter] = len(cell)
+                table.append(row)
+        previous = None
+        for row in table:
+            if row != previous:
+                previous = row
+                if row[1] is None:
+                    separator()
+                for cell, width in zip(row, widths):
+                    if cell is None:
+                        cell = ''
+                    write('| %*s ' % (-width, cell))
+                write('|\n')
+                if row[1] is None:
+                    separator()
+
+
+run = Main()
+main = run.main
+
+if __name__ == '__main__':
+    main(*sys.argv[1:])

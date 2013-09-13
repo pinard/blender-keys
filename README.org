@@ -1,0 +1,26 @@
+#+TITLE: Extract all current Blender hotkeys into an Org mode table.
+
+This tool creates an Org mode table giving a quick description for all
+Blender keys.  The result is edited and sorted in a way that pleases
+the author of the tool :-), but tastes may vary.  Don't hesitate to
+adjust the tool so it sorts and edits your way!
+
+The generated table helps me to check the meaning of a key when I read
+documentation saying /Use that particular key/ without explaining what
+it does.  At other times, when I'm not fully sure I correctly remember
+a key, I may check it first so to not accidentally hurt myself.
+
+I saw many Blender hotkeys tables on the Internet, but most often,
+they are outdated, incomplete, and sometimes erroneous.  Some sites
+even rely on collaborating users for completing or correcting the
+tables, leaving the feeling that they are never going to be
+dependable.  This is why I decided to derive such a table directly
+from Blender using its Python API, so it gets complete and accurate.
+
+The tool has been written using Blender 2.68a, and is sensitive to the
+version of Blender: I noticed it does not work for Blender 2.63.
+Either use the generated =blender-keys.org= table, or use the Makefile
+for creating it afresh, after adjusting it as needed, of course.
+
+Have fun with the tool.  My only demand is that you share with me any
+interesting improvement you develop! :-)
