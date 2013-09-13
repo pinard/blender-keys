@@ -195,12 +195,10 @@ class Main:
                 else:
                     previous_key = type, keymap_name
                     previous_name = name
+                row = keymap_name, hotkey, name
                 if widths is None:
-                    row = keymap_name, hotkey, name
                     table.append((map_type,) + (None,) * (len(row) - 1))
                     widths = [len(map_type)] + [0] * (len(row) - 1)
-                else:
-                    row = keymap_name, hotkey, name
                 for counter, cell in enumerate(row):
                     if cell is not None and len(cell) > widths[counter]:
                         widths[counter] = len(cell)
@@ -210,9 +208,7 @@ class Main:
             separator()
             for count, row in enumerate(table):
                 for cell, width in zip(row, widths):
-                    if cell is None:
-                        cell = ''
-                    write('| %*s ' % (-width, cell))
+                    write('| %*s ' % (-width, cell or ''))
                 write('|\n')
                 if count == 0:
                     separator()
