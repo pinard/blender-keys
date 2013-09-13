@@ -22,5 +22,8 @@ version of Blender: I noticed it does not work for Blender 2.63.
 Either use the generated =blender-keys.org= table, or use the Makefile
 for creating it afresh, after adjusting it as needed, of course.
 
-Have fun with the tool.  My only demand is that you share with me any
+Daniel Schalla created http://blenderkeys.be-untitled.eu/, which is a
+Web application interrogating the data produced by this tool, here.
+
+Have fun with this.  My only demand is that you share with me any
 interesting improvement you develop! :-)
