@@ -113,14 +113,15 @@ class Main:
                             .replace('EIGHT', '8')
                             .replace('NINE', '9'))
                     if len(type) == 1:
-                        sort = 0
+                        sort1 = 0
                     elif re.match('F[1-9]$', type):
-                        sort = 2
+                        sort1 = 2
                     elif re.match('F1[0-9]$', type):
-                        sort = 3
+                        sort1 = 3
                     else:
-                        sort = 1
+                        sort1 = 1
                     hotkey += type
+                    sort2 = len(hotkey.split())
                     if keymap_item.key_modifier != 'NONE':
                         hotkey += ' ' + keymap_item.key_modifier
                     if keymap_item.value == 'DOUBLE_CLICK':
@@ -132,8 +133,8 @@ class Main:
                     if info is None:
                         info = self.info[keymap_item.map_type] = []
                     info.append(
-                        (keymap_item.map_type, sort, type,
-                         keymap_name, hotkey, keymap_item.name))
+                        (keymap_item.map_type, sort1, type,
+                         keymap_name, sort2, hotkey, keymap_item.name))
 
     def write_table(self):
 
@@ -145,46 +146,48 @@ class Main:
                     write('+-%s-' % ('-' * width))
             write('|\n')
 
-        table = []
-        widths = None
-        for keymap_name, info in sorted(self.info.items()):
-            row = None
+        for map_type, info in sorted(self.info.items()):
+            table = []
+            widths = None
+            previous_all = None
             previous_key = None
             previous_name = None
-            for _, _, type, keymap, hotkey, name in sorted(info):
-                if (type, keymap) == previous_key:
-                    keymap = ''
+            for _, _, type, keymap_name, _, hotkey, name in sorted(info):
+                all = type, keymap_name, hotkey, name
+                if all == previous_all:
+                    continue
+                previous_all = all
+                if (type, keymap_name) == previous_key:
+                    keymap_name = ''
                     if name == previous_name:
                         name = ''
                     else:
                         previous_name = name
                 else:
-                    previous_key = type, keymap
+                    previous_key = type, keymap_name
                     previous_name = name
-                if row is None:
-                    row = keymap, hotkey, name
-                    if widths is None:
-                        widths = [0] * len(row)
-                    table.append((keymap_name,) + (None,) * (len(row) - 1))
+                if widths is None:
+                    row = keymap_name, hotkey, name
+                    table.append((map_type,) + (None,) * (len(row) - 1))
+                    widths = [len(map_type)] + [0] * (len(row) - 1)
                 else:
-                    row = keymap, hotkey, name
+                    row = keymap_name, hotkey, name
                 for counter, cell in enumerate(row):
                     if cell is not None and len(cell) > widths[counter]:
                         widths[counter] = len(cell)
                 table.append(row)
-        previous = None
-        for row in table:
-            if row != previous:
-                previous = row
-                if row[1] is None:
-                    separator()
+
+            write('\n')
+            separator()
+            for count, row in enumerate(table):
                 for cell, width in zip(row, widths):
                     if cell is None:
                         cell = ''
                     write('| %*s ' % (-width, cell))
                 write('|\n')
-                if row[1] is None:
+                if count == 0:
                     separator()
+            separator()
 
 
 run = Main()
