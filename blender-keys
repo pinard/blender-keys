@@ -133,12 +133,9 @@ class Main:
                             hotkey += 'Ctrl '
                         if keymap_item.alt:
                             hotkey += 'Alt '
-                    fragments = []
-                    for word in keymap_item.type.split():
-                        fragment = replaced_words.get(word, word)
-                        if fragment is not None:
-                            fragments.append(fragment)
-                    type = ''.join(fragments)
+                    type = keymap_item.type
+                    assert ' ' not in type, type
+                    type = replaced_words.get(type, type) or ''
                     for before, after in replaced_substrings:
                         type = type.replace(before, after)
                     if len(type) == 1:
