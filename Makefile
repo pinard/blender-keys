@@ -6,4 +6,4 @@ all: blender-keys.org
 	cat blender-keys.org
 
 blender-keys.org: blender-keys
-	$(BLENDER) -b -P blender-keys | egrep '^\||^$$' > blender-keys.org
+	$(BLENDER) -b -P blender-keys

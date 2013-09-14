@@ -1,7 +1,5 @@
-
-
-|-------------------------------+------------------+-----------------------------------|
-| KEYBOARD                      |                  |                                   |
+#+TITLE: Blender Hot Keys
+* Keyboard
 |-------------------------------+------------------+-----------------------------------|
 | 3D View                       | ,                | Context Set Enum                  |
 |                               | Alt ,            | Context Toggle                    |
@@ -1300,9 +1298,7 @@
 |                               | Ctrl F12         |                                   |
 | Window                        | Shift F12        | Context Set Enum                  |
 |-------------------------------+------------------+-----------------------------------|
-
-|-----------------------+-----------------------+-----------------------------------|
-| MOUSE                 |                       |                                   |
+* Mouse
 |-----------------------+-----------------------+-----------------------------------|
 | File Browser Main     | 4MB                   | Previous Folder                   |
 | File Browser Main     | 5MB                   | Next Folder                       |
@@ -1607,9 +1603,7 @@
 | View2D                | Zoom                  | Zoom 2D View                      |
 | View2D Buttons List   | Zoom                  | Zoom 2D View                      |
 |-----------------------+-----------------------+-----------------------------------|
-
-|-------------+--------------------+---------------------------|
-| NDOF        |                    |                           |
+* Ndof
 |-------------+--------------------+---------------------------|
 | 3D View     | BUTTON_BACK        | View Numpad               |
 | 3D View     | BUTTON_BOTTOM      | View Numpad               |
@@ -1635,18 +1629,14 @@
 | Clip Editor | MOTION             | NDOF Pan/Zoom             |
 | Image       | MOTION             | NDOF Pan/Zoom             |
 |-------------+--------------------+---------------------------|
-
-|-----------+---------------+-------------|
-| TEXTINPUT |               |             |
-|-----------+---------------+-------------|
-| Console   | Any TEXTINPUT | Insert      |
-| Font      | Any TEXTINPUT | Insert Text |
-| Text      | Any TEXTINPUT | Insert      |
-|           | Any TEXTINPUT | Line Number |
-|-----------+---------------+-------------|
-
-|--------------+------------------+------------------------|
-| TIMER        |                  |                        |
+* Textinput
+|---------+---------------+-------------|
+| Console | Any TEXTINPUT | Insert      |
+| Font    | Any TEXTINPUT | Insert Text |
+| Text    | Any TEXTINPUT | Insert      |
+|         | Any TEXTINPUT | Line Number |
+|---------+---------------+-------------|
+* Timer
 |--------------+------------------+------------------------|
 | Screen       | Any TIMER0       | Animation Step         |
 | 3D View      | Any TIMER1       | Smooth View            |
@@ -1655,9 +1645,7 @@
 | Screen       | Any TIMERREGION  | Region Alpha           |
 | Window       | Any TIMER_REPORT | Update Reports Display |
 |--------------+------------------+------------------------|
-
-|-------------------------------+------------------------+----------------------|
-| TWEAK                         |                        |                      |
+* Tweak
 |-------------------------------+------------------------+----------------------|
 | 3D View                       | Ctrl Tweak A           | Lasso Select         |
 |                               | Shift Ctrl Tweak A     |                      |
@@ -1692,4 +1680,3 @@
 | Sequencer                     | Tweak S                | Sequence Slide       |
 | UV Editor                     | Tweak S                | Translate            |
 |-------------------------------+------------------------+----------------------|
-
