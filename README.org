@@ -1,7 +1,7 @@
 #+TITLE: Extract all Blender hotkeys and operators into Org mode files.
 
 This tool produces two Org mode files from Blender internals: the
-first holds tables showing all Blender hotkeys, the second list all
+first holds tables showing all Blender hotkeys, the second lists all
 operators available to the Python API.
 
 * Hotkeys
@@ -17,6 +17,11 @@ documentation saying /Use that particular key/ without explaining what
 it does.  At other times, when I'm not fully sure I correctly remember
 a key, I may check it first so to not accidentally hurt myself.
 
+Within recent versions of Blender, such information is interactively
+available in the /Input/ tab of /User Preferences/ (Shift Ctrl U).  On the
+first line, switch /Name/ to /Key-Binding/ then type the wanted key after
+the looking glass, in the box next to it.
+
 I saw many Blender hotkeys tables on the Internet, but most often,
 they are outdated, incomplete, and sometimes erroneous.  Some sites
 even rely on collaborating users for completing or correcting the
@@ -27,11 +32,21 @@ from Blender using its Python API, so it gets complete and accurate.
 * Operators
 
 The second Org mode file is named =operators.org=, which lists all
-available operators in the Python API.
+available operators in the Python API.  The first level headers use
+/bpy.ops.NAME/, where /NAME/ is the module name, and are sorted by that
+name.  The second level headers are the textual description of the
+operator, sorted by that description.  The content is the remainder of
+the template for the Python call, starting with a dot: this is to be
+concatenated after the text of the first level headers.
 
-This is nothing more than the information produced by the /Help/ →
-/Operator Cheat Sheet/ command with Blender, but formatted as a valid
-Org mode file.
+Whenever the textual description of an operator is missing within
+Blender, the name of the Python method is taken as the description.
+
+Within Blender, the same information may be produced in non-Org format
+by the /Help/ → /Operator Cheat Sheet/ command, yet the result of this
+command is not immediately available.  To see it, switch the type of
+some window to /Text Editor/, click on the icon immediately right of the
+/Templates/ menu and select /OperatorList.txt/ from there.
 
 * Other notes
 
