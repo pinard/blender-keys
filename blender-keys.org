@@ -6,12 +6,15 @@
 |                               | Ctrl ,           | Context Set Enum                  |
 | Image                         | ,                | Context Set Enum                  |
 |                               | Ctrl ,           |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Ctrl -           | Zoom View                         |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | .                | Context Set Enum                  |
 |                               | Alt .            |                                   |
 |                               | Ctrl .           |                                   |
 | Image                         | .                | Context Set Enum                  |
 | Outliner                      | .                | Show Active                       |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Any 0            | Layers                            |
 | Image Paint                   | 0                | Set Brush Number                  |
 |                               | Shift 0          |                                   |
@@ -25,6 +28,7 @@
 |                               | Shift 0          |                                   |
 | Weight Paint                  | 0                | Set Brush Number                  |
 |                               | Shift 0          |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Any 1            | Layers                            |
 | Image                         | 1                | Context Set                       |
 | Image Paint                   | 1                | Set Brush Number                  |
@@ -39,6 +43,7 @@
 |                               | Shift 1          |                                   |
 | Weight Paint                  | 1                | Set Brush Number                  |
 |                               | Shift 1          |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Any 2            | Layers                            |
 | Image                         | 2                | Context Set                       |
 | Image Paint                   | 2                | Set Brush Number                  |
@@ -53,6 +58,7 @@
 |                               | Shift 2          |                                   |
 | Weight Paint                  | 2                | Set Brush Number                  |
 |                               | Shift 2          |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Any 3            | Layers                            |
 | Image                         | 3                | Context Set                       |
 | Image Paint                   | 3                | Set Brush Number                  |
@@ -67,6 +73,7 @@
 |                               | Shift 3          |                                   |
 | Weight Paint                  | 3                | Set Brush Number                  |
 |                               | Shift 3          |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Any 4            | Layers                            |
 | Image                         | 4                | Context Set                       |
 | Image Paint                   | 4                | Set Brush Number                  |
@@ -81,6 +88,7 @@
 |                               | Shift 4          |                                   |
 | Weight Paint                  | 4                | Set Brush Number                  |
 |                               | Shift 4          |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Any 5            | Layers                            |
 | Image                         | 5                | Context Set                       |
 | Image Paint                   | 5                | Set Brush Number                  |
@@ -95,6 +103,7 @@
 |                               | Shift 5          |                                   |
 | Weight Paint                  | 5                | Set Brush Number                  |
 |                               | Shift 5          |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Any 6            | Layers                            |
 | Image                         | 6                | Context Set                       |
 | Image Paint                   | 6                | Set Brush Number                  |
@@ -106,6 +115,7 @@
 |                               | Shift 6          |                                   |
 | Weight Paint                  | 6                | Set Brush Number                  |
 |                               | Shift 6          |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Any 7            | Layers                            |
 | Image                         | 7                | Context Set                       |
 | Image Paint                   | 7                | Set Brush Number                  |
@@ -117,6 +127,7 @@
 |                               | Shift 7          |                                   |
 | Weight Paint                  | 7                | Set Brush Number                  |
 |                               | Shift 7          |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Any 8            | Layers                            |
 | Image                         | 8                | Context Set                       |
 | Image Paint                   | 8                | Set Brush Number                  |
@@ -128,6 +139,7 @@
 |                               | Shift 8          |                                   |
 | Weight Paint                  | 8                | Set Brush Number                  |
 |                               | Shift 8          |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Any 9            | Layers                            |
 | Image                         | 9                | Context Set                       |
 | Image Paint                   | 9                | Set Brush Number                  |
@@ -139,8 +151,10 @@
 |                               | Shift 9          |                                   |
 | Weight Paint                  | 9                | Set Brush Number                  |
 |                               | Shift 9          |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Ctrl =           | Zoom View                         |
 | Sequencer                     | Shift =          | Insert Gaps                       |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Ctrl A           | Skin Resize                       |
 | Animation Channels            | A                | Select All                        |
 | Armature                      | A                | (De)select All                    |
@@ -196,6 +210,7 @@
 | View3D Fly Modal              | A                |                                   |
 | Weight Paint                  | A                | Context Enum Menu                 |
 | Weight Paint Vertex Selection | A                | (De)select All                    |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | B                | Border Select                     |
 |                               | Alt B            | Clipping Border                   |
 |                               | Ctrl B           | Set Render Border                 |
@@ -230,6 +245,7 @@
 |                               | Shift B          |                                   |
 | View2D                        | Shift B          | Zoom to Border                    |
 | Weight Paint Vertex Selection | B                | Border Select                     |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | C                | Circle Select                     |
 |                               | Ctrl C           | Copy Selection to Buffer          |
 |                               | Shift C          | View All                          |
@@ -261,6 +277,7 @@
 | Text                          | Ctrl C           | Copy                              |
 | UV Editor                     | C                | Circle Select                     |
 | Weight Paint Vertex Selection | C                | Circle Select                     |
+|-------------------------------+------------------+-----------------------------------|
 | Armature                      | Shift D          | Duplicate                         |
 | Clip Editor                   | Alt D            | Context Toggle                    |
 |                               | Shift D          | Disable Markers                   |
@@ -287,6 +304,7 @@
 |                               | Shift Ctrl D     | Uncomment                         |
 | View3D Fly Modal              | D                |                                   |
 | Window                        | Ctrl Alt D       | Debug Menu                        |
+|-------------------------------+------------------+-----------------------------------|
 | Armature                      | E                | Extrude                           |
 |                               | Shift E          | Extrude Forked                    |
 | Clip                          | E                | Set Solver Keyframe               |
@@ -310,6 +328,7 @@
 | Timeline                      | E                | Set End Frame                     |
 | UV Editor                     | E                | Unwrap                            |
 |                               | Ctrl E           | Mark Seams                        |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Alt F            | Center View to Mouse              |
 |                               | Shift F          | Fly Navigation                    |
 | Armature                      | F                | Fill Between Joints               |
@@ -346,6 +365,7 @@
 | View3D Fly Modal              | F                |                                   |
 | Weight Paint                  | F                | Radial Control                    |
 |                               | Shift F          |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | G                | Translate                         |
 | Animation Channels            | Alt G            | Ungroup Channels                  |
 |                               | Ctrl G           | Group Channels                    |
@@ -388,6 +408,7 @@
 | Transform Modal Map           | G                |                                   |
 | UV Editor                     | G                | Translate                         |
 | UV Sculpt                     | G                | UV Sculpt Tool Set                |
+|-------------------------------+------------------+-----------------------------------|
 | Armature                      | H                | Hide Selected Bones               |
 |                               | Alt H            | Reveal Bones                      |
 |                               | Shift H          | Hide Selected Bones               |
@@ -440,6 +461,7 @@
 | UV Editor                     | H                | Hide Selected                     |
 |                               | Alt H            | Reveal Hidden                     |
 |                               | Shift H          | Hide Selected                     |
+|-------------------------------+------------------+-----------------------------------|
 | Animation Channels            | Ctrl I           | Select All                        |
 | Armature                      | Ctrl I           | (De)select All                    |
 | Clip Editor                   | Ctrl I           | (De)select All                    |
@@ -479,6 +501,7 @@
 | Sequencer                     | Ctrl I           | (De)select All                    |
 | UV Editor                     | Ctrl I           | (De)select All                    |
 | Weight Paint Vertex Selection | Ctrl I           | (De)select All                    |
+|-------------------------------+------------------+-----------------------------------|
 | Clip Editor                   | Ctrl J           | Join Tracks                       |
 | Image Generic                 | J                | Cycle Render Slot                 |
 |                               | Alt J            |                                   |
@@ -487,6 +510,7 @@
 | Node Editor                   | Ctrl J           | Join Nodes                        |
 | Object Mode                   | Ctrl J           | Join                              |
 | Text                          | Ctrl J           | Jump                              |
+|-------------------------------+------------------+-----------------------------------|
 | Dopesheet                     | K                | Select All                        |
 |                               | Alt K            |                                   |
 |                               | Ctrl K           |                                   |
@@ -506,6 +530,7 @@
 |                               | Shift K          |                                   |
 | Vertex Paint                  | Shift K          | Set Vertex Colors                 |
 | Weight Paint                  | Shift K          | Set Weight                        |
+|-------------------------------+------------------+-----------------------------------|
 | Armature                      | L                | Select Connected                  |
 | Clip Editor                   | L                | Context Toggle                    |
 |                               | Alt L            | Lock Tracks                       |
@@ -547,6 +572,7 @@
 |                               | Ctrl L           | Select Linked                     |
 |                               | Shift L          | Select Linked Pick                |
 |                               | Shift Ctrl L     | Select Linked                     |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Ctrl M           | Mirror                            |
 | Armature                      | M                | Change Bone Layers                |
 |                               | Alt M            | Merge Bones                       |
@@ -581,6 +607,7 @@
 | UV Editor                     | Ctrl M           | Mirror                            |
 | Vertex Paint                  | M                | Context Toggle                    |
 | Weight Paint                  | M                | Context Toggle                    |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View Generic               | N                | Properties                        |
 | Armature                      | Ctrl N           | Recalculate Roll                  |
 | Clip                          | N                | Properties                        |
@@ -598,6 +625,7 @@
 | SequencerCommon               | N                | Properties                        |
 | Text                          | Ctrl N           | Create Text Block                 |
 | Window                        | Ctrl N           | Reload Start-Up File              |
+|-------------------------------+------------------+-----------------------------------|
 | Clip                          | Alt O            | Open Clip                         |
 | Curve                         | O                | Context Toggle Values             |
 |                               | Alt O            |                                   |
@@ -633,6 +661,7 @@
 | Window                        | Ctrl O           | Open Blender File                 |
 |                               | Ctrl Alt O       | Link/Append from Library          |
 |                               | Shift Ctrl O     | Call Menu                         |
+|-------------------------------+------------------+-----------------------------------|
 | Animation                     | P                | Set Preview Range                 |
 |                               | Alt P            | Clear Preview Range               |
 | Armature                      | Alt P            | Clear Parent                      |
@@ -669,11 +698,13 @@
 |                               | Ctrl P           | Pack Islands                      |
 |                               | Shift P          | Selected Pinned                   |
 | UV Sculpt                     | P                | UV Sculpt Tool Set                |
+|-------------------------------+------------------+-----------------------------------|
 | Clip                          | Q                | Set Solver Keyframe               |
 | Screen                        | Ctrl Alt Q       | Toggle Quad View                  |
 | UV Editor                     | Q                | Context Toggle                    |
 | UV Sculpt                     | Q                | Context Toggle                    |
 | Window                        | Ctrl Q           | Quit Blender                      |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | R                | Rotate                            |
 | Armature                      | Ctrl R           | Transform                         |
 | Clip Editor                   | R                | Rotate                            |
@@ -707,6 +738,7 @@
 | UV Editor                     | R                | Rotate                            |
 | Vertex Paint                  | R                | Context Enum Menu                 |
 | View3D Fly Modal              | R                |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | S                | Resize                            |
 |                               | Shift S          | Call Menu                         |
 |                               | Shift Alt S      | To Sphere                         |
@@ -754,6 +786,7 @@
 | Window                        | Ctrl S           | Save Blender File                 |
 |                               | Ctrl Alt S       | Save As Blender File              |
 |                               | Shift Ctrl S     |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Shift T          | Translate                         |
 |                               | Shift Alt T      | Resize                            |
 | 3D View Generic               | T                | Tool Shelf                        |
@@ -781,11 +814,13 @@
 |                               | Ctrl T           | Make Track                        |
 | Sculpt                        | Shift T          | Brush Select                      |
 | Window                        | Ctrl Alt T       | Redraw Timer                      |
+|-------------------------------+------------------+-----------------------------------|
 | Font                          | Ctrl U           | Toggle Style                      |
 | Mesh                          | U                | Call Menu                         |
 | Object Mode                   | U                | Call Menu                         |
 | Screen                        | Ctrl Alt U       | Show User Preferences             |
 | Window                        | Ctrl U           | Save Startup File                 |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Ctrl V           | Paste Selection from Buffer       |
 | Animation Channels            | V                | Set Visibility                    |
 |                               | Shift V          | Toggle Visibility                 |
@@ -813,6 +848,7 @@
 | UV Editor                     | V                | Stitch                            |
 |                               | Ctrl V           | Minimize Stretch                  |
 | Weight Paint                  | V                | Context Toggle                    |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Shift W          | Warp                              |
 | Animation Channels            | Alt W            | Disable Channel Setting           |
 |                               | Shift W          | Toggle Channel Setting            |
@@ -835,6 +871,7 @@
 | Weight Paint                  | W                | Radial Control                    |
 | Window                        | Ctrl W           | Save Blender File                 |
 |                               | Ctrl Alt W       | Duplicate Window                  |
+|-------------------------------+------------------+-----------------------------------|
 | Animation Channels            | X                | Delete Channels                   |
 | Armature                      | X                | Delete                            |
 |                               | X                | Delete Selected Bone(s)           |
@@ -862,10 +899,12 @@
 | Sequencer                     | X                | Erase Strips                      |
 | Text                          | Ctrl X           | Cut                               |
 | View3D Fly Modal              | X                |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | Mesh                          | Y                | Split                             |
 | NLA Editor                    | Y                | Split Strips                      |
 | Sequencer                     | Y                | Separate Images                   |
 | UV Editor                     | Y                | Select Split                      |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Z                | Context Toggle Values             |
 |                               | Alt Z            |                                   |
 | Knife Tool Modal Map          | Z                |                                   |
@@ -874,6 +913,7 @@
 |                               | Ctrl Alt Z       | Undo History                      |
 |                               | Shift Ctrl Z     | Redo                              |
 | View3D Fly Modal              | Z                |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | Armature                      | [                | Select Hierarchy                  |
 |                               | Shift [          |                                   |
 | Dopesheet                     | [                | Select Left/Right                 |
@@ -889,6 +929,7 @@
 | UV Sculpt                     | [                | Scale Sculpt/Paint Brush Size     |
 | Vertex Paint                  | [                | Scale Sculpt/Paint Brush Size     |
 | Weight Paint                  | [                | Scale Sculpt/Paint Brush Size     |
+|-------------------------------+------------------+-----------------------------------|
 | Armature                      | ]                | Select Hierarchy                  |
 |                               | Shift ]          |                                   |
 | Dopesheet                     | ]                | Select Left/Right                 |
@@ -904,14 +945,17 @@
 | UV Sculpt                     | ]                | Scale Sculpt/Paint Brush Size     |
 | Vertex Paint                  | ]                | Scale Sculpt/Paint Brush Size     |
 | Weight Paint                  | ]                | Scale Sculpt/Paint Brush Size     |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | `                | Layers                            |
 | Armature                      | Ctrl `           | Show All Layers                   |
 | Pose                          | Ctrl `           | Show All Layers                   |
+|-------------------------------+------------------+-----------------------------------|
 | Screen Editing                |                  | Join Area                         |
 |                               |                  | Scale Region Size                 |
 |                               |                  | Split Area                        |
 |                               | Ctrl             | Swap Areas                        |
 |                               | Shift            | Duplicate Area into New Window    |
+|-------------------------------+------------------+-----------------------------------|
 | Console                       | Backspace        | Delete                            |
 |                               | Ctrl Backspace   |                                   |
 |                               | Shift Backspace  |                                   |
@@ -926,6 +970,7 @@
 | Text                          | Backspace        | Delete                            |
 |                               | Ctrl Backspace   |                                   |
 |                               | Shift Backspace  |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | Animation Channels            | Delete           | Delete Channels                   |
 | Armature                      | Delete           | Delete                            |
 |                               | Delete           | Delete Selected Bone(s)           |
@@ -954,6 +999,7 @@
 | Text                          | Delete           | Delete                            |
 |                               | Ctrl Delete      |                                   |
 |                               | Shift Delete     | Cut                               |
+|-------------------------------+------------------+-----------------------------------|
 | Console                       | Down             | History Cycle                     |
 | Font                          | Down             | Move Cursor                       |
 |                               | Alt Down         | Change Character                  |
@@ -965,6 +1011,7 @@
 | Text                          | Down             | Move Cursor                       |
 |                               | Shift Down       | Move Select                       |
 |                               | Shift Ctrl Down  | Move Lines                        |
+|-------------------------------+------------------+-----------------------------------|
 | Console                       | End              | Move Cursor                       |
 | Font                          | End              | Move Cursor                       |
 |                               | Shift End        | Move Select                       |
@@ -972,6 +1019,7 @@
 |                               | Ctrl End         |                                   |
 |                               | Shift End        | Move Select                       |
 |                               | Shift Ctrl End   |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | Console                       | Enter            | Console Execute                   |
 |                               | Shift Enter      | Clear Line                        |
 | Font                          | Enter            | Line Break                        |
@@ -984,6 +1032,7 @@
 | Transform Modal Map           | Any Enter        |                                   |
 | View3D Fly Modal              | Any Enter        |                                   |
 | View3D Gesture Circle         | Any Enter        |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | Armature                      | Escape           | Cancel Stroke                     |
 | Frames                        | Escape           | Cancel Animation                  |
 | Gesture Border                | Any Escape       |                                   |
@@ -1001,6 +1050,7 @@
 | View3D Move Modal             | Any Escape       |                                   |
 | View3D Rotate Modal           | Any Escape       |                                   |
 | View3D Zoom Modal             | Any Escape       |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Home             | View All                          |
 |                               | Home             | View Camera Center                |
 |                               | Alt Home         | Center View to Cursor             |
@@ -1026,9 +1076,11 @@
 |                               | Shift Ctrl Home  |                                   |
 | Timeline                      | Home             | View All                          |
 | View2D Buttons List           | Home             | Reset View                        |
+|-------------------------------+------------------+-----------------------------------|
 | Text                          | Insert           | Toggle Overwrite                  |
 |                               | Ctrl Insert      | Copy                              |
 |                               | Shift Insert     | Paste                             |
+|-------------------------------+------------------+-----------------------------------|
 | Clip                          | Alt Left         | Track Markers                     |
 | Clip Editor                   | Shift Alt Left   | Jump to Frame                     |
 |                               | Shift Ctrl Left  |                                   |
@@ -1047,17 +1099,25 @@
 |                               | Ctrl Left        |                                   |
 |                               | Shift Left       | Move Select                       |
 |                               | Shift Ctrl Left  |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | View3D Rotate Modal           | Any LeftAlt      |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | Knife Tool Modal Map          | Any LeftCtrl     |                                   |
 | Standard Modal Map            | Any LeftCtrl     |                                   |
 | Transform Modal Map           | Any LeftCtrl     |                                   |
 | View3D Fly Modal              | Any LeftCtrl     |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | Knife Tool Modal Map          | Any LeftShift    |                                   |
 | View3D Fly Modal              | Any LeftShift    |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | Frames                        | MEDIA_FIRST      | Jump to Keyframe                  |
+|-------------------------------+------------------+-----------------------------------|
 | Frames                        | MEDIA_LAST       | Jump to Keyframe                  |
+|-------------------------------+------------------+-----------------------------------|
 | Frames                        | MEDIA_PLAY       | Play Animation                    |
+|-------------------------------+------------------+-----------------------------------|
 | Frames                        | MEDIA_STOP       | Cancel Animation                  |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Num+             | Zoom View                         |
 | Animation Channels            | Num+             | Expand Channels                   |
 |                               | Ctrl Num+        |                                   |
@@ -1083,6 +1143,7 @@
 | View2D Buttons List           | Num+             | Zoom In                           |
 | View3D Fly Modal              | Any Num+         |                                   |
 | View3D Gesture Circle         | Num+             |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Num-             | Zoom View                         |
 | Animation Channels            | Num-             | Collapse Channels                 |
 |                               | Ctrl Num-        |                                   |
@@ -1108,6 +1169,7 @@
 | View2D Buttons List           | Num-             | Zoom Out                          |
 | View3D Fly Modal              | Any Num-         |                                   |
 | View3D Gesture Circle         | Num-             |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Num.             | View Selected                     |
 |                               | Alt Num.         | View Lock Clear                   |
 |                               | Ctrl Num.        | View Selected                     |
@@ -1122,10 +1184,13 @@
 | Node Editor                   | Num.             | View Selected                     |
 | Outliner                      | Num.             | Show Active                       |
 | Sequencer                     | Num.             | View Selected                     |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Num/             | Local View                        |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Num0             | View Numpad                       |
 |                               | Ctrl Num0        | Set Active Object as Camera       |
 |                               | Ctrl Alt Num0    | Align Camera To View              |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Num1             | View Numpad                       |
 |                               | Ctrl Num1        |                                   |
 |                               | Shift Num1       |                                   |
@@ -1133,6 +1198,7 @@
 | Clip Editor                   | Num1             | View Zoom Ratio                   |
 | Image                         | Num1             | View Zoom Ratio                   |
 | SequencerPreview              | Num1             | Sequencer View Zoom Ratio         |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Num2             | View Orbit                        |
 |                               | Ctrl Num2        | View Pan                          |
 | Clip Editor                   | Num2             | View Zoom Ratio                   |
@@ -1141,10 +1207,12 @@
 | Image                         | Num2             | View Zoom Ratio                   |
 |                               | Ctrl Num2        |                                   |
 |                               | Shift Num2       |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Num3             | View Numpad                       |
 |                               | Ctrl Num3        |                                   |
 |                               | Shift Num3       |                                   |
 |                               | Shift Ctrl Num3  |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Num4             | View Orbit                        |
 |                               | Ctrl Num4        | View Pan                          |
 | Clip Editor                   | Num4             | View Zoom Ratio                   |
@@ -1153,13 +1221,17 @@
 | Image                         | Num4             | View Zoom Ratio                   |
 |                               | Ctrl Num4        |                                   |
 |                               | Shift Num4       |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Num5             | View Persp/Ortho                  |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Num6             | View Orbit                        |
 |                               | Ctrl Num6        | View Pan                          |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Num7             | View Numpad                       |
 |                               | Ctrl Num7        |                                   |
 |                               | Shift Num7       |                                   |
 |                               | Shift Ctrl Num7  |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Num8             | View Orbit                        |
 |                               | Ctrl Num8        | View Pan                          |
 | Clip Editor                   | Num8             | View Zoom Ratio                   |
@@ -1168,6 +1240,7 @@
 | Image                         | Num8             | View Zoom Ratio                   |
 |                               | Ctrl Num8        |                                   |
 |                               | Shift Num8       |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Shift NumEnter   | Zoom Camera 1:1                   |
 | Console                       | NumEnter         | Console Execute                   |
 | Knife Tool Modal Map          | Any NumEnter     |                                   |
@@ -1177,6 +1250,7 @@
 | Transform Modal Map           | Any NumEnter     |                                   |
 | View3D Fly Modal              | Any NumEnter     |                                   |
 | View3D Gesture Circle         | NumEnter         |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | Animation Channels            | PgDn             | Move Channels                     |
 |                               | Shift PgDn       |                                   |
 | Font                          | PgDn             | Move Cursor                       |
@@ -1191,6 +1265,7 @@
 | Transform Modal Map           | PgDn             |                                   |
 |                               | Shift PgDn       |                                   |
 | View2D Buttons List           | PgDn             | Scroll Down                       |
+|-------------------------------+------------------+-----------------------------------|
 | Animation Channels            | PgUp             | Move Channels                     |
 |                               | Shift PgUp       |                                   |
 | Font                          | PgUp             | Move Cursor                       |
@@ -1205,6 +1280,7 @@
 | Transform Modal Map           | PgUp             |                                   |
 |                               | Shift PgUp       |                                   |
 | View2D Buttons List           | PgUp             | Scroll Up                         |
+|-------------------------------+------------------+-----------------------------------|
 | Clip                          | Alt Right        | Track Markers                     |
 | Clip Editor                   | Shift Alt Right  | Jump to Frame                     |
 |                               | Shift Ctrl Right |                                   |
@@ -1223,9 +1299,12 @@
 |                               | Ctrl Right       |                                   |
 |                               | Shift Right      | Move Select                       |
 |                               | Shift Ctrl Right |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | Knife Tool Modal Map          | Any RightCtrl    |                                   |
 | Transform Modal Map           | Any RightCtrl    |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | Knife Tool Modal Map          | Any RightShift   |                                   |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Alt Space        | Select Orientation                |
 |                               | Ctrl Space       | Context Toggle                    |
 |                               | Ctrl Alt Space   | Create Orientation                |
@@ -1235,6 +1314,7 @@
 | Text                          | Ctrl Space       | Text Auto Complete                |
 | View3D Fly Modal              | Any Space        |                                   |
 | Window                        | Space            | Search Menu                       |
+|-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Shift Tab        | Context Toggle                    |
 |                               | Shift Ctrl Tab   | Context Enum Menu                 |
 | Animation Channels            | Tab              | Toggle Channel Editability        |
@@ -1260,6 +1340,7 @@
 | UV Editor                     | Ctrl Tab         | Call Menu                         |
 |                               | Shift Tab        | Context Toggle                    |
 |                               | Shift Ctrl Tab   | Context Enum Menu                 |
+|-------------------------------+------------------+-----------------------------------|
 | Console                       | Up               | History Cycle                     |
 | Font                          | Up               | Move Cursor                       |
 |                               | Alt Up           | Change Character                  |
@@ -1271,29 +1352,41 @@
 | Text                          | Up               | Move Cursor                       |
 |                               | Shift Up         | Move Select                       |
 |                               | Shift Ctrl Up    | Move Lines                        |
+|-------------------------------+------------------+-----------------------------------|
 | Window                        | F1               | Open Blender File                 |
 |                               | Shift F1         | Link/Append from Library          |
+|-------------------------------+------------------+-----------------------------------|
 | Window                        | F2               | Save As Blender File              |
 |                               | Shift F2         | Context Set Enum                  |
+|-------------------------------+------------------+-----------------------------------|
 | Image Generic                 | F3               | Save As Image                     |
 | Screen                        | F3               | Repeat History                    |
 |                               | Alt F3           | Make Screencast                   |
 |                               | Ctrl F3          | Save Screenshot                   |
 | Window                        | Shift F3         | Context Set Enum                  |
+|-------------------------------+------------------+-----------------------------------|
 | Window                        | Shift F4         | Context Set Enum                  |
+|-------------------------------+------------------+-----------------------------------|
 | Screen                        | F5               | Flip Region                       |
 | Window                        | Shift F5         | Context Set Enum                  |
+|-------------------------------+------------------+-----------------------------------|
 | Screen                        | F6               | Redo Last                         |
 | Window                        | Shift F6         | Context Set Enum                  |
+|-------------------------------+------------------+-----------------------------------|
 | Window                        | Shift F7         | Context Set Enum                  |
+|-------------------------------+------------------+-----------------------------------|
 | Screen                        | F8               | Reload Scripts                    |
 | Window                        | Shift F8         | Context Set Enum                  |
+|-------------------------------+------------------+-----------------------------------|
 | Window                        | Shift F9         | Context Set Enum                  |
+|-------------------------------+------------------+-----------------------------------|
 | Window                        | Shift F10        | Context Set Enum                  |
+|-------------------------------+------------------+-----------------------------------|
 | Screen                        | F11              | Show/Hide Render View             |
 |                               | Ctrl F11         | Play Rendered Animation           |
 | Window                        | Alt F11          | Toggle Fullscreen                 |
 |                               | Shift F11        | Context Set Enum                  |
+|-------------------------------+------------------+-----------------------------------|
 | Screen                        | F12              | Render                            |
 |                               | Ctrl F12         |                                   |
 | Window                        | Shift F12        | Context Set Enum                  |
@@ -1301,7 +1394,9 @@
 * Mouse
 |-----------------------+-----------------------+-----------------------------------|
 | File Browser Main     | 4MB                   | Previous Folder                   |
+|-----------------------+-----------------------+-----------------------------------|
 | File Browser Main     | 5MB                   | Next Folder                       |
+|-----------------------+-----------------------+-----------------------------------|
 | 3D View               | Action                | Set 3D Cursor                     |
 | Animation             | Action                | Change Frame                      |
 | Armature              | Ctrl Action           | Click-Extrude                     |
@@ -1333,6 +1428,7 @@
 |                       | Shift Action          | Set Tile                          |
 | Weight Paint          | Ctrl Action           | Weight Paint Sample Weight        |
 |                       | Shift Action          | Weight Paint Sample Group         |
+|-----------------------+-----------------------+-----------------------------------|
 | 3D View               | Any LMB               | 3D Manipulator                    |
 | Animation Channels    | LMB                   | Mouse Click on Channels           |
 |                       | Ctrl LMB              | Rename Channels                   |
@@ -1403,6 +1499,7 @@
 | Weight Paint          | LMB                   | Weight Paint                      |
 |                       | Alt LMB               | Weight Gradient                   |
 |                       | Ctrl Alt LMB          |                                   |
+|-----------------------+-----------------------+-----------------------------------|
 | 3D View               | MMB                   | Rotate View                       |
 |                       | Ctrl MMB              | Zoom View                         |
 |                       | Shift MMB             | Move View                         |
@@ -1431,10 +1528,13 @@
 | View3D Move Modal     | Any MMB               |                                   |
 | View3D Rotate Modal   | Any MMB               |                                   |
 | View3D Zoom Modal     | Any MMB               |                                   |
+|-----------------------+-----------------------+-----------------------------------|
 | 3D View               | MOUSEROTATE           | Rotate View                       |
+|-----------------------+-----------------------+-----------------------------------|
 | Armature              | Move                  | Draw Preview                      |
 |                       | Ctrl Move             |                                   |
 | File Browser Main     | Any Move              | Highlight File                    |
+|-----------------------+-----------------------+-----------------------------------|
 | 3D View               | Pan                   | Rotate View                       |
 |                       | Ctrl Pan              | Zoom View                         |
 |                       | Shift Pan             | Move View                         |
@@ -1450,6 +1550,7 @@
 |                       | Ctrl Pan              | Zoom 2D View                      |
 | View3D Fly Modal      | Pan                   |                                   |
 | View3D Gesture Circle | Pan                   |                                   |
+|-----------------------+-----------------------+-----------------------------------|
 | 3D View               | RMB                   | Activate/Select                   |
 |                       | Alt RMB               |                                   |
 |                       | Ctrl RMB              |                                   |
@@ -1553,6 +1654,7 @@
 |                       | Shift RMB             |                                   |
 |                       | Ctrl Alt RMB          |                                   |
 |                       | Shift Alt RMB         |                                   |
+|-----------------------+-----------------------+-----------------------------------|
 | 3D View               | Ctrl WheelDn          | View Pan                          |
 |                       | Shift WheelDn         |                                   |
 |                       | Ctrl Alt WheelDn      | View Orbit                        |
@@ -1571,14 +1673,17 @@
 | View2D Buttons List   | WheelDn               | Scroll Down                       |
 | View3D Fly Modal      | Any WheelDn           |                                   |
 | View3D Gesture Circle | WheelDn               |                                   |
+|-----------------------+-----------------------+-----------------------------------|
 | 3D View               | WheelIn               | Zoom View                         |
 | Clip Editor           | WheelIn               | View Zoom In                      |
 | Image                 | WheelIn               | View Zoom In                      |
 | View2D                | WheelIn               | Zoom In                           |
+|-----------------------+-----------------------+-----------------------------------|
 | 3D View               | WheelOut              | Zoom View                         |
 | Clip Editor           | WheelOut              | View Zoom Out                     |
 | Image                 | WheelOut              | View Zoom Out                     |
 | View2D                | WheelOut              | Zoom Out                          |
+|-----------------------+-----------------------+-----------------------------------|
 | 3D View               | Ctrl WheelUp          | View Pan                          |
 |                       | Shift WheelUp         |                                   |
 |                       | Ctrl Alt WheelUp      | View Orbit                        |
@@ -1597,6 +1702,7 @@
 | View2D Buttons List   | WheelUp               | Scroll Up                         |
 | View3D Fly Modal      | Any WheelUp           |                                   |
 | View3D Gesture Circle | WheelUp               |                                   |
+|-----------------------+-----------------------+-----------------------------------|
 | 3D View               | Zoom                  | Zoom View                         |
 | Clip Editor           | Zoom                  | View Zoom                         |
 | Image                 | Zoom                  | View Zoom                         |
@@ -1606,22 +1712,32 @@
 * Ndof
 |-------------+--------------------+---------------------------|
 | 3D View     | BUTTON_BACK        | View Numpad               |
+|-------------+--------------------+---------------------------|
 | 3D View     | BUTTON_BOTTOM      | View Numpad               |
+|-------------+--------------------+---------------------------|
 | 3D View     | BUTTON_FIT         | View Selected             |
 | Clip Editor | BUTTON_FIT         | View All                  |
 | Image       | BUTTON_FIT         | View All                  |
+|-------------+--------------------+---------------------------|
 | 3D View     | BUTTON_FRONT       | View Numpad               |
 |             | Shift BUTTON_FRONT |                           |
+|-------------+--------------------+---------------------------|
 | 3D View     | BUTTON_LEFT        | View Numpad               |
+|-------------+--------------------+---------------------------|
 | Window      | BUTTON_MENU        | Call Menu                 |
+|-------------+--------------------+---------------------------|
 | Window      | BUTTON_MINUS       | Change NDOF Sensitivity   |
 |             | Shift BUTTON_MINUS |                           |
+|-------------+--------------------+---------------------------|
 | Window      | BUTTON_PLUS        | Change NDOF Sensitivity   |
 |             | Shift BUTTON_PLUS  |                           |
+|-------------+--------------------+---------------------------|
 | 3D View     | BUTTON_RIGHT       | View Numpad               |
 |             | Shift BUTTON_RIGHT |                           |
+|-------------+--------------------+---------------------------|
 | 3D View     | BUTTON_TOP         | View Numpad               |
 |             | Shift BUTTON_TOP   |                           |
+|-------------+--------------------+---------------------------|
 | 3D View     | MOTION             | NDOF Orbit View with Zoom |
 |             | Ctrl MOTION        | NDOF Orbit View           |
 |             | Shift MOTION       | NDOF Pan View             |
@@ -1639,10 +1755,13 @@
 * Timer
 |--------------+------------------+------------------------|
 | Screen       | Any TIMER0       | Animation Step         |
+|--------------+------------------+------------------------|
 | 3D View      | Any TIMER1       | Smooth View            |
 | File Browser | Any TIMER1       | Smooth Scroll          |
 | View2D       | Any TIMER1       | Smooth View 2D         |
+|--------------+------------------+------------------------|
 | Screen       | Any TIMERREGION  | Region Alpha           |
+|--------------+------------------+------------------------|
 | Window       | Any TIMER_REPORT | Update Reports Display |
 |--------------+------------------+------------------------|
 * Tweak
@@ -1662,9 +1781,11 @@
 |                               | Shift Ctrl Tweak A     |                      |
 | Weight Paint Vertex Selection | Ctrl Tweak A           | Lasso Select         |
 |                               | Shift Ctrl Tweak A     |                      |
+|-------------------------------+------------------------+----------------------|
 | Animation Channels            | Tweak L                | Border Select        |
 | File Browser Main             | Tweak L                | Activate/Select File |
 | Text                          | Tweak L                | Set Selection        |
+|-------------------------------+------------------------+----------------------|
 | 3D View                       | Tweak S                | Translate            |
 | Clip Editor                   | Tweak S                | Translate            |
 | Clip Graph Editor             | Tweak S                | Translate            |

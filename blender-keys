@@ -170,7 +170,11 @@ class Main:
             previous_all = None
             previous_key = None
             previous_name = None
+            previous_type = None
             for _, _, type, keymap_name, _, hotkey, name in sorted(key_info):
+                if type != previous_type:
+                    previous_type = type
+                    table.append(None)
                 all = type, keymap_name, hotkey, name
                 if all == previous_all:
                     continue
@@ -191,13 +195,15 @@ class Main:
                     if cell is not None and len(cell) > widths[counter]:
                         widths[counter] = len(cell)
                 table.append(row)
+            table.append(None)
 
-            separator()
             for row in table:
-                for cell, width in zip(row, widths):
-                    write('| %*s ' % (-width, cell or ''))
-                write('|\n')
-            separator()
+                if row is None:
+                    separator()
+                else:
+                    for cell, width in zip(row, widths):
+                        write('| %*s ' % (-width, cell or ''))
+                    write('|\n')
 
     def extract_operators(self):
         for module_name in dir(bpy.ops):
