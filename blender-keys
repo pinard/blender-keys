@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
 """\
-Extract all current Blender hotkeys into an Org mode table.
+Extract all known Blender hotkeys into an Org mode table (blender-keys.org).
+Extract all known Blender operators into an Org mode table (operators.org).
 """
 
 import bpy
@@ -90,22 +91,14 @@ replaced_words = {
 class Main:
 
     def main(self, *arguments):
-        self.info = {}
+        # Produce blender-keys.org.
+        self.key_info = {}
         self.extract_keys()
-        self.write_orgfile(open('blender-keys.org', 'w').write)
-
-    def study(self, title, value):
-        print('-------------------------------------------------------')
-        print(title)
-        if hasattr(value, '__iter__'):
-            print(value, ':', len(value), 'items')
-            value = value[0]
-            print()
-        print(value)
-        print()
-        for attribute in dir(value):
-            print('%-20s' % attribute, getattr(value, attribute))
-        print()
+        self.writeorg_keys(open('blender-keys.org', 'w').write)
+        # Produce operators.org.
+        self.operator_info = {}
+        self.extract_operators()
+        self.writeorg_operators(open('operators.org', 'w').write)
 
     def extract_keys(self):
         for keyconfig in bpy.data.window_managers['WinMan'].keyconfigs:
@@ -152,14 +145,14 @@ class Main:
                         assert keymap_item.value in (
                             'ANY', 'CLICK', 'PRESS', 'RELEASE')
                     sort2 = len(hotkey.split())
-                    info = self.info.get(keymap_item.map_type)
-                    if info is None:
-                        info = self.info[keymap_item.map_type] = []
-                    info.append(
+                    key_info = self.key_info.get(keymap_item.map_type)
+                    if key_info is None:
+                        key_info = self.key_info[keymap_item.map_type] = []
+                    key_info.append(
                         (keymap_item.map_type, sort1, type,
                          keymap_name, sort2, hotkey, keymap_item.name))
 
-    def write_orgfile(self, write):
+    def writeorg_keys(self, write):
 
         def separator():
             for counter, width in enumerate(widths):
@@ -170,14 +163,14 @@ class Main:
             write('|\n')
 
         write('#+TITLE: Blender Hot Keys\n')
-        for map_type, info in sorted(self.info.items()):
+        for map_type, key_info in sorted(self.key_info.items()):
             write('* %s\n' % map_type.capitalize())
             table = []
             widths = None
             previous_all = None
             previous_key = None
             previous_name = None
-            for _, _, type, keymap_name, _, hotkey, name in sorted(info):
+            for _, _, type, keymap_name, _, hotkey, name in sorted(key_info):
                 all = type, keymap_name, hotkey, name
                 if all == previous_all:
                     continue
@@ -205,6 +198,32 @@ class Main:
                     write('| %*s ' % (-width, cell or ''))
                 write('|\n')
             separator()
+
+    def extract_operators(self):
+        for module_name in dir(bpy.ops):
+            module = getattr(bpy.ops, module_name)
+            for submodule_name in dir(module):
+                operator = getattr(module, submodule_name)
+                sys.stdout.flush()
+                line1, line2 = repr(operator).split('\n')
+                assert line1.startswith('# '), repr(operator)
+                assert line2.startswith('bpy.ops.'), repr(operator)
+                description = line1[2:]
+                group, call = line2[8:].split('.', 1)
+                group_info = self.operator_info.get(group)
+                if group_info is None:
+                    group_info = self.operator_info[group] = []
+                group_info.append((description, call))
+
+    def writeorg_operators(self, write):
+        write('#+TITLE: Blender Operator List\n')
+        for group, group_info in sorted(self.operator_info.items()):
+            write('* bpy.ops.%s\n' % group)
+            for description, call in sorted(group_info):
+                write('** %s\n' % description)
+                write('#+BEGIN_SRC python\n')
+                write('  .%s\n' % call)
+                write('#+END_SRC\n')
 
 
 run = Main()

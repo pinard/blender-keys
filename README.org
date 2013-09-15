@@ -1,11 +1,18 @@
-#+TITLE: Extract all current Blender hotkeys into an Org mode table.
+#+TITLE: Extract all Blender hotkeys and operators into Org mode files.
 
-This tool creates an Org mode table giving a quick description for all
-Blender keys.  The result is edited and sorted in a way that pleases
-the author of the tool :-), but tastes may vary.  Don't hesitate to
-adjust the tool so it sorts and edits your way!
+This tool produces two Org mode files from Blender internals: the
+first holds tables showing all Blender hotkeys, the second list all
+operators available to the Python API.
 
-The generated table helps me to check the meaning of a key when I read
+* Hotkeys
+
+The first Org mode file is named =blender-keys.org=.  The tables it
+contains give a quick description for all Blender keys.  The result is
+edited and sorted in a way that pleases the author of the tool :-),
+but tastes may vary.  Don't hesitate to adjust things so it sorts
+and edits your way!
+
+The generated tables help me to get the meaning of a key when I read
 documentation saying /Use that particular key/ without explaining what
 it does.  At other times, when I'm not fully sure I correctly remember
 a key, I may check it first so to not accidentally hurt myself.
@@ -17,10 +24,21 @@ tables, leaving the feeling that they are never going to be
 dependable.  This is why I decided to derive such a table directly
 from Blender using its Python API, so it gets complete and accurate.
 
+* Operators
+
+The second Org mode file is named =operators.org=, which lists all
+available operators in the Python API.
+
+This is nothing more than the information produced by the /Help/ →
+/Operator Cheat Sheet/ command with Blender, but formatted as a valid
+Org mode file.
+
+* Other notes
+
 The tool has been written using Blender 2.68a, and is sensitive to the
 version of Blender: I noticed it does not work for Blender 2.63.
-Either use the generated =blender-keys.org= table, or use the Makefile
-for creating it afresh, after adjusting it as needed, of course.
+Either use the generated =blender-keys.org= and =operators.org= files, or
+adjust and use the included Makefile for creating them afresh.
 
 Daniel Schalla created http://blenderkeys.be-untitled.eu/, which is a
 Web application interrogating the data produced by this tool, here.
