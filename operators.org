@@ -484,20 +484,20 @@
 * bpy.ops.camera
 ** Add a Camera Preset
 #+BEGIN_SRC python
-  .preset_add(name="", remove_active=False)
+  .preset_add(remove_active=False, name="")
 #+END_SRC
 * bpy.ops.clip
 ** Add a Clip Track Color Preset
 #+BEGIN_SRC python
-  .track_color_preset_add(name="", remove_active=False)
+  .track_color_preset_add(remove_active=False, name="")
 #+END_SRC
 ** Add a Tracking Camera Intrinsics  Preset
 #+BEGIN_SRC python
-  .camera_preset_add(name="", remove_active=False)
+  .camera_preset_add(remove_active=False, name="")
 #+END_SRC
 ** Add a motion tracking settings preset
 #+BEGIN_SRC python
-  .tracking_settings_preset_add(name="", remove_active=False)
+  .tracking_settings_preset_add(remove_active=False, name="")
 #+END_SRC
 ** Add new marker and move it on movie
 #+BEGIN_SRC python
@@ -810,7 +810,7 @@
 * bpy.ops.cloth
 ** Add a Cloth Preset
 #+BEGIN_SRC python
-  .preset_add(name="", remove_active=False)
+  .preset_add(remove_active=False, name="")
 #+END_SRC
 * bpy.ops.console
 ** Add 4 spaces at line beginning
@@ -1133,33 +1133,33 @@
 * bpy.ops.export_anim
 ** Save a BVH motion capture file from an armature
 #+BEGIN_SRC python
-  .bvh(filepath="", check_existing=True, filter_glob="*.bvh", global_scale=1, frame_start=0, frame_end=0, rotate_mode='NATIVE', root_transform_only=False)
+  .bvh(check_existing=True, filepath="", filter_glob="*.bvh", global_scale=1, frame_start=0, frame_end=0, rotate_mode='NATIVE', root_transform_only=False)
 #+END_SRC
 * bpy.ops.export_mesh
 ** Export a single object as a Stanford PLY with normals, colors and texture coordinates
 #+BEGIN_SRC python
-  .ply(filepath="", check_existing=True, filter_glob="*.ply", use_mesh_modifiers=True, use_normals=True, use_uv_coords=True, use_colors=True, axis_forward='Y', axis_up='Z', global_scale=1)
+  .ply(check_existing=True, filepath="", filter_glob="*.ply", use_mesh_modifiers=True, use_normals=True, use_uv_coords=True, use_colors=True, axis_forward='Y', axis_up='Z', global_scale=1)
 #+END_SRC
 ** Save STL triangle mesh data from the active object
 #+BEGIN_SRC python
-  .stl(filepath="", check_existing=True, filter_glob="*.stl", ascii=False, use_mesh_modifiers=True, axis_forward='Y', axis_up='Z', global_scale=1)
+  .stl(check_existing=True, filepath="", filter_glob="*.stl", ascii=False, use_mesh_modifiers=True, axis_forward='Y', axis_up='Z', global_scale=1)
 #+END_SRC
 * bpy.ops.export_scene
 ** Export selection to Extensible 3D file (.x3d)
 #+BEGIN_SRC python
-  .x3d(filepath="", check_existing=True, filter_glob="*.x3d", use_selection=False, use_mesh_modifiers=True, use_triangulate=False, use_normals=False, use_compress=False, use_hierarchy=True, name_decorations=True, use_h3d=False, axis_forward='Z', axis_up='Y', global_scale=1, path_mode='AUTO')
+  .x3d(check_existing=True, filepath="", filter_glob="*.x3d", use_selection=False, use_mesh_modifiers=True, use_triangulate=False, use_normals=False, use_compress=False, use_hierarchy=True, name_decorations=True, use_h3d=False, axis_forward='Z', axis_up='Y', global_scale=1, path_mode='AUTO')
 #+END_SRC
 ** Export to 3DS file format (.3ds)
 #+BEGIN_SRC python
-  .autodesk_3ds(filepath="", check_existing=True, filter_glob="*.3ds", use_selection=False, axis_forward='Y', axis_up='Z')
+  .autodesk_3ds(check_existing=True, filepath="", filter_glob="*.3ds", use_selection=False, axis_forward='Y', axis_up='Z')
 #+END_SRC
 ** Save a Wavefront OBJ File
 #+BEGIN_SRC python
-  .obj(filepath="", check_existing=True, filter_glob="*.obj;*.mtl", use_selection=False, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_normals=False, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, axis_forward='-Z', axis_up='Y', global_scale=1, path_mode='AUTO')
+  .obj(check_existing=True, filepath="", filter_glob="*.obj;*.mtl", use_selection=False, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_normals=False, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, axis_forward='-Z', axis_up='Y', global_scale=1, path_mode='AUTO')
 #+END_SRC
 ** Selection to an ASCII Autodesk FBX
 #+BEGIN_SRC python
-  .fbx(filepath="", check_existing=True, filter_glob="*.fbx", use_selection=False, global_scale=1, axis_forward='-Z', axis_up='Y', object_types={'EMPTY', 'CAMERA', 'LAMP', 'ARMATURE', 'MESH'}, use_mesh_modifiers=True, mesh_smooth_type='FACE', use_mesh_edges=False, use_armature_deform_only=False, use_anim=True, use_anim_action_all=True, use_default_take=True, use_anim_optimize=True, anim_optimize_precision=6, path_mode='AUTO', use_rotate_workaround=False, xna_validate=False, batch_mode='OFF', use_batch_own_dir=True, use_metadata=True)
+  .fbx(check_existing=True, filepath="", filter_glob="*.fbx", use_selection=False, global_scale=1, axis_forward='-Z', axis_up='Y', object_types={'EMPTY', 'CAMERA', 'LAMP', 'ARMATURE', 'MESH'}, use_mesh_modifiers=True, mesh_smooth_type='FACE', use_mesh_edges=False, use_armature_deform_only=False, use_anim=True, use_anim_action_all=True, use_default_take=True, use_anim_optimize=True, anim_optimize_precision=6, path_mode='AUTO', use_rotate_workaround=False, xna_validate=False, batch_mode='OFF', use_batch_own_dir=True, use_metadata=True)
 #+END_SRC
 * bpy.ops.file
 ** Activate/select file
@@ -1289,7 +1289,7 @@
 * bpy.ops.fluid
 ** Add a Fluid Preset
 #+BEGIN_SRC python
-  .preset_add(name="", remove_active=False)
+  .preset_add(remove_active=False, name="")
 #+END_SRC
 ** Bake fluid simulation
 #+BEGIN_SRC python
@@ -1752,7 +1752,7 @@
 * bpy.ops.lamp
 ** Add a Sky & Atmosphere Preset
 #+BEGIN_SRC python
-  .sunsky_preset_add(name="", remove_active=False)
+  .sunsky_preset_add(remove_active=False, name="")
 #+END_SRC
 * bpy.ops.lattice
 ** Change selection of all UVW control points
@@ -1866,14 +1866,6 @@
   .select(extend=False, camera=False)
 #+END_SRC
 * bpy.ops.mask
-** 
-#+BEGIN_SRC python
-  .shape_key_clear()
-#+END_SRC
-** 
-#+BEGIN_SRC python
-  .shape_key_insert()
-#+END_SRC
 ** (De)select all points linked to the curve under the mouse cursor
 #+BEGIN_SRC python
   .select_linked_pick(deselect=False)
@@ -1986,10 +1978,18 @@
 #+BEGIN_SRC python
   .cyclic_toggle()
 #+END_SRC
+** shape_key_clear
+#+BEGIN_SRC python
+  .shape_key_clear()
+#+END_SRC
+** shape_key_insert
+#+BEGIN_SRC python
+  .shape_key_insert()
+#+END_SRC
 * bpy.ops.material
 ** Add a Subsurface Scattering Preset
 #+BEGIN_SRC python
-  .sss_preset_add(name="", remove_active=False)
+  .sss_preset_add(remove_active=False, name="")
 #+END_SRC
 ** Add a new material
 #+BEGIN_SRC python
@@ -2029,10 +2029,6 @@
   .reveal_metaelems()
 #+END_SRC
 * bpy.ops.mesh
-** 
-#+BEGIN_SRC python
-  .subdivide_edgering(number_cuts=10, interpolation='PATH', smoothness=1, profile_shape_factor=0, profile_shape='SMOOTH')
-#+END_SRC
 ** (De)select all vertices linked to the edge under the mouse cursor
 #+BEGIN_SRC python
   .select_linked_pick(deselect=False, limit=False)
@@ -2517,6 +2513,10 @@
 #+BEGIN_SRC python
   .noise(factor=0.1)
 #+END_SRC
+** subdivide_edgering
+#+BEGIN_SRC python
+  .subdivide_edgering(number_cuts=10, interpolation='PATH', smoothness=1, profile_shape_factor=0, profile_shape='SMOOTH')
+#+END_SRC
 * bpy.ops.nla
 ** Add NLA-Tracks above/after the selected tracks
 #+BEGIN_SRC python
@@ -2661,7 +2661,7 @@
 #+END_SRC
 ** Add a Node Color Preset
 #+BEGIN_SRC python
-  .node_color_preset_add(name="", remove_active=False)
+  .node_color_preset_add(remove_active=False, name="")
 #+END_SRC
 ** Add a file node to the current node editor
 #+BEGIN_SRC python
@@ -2673,15 +2673,15 @@
 #+END_SRC
 ** Add a node to the active tree
 #+BEGIN_SRC python
-  .add_node(settings=[], use_transform=False, type="")
+  .add_node(settings=[], type="", use_transform=False)
 #+END_SRC
 ** Add a node to the active tree
 #+BEGIN_SRC python
-  .add_search(settings=[], use_transform=False, type="", node_item='<UNKNOWN ENUM>')
+  .add_search(settings=[], type="", use_transform=False, node_item='<UNKNOWN ENUM>')
 #+END_SRC
 ** Add a node to the active tree and link to an existing socket
 #+BEGIN_SRC python
-  .add_and_link_node(settings=[], use_transform=False, type="", link_socket_index=0)
+  .add_and_link_node(settings=[], type="", use_transform=False, link_socket_index=0)
 #+END_SRC
 ** Add a reroute node
 #+BEGIN_SRC python
@@ -2936,26 +2936,6 @@
   .backimage_zoom(factor=1.2)
 #+END_SRC
 * bpy.ops.object
-** 
-#+BEGIN_SRC python
-  .drop_named_material(name="Material")
-#+END_SRC
-** 
-#+BEGIN_SRC python
-  .quick_explode(style='EXPLODE', amount=100, frame_duration=50, frame_start=1, frame_end=10, velocity=1, fade=True)
-#+END_SRC
-** 
-#+BEGIN_SRC python
-  .quick_fluid(style='BASIC', initial_velocity=(0, 0, 0), show_flows=False, start_baking=False)
-#+END_SRC
-** 
-#+BEGIN_SRC python
-  .quick_fur(density='MEDIUM', view_percentage=10, length=0.1)
-#+END_SRC
-** 
-#+BEGIN_SRC python
-  .quick_smoke(style='STREAM', show_flows=False)
-#+END_SRC
 ** Add a camera object to the scene
 #+BEGIN_SRC python
   .camera_add(view_align=False, enter_editmode=False, location=(0, 0, 0), rotation=(0, 0, 0), layers=(False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False))
@@ -3592,27 +3572,27 @@
 #+BEGIN_SRC python
   .vertex_group_transfer_weight(group_select_mode='WT_REPLACE_ALL_VERTEX_GROUPS', method='WT_BY_NEAREST_FACE', replace_mode='WT_REPLACE_ALL_WEIGHTS')
 #+END_SRC
+** drop_named_material
+#+BEGIN_SRC python
+  .drop_named_material(name="Material")
+#+END_SRC
+** quick_explode
+#+BEGIN_SRC python
+  .quick_explode(style='EXPLODE', amount=100, frame_duration=50, frame_start=1, frame_end=10, velocity=1, fade=True)
+#+END_SRC
+** quick_fluid
+#+BEGIN_SRC python
+  .quick_fluid(style='BASIC', initial_velocity=(0, 0, 0), show_flows=False, start_baking=False)
+#+END_SRC
+** quick_fur
+#+BEGIN_SRC python
+  .quick_fur(density='MEDIUM', view_percentage=10, length=0.1)
+#+END_SRC
+** quick_smoke
+#+BEGIN_SRC python
+  .quick_smoke(style='STREAM', show_flows=False)
+#+END_SRC
 * bpy.ops.outliner
-** 
-#+BEGIN_SRC python
-  .animdata_operation(type='SET_ACT')
-#+END_SRC
-** 
-#+BEGIN_SRC python
-  .data_operation(type='SELECT')
-#+END_SRC
-** 
-#+BEGIN_SRC python
-  .group_operation(type='UNLINK')
-#+END_SRC
-** 
-#+BEGIN_SRC python
-  .id_operation(type='UNLINK')
-#+END_SRC
-** 
-#+BEGIN_SRC python
-  .object_operation(type='SELECT')
-#+END_SRC
 ** Add drivers to selected items
 #+BEGIN_SRC python
   .drivers_add_selected()
@@ -3705,11 +3685,27 @@
 #+BEGIN_SRC python
   .select_border(gesture_mode=0, xmin=0, xmax=0, ymin=0, ymax=0)
 #+END_SRC
-* bpy.ops.paint
-** 
+** animdata_operation
 #+BEGIN_SRC python
-  .vertex_color_dirt(blur_strength=1, blur_iterations=1, clean_angle=3.14159, dirt_angle=0, dirt_only=False)
+  .animdata_operation(type='SET_ACT')
 #+END_SRC
+** data_operation
+#+BEGIN_SRC python
+  .data_operation(type='SELECT')
+#+END_SRC
+** group_operation
+#+BEGIN_SRC python
+  .group_operation(type='UNLINK')
+#+END_SRC
+** id_operation
+#+BEGIN_SRC python
+  .id_operation(type='UNLINK')
+#+END_SRC
+** object_operation
+#+BEGIN_SRC python
+  .object_operation(type='SELECT')
+#+END_SRC
+* bpy.ops.paint
 ** Change selection for all faces
 #+BEGIN_SRC python
   .face_select_all(action='TOGGLE')
@@ -3817,6 +3813,10 @@
 ** Use the mouse to sample a weight in the 3D view
 #+BEGIN_SRC python
   .weight_sample()
+#+END_SRC
+** vertex_color_dirt
+#+BEGIN_SRC python
+  .vertex_color_dirt(blur_strength=1, blur_iterations=1, clean_angle=3.14159, dirt_angle=0, dirt_only=False)
 #+END_SRC
 * bpy.ops.particle
 ** (De)select all particles' keys
@@ -4177,11 +4177,11 @@
 * bpy.ops.render
 ** Add a Render Preset
 #+BEGIN_SRC python
-  .preset_add(name="", remove_active=False)
+  .preset_add(remove_active=False, name="")
 #+END_SRC
 ** Add an Integrator Preset
 #+BEGIN_SRC python
-  .cycles_integrator_preset_add(name="", remove_active=False)
+  .cycles_integrator_preset_add(remove_active=False, name="")
 #+END_SRC
 ** Cancel show render view
 #+BEGIN_SRC python
@@ -4321,7 +4321,7 @@
 #+BEGIN_SRC python
   .freestyle_modifier_copy()
 #+END_SRC
-** Fill the Range Min/Max entries by the min/max distance between selected mesh objects and the source object 
+** Fill the Range Min/Max entries by the min/max distance between selected mesh objects and the source object
 #+BEGIN_SRC python
   .freestyle_fill_range_by_selection(type='COLOR', name="")
 #+END_SRC
@@ -4529,26 +4529,6 @@
   .sculptmode_toggle()
 #+END_SRC
 * bpy.ops.sequencer
-** 
-#+BEGIN_SRC python
-  .change_effect_input(swap='A_B')
-#+END_SRC
-** 
-#+BEGIN_SRC python
-  .change_effect_type(type='CROSS')
-#+END_SRC
-** 
-#+BEGIN_SRC python
-  .change_path(filepath="", directory="", files=[], filter_blender=False, filter_backup=False, filter_image=True, filter_movie=True, filter_python=False, filter_font=False, filter_sound=False, filter_text=False, filter_btx=False, filter_collada=False, filter_folder=True, filemode=9, relative_path=True, display_type='FILE_DEFAULTDISPLAY')
-#+END_SRC
-** 
-#+BEGIN_SRC python
-  .copy()
-#+END_SRC
-** 
-#+BEGIN_SRC python
-  .paste()
-#+END_SRC
 ** Add a mask strip to the sequencer
 #+BEGIN_SRC python
   .mask_strip_add(frame_start=0, channel=1, replace_sel=True, overlap=False, mask='<UNKNOWN ENUM>')
@@ -4772,6 +4752,26 @@
 ** Zoom the sequencer on the selected strips
 #+BEGIN_SRC python
   .view_selected()
+#+END_SRC
+** change_effect_input
+#+BEGIN_SRC python
+  .change_effect_input(swap='A_B')
+#+END_SRC
+** change_effect_type
+#+BEGIN_SRC python
+  .change_effect_type(type='CROSS')
+#+END_SRC
+** change_path
+#+BEGIN_SRC python
+  .change_path(filepath="", directory="", files=[], filter_blender=False, filter_backup=False, filter_image=True, filter_movie=True, filter_python=False, filter_font=False, filter_sound=False, filter_text=False, filter_btx=False, filter_collada=False, filter_folder=True, filemode=9, relative_path=True, display_type='FILE_DEFAULTDISPLAY')
+#+END_SRC
+** copy
+#+BEGIN_SRC python
+  .copy()
+#+END_SRC
+** paste
+#+BEGIN_SRC python
+  .paste()
 #+END_SRC
 * bpy.ops.sketch
 ** Cancel the current sketch stroke
@@ -5193,7 +5193,7 @@
 #+BEGIN_SRC python
   .eyedropper()
 #+END_SRC
-** Write the reports 
+** Write the reports
 #+BEGIN_SRC python
   .reports_to_textblock()
 #+END_SRC
@@ -5625,49 +5625,21 @@
   .zoom(delta=0, mx=0, my=0)
 #+END_SRC
 * bpy.ops.wm
-** 
-#+BEGIN_SRC python
-  .appconfig_activate(filepath="")
-#+END_SRC
-** 
-#+BEGIN_SRC python
-  .appconfig_default()
-#+END_SRC
-** 
-#+BEGIN_SRC python
-  .context_menu_enum(data_path="")
-#+END_SRC
-** 
-#+BEGIN_SRC python
-  .keyconfig_activate(filepath="")
-#+END_SRC
-** 
-#+BEGIN_SRC python
-  .operator_cheat_sheet()
-#+END_SRC
-** 
-#+BEGIN_SRC python
-  .properties_add(data_path="")
-#+END_SRC
-** 
-#+BEGIN_SRC python
-  .properties_edit(data_path="", property="", value="", min=0, max=1, description="")
-#+END_SRC
 ** Add a Key-config Preset
 #+BEGIN_SRC python
-  .keyconfig_preset_add(name="", remove_active=False)
+  .keyconfig_preset_add(remove_active=False, name="")
 #+END_SRC
 ** Add a theme preset
 #+BEGIN_SRC python
-  .interface_theme_preset_add(name="", remove_active=False)
+  .interface_theme_preset_add(remove_active=False, name="")
 #+END_SRC
 ** Add an Application Interaction Preset
 #+BEGIN_SRC python
-  .interaction_preset_add(name="", remove_active=False)
+  .interaction_preset_add(remove_active=False, name="")
 #+END_SRC
 ** Add an Operator Preset
 #+BEGIN_SRC python
-  .operator_preset_add(name="", remove_active=False, operator="")
+  .operator_preset_add(remove_active=False, name="", operator="")
 #+END_SRC
 ** Add key map item
 #+BEGIN_SRC python
@@ -5936,6 +5908,34 @@
 ** Toggle the current window fullscreen
 #+BEGIN_SRC python
   .window_fullscreen_toggle()
+#+END_SRC
+** appconfig_activate
+#+BEGIN_SRC python
+  .appconfig_activate(filepath="")
+#+END_SRC
+** appconfig_default
+#+BEGIN_SRC python
+  .appconfig_default()
+#+END_SRC
+** context_menu_enum
+#+BEGIN_SRC python
+  .context_menu_enum(data_path="")
+#+END_SRC
+** keyconfig_activate
+#+BEGIN_SRC python
+  .keyconfig_activate(filepath="")
+#+END_SRC
+** operator_cheat_sheet
+#+BEGIN_SRC python
+  .operator_cheat_sheet()
+#+END_SRC
+** properties_add
+#+BEGIN_SRC python
+  .properties_add(data_path="")
+#+END_SRC
+** properties_edit
+#+BEGIN_SRC python
+  .properties_edit(data_path="", property="", value="", min=0, max=1, description="")
 #+END_SRC
 * bpy.ops.world
 ** Add a new world

@@ -204,12 +204,14 @@ class Main:
             module = getattr(bpy.ops, module_name)
             for submodule_name in dir(module):
                 operator = getattr(module, submodule_name)
-                sys.stdout.flush()
                 line1, line2 = repr(operator).split('\n')
                 assert line1.startswith('# '), repr(operator)
                 assert line2.startswith('bpy.ops.'), repr(operator)
-                description = line1[2:]
+                # Hmph: there are a few trailing whitespaces.
+                description = line1[2:].rstrip()
                 group, call = line2[8:].split('.', 1)
+                if not description:
+                    description = call.split('(', 1)[0]
                 group_info = self.operator_info.get(group)
                 if group_info is None:
                     group_info = self.operator_info[group] = []
