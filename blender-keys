@@ -18,7 +18,7 @@ replaced_substrings = [
 
 replaced_words = {
     'ACCENT_GRAVE': '`',
-    'ACTIONMOUSE': 'Action',
+    'ACTIONMOUSE': 'LMB',
     'BACK_SPACE': 'Backspace',
     'BUTTON4MOUSE': '4MB',
     'BUTTON5MOUSE': '5MB',

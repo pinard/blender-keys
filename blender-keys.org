@@ -1392,323 +1392,322 @@
 | Window                        | Shift F12        | Context Set Enum                  |
 |-------------------------------+------------------+-----------------------------------|
 * Mouse
-|-----------------------+-----------------------+-----------------------------------|
-| File Browser Main     | 4MB                   | Previous Folder                   |
-|-----------------------+-----------------------+-----------------------------------|
-| File Browser Main     | 5MB                   | Next Folder                       |
-|-----------------------+-----------------------+-----------------------------------|
-| 3D View               | Action                | Set 3D Cursor                     |
-| Animation             | Action                | Change Frame                      |
-| Armature              | Ctrl Action           | Click-Extrude                     |
-| Clip Dopesheet Editor | Action                | Select Channel                    |
-| Clip Graph Editor     | Action                | Change Frame                      |
-| Curve                 | Ctrl Action           | Add Vertex                        |
-| Graph Editor          | Action                | Set Cursor                        |
-|                       | Ctrl Action           | Click-Insert Keyframes            |
-| Image                 | Action                | Sample Color                      |
-|                       | Ctrl Action           | Set Curves Point                  |
-|                       | Shift Action          |                                   |
-| Mask Editing          | Action                | Set 2D Cursor                     |
-|                       | Action                | Slide Point                       |
-|                       | Ctrl Action           | Add Vertex and Slide              |
-|                       | Shift Action          | Add Feather Vertex and Slide      |
-| Mesh                  | Ctrl Action           | Duplicate or Extrude at 3D Cursor |
-|                       | Shift Ctrl Action     |                                   |
-| Node Editor           | Action                | Select                            |
-|                       | Alt Action            | Backimage Sample                  |
-|                       | Alt Action            | Select                            |
-|                       | Ctrl Action           |                                   |
-|                       | Shift Action          |                                   |
-|                       | Ctrl Alt Action       |                                   |
-|                       | Shift Alt Action      |                                   |
-|                       | Shift Ctrl Action     |                                   |
-|                       | Shift Ctrl Alt Action |                                   |
-| SequencerPreview      | Action                | Sample Color                      |
-| UV Editor             | Action                | Set 2D Cursor                     |
-|                       | Shift Action          | Set Tile                          |
-| Weight Paint          | Ctrl Action           | Weight Paint Sample Weight        |
-|                       | Shift Action          | Weight Paint Sample Group         |
-|-----------------------+-----------------------+-----------------------------------|
-| 3D View               | Any LMB               | 3D Manipulator                    |
-| Animation Channels    | LMB                   | Mouse Click on Channels           |
-|                       | Ctrl LMB              | Rename Channels                   |
-|                       | Shift LMB             | Mouse Click on Channels           |
-|                       | Shift Ctrl LMB        |                                   |
-| Armature              | LMB                   | Draw Stroke                       |
-|                       | Ctrl LMB              |                                   |
-|                       | Shift LMB             | Gesture                           |
-| Clip Editor           | LMB                   | Change Frame                      |
-|                       | LMB                   | Slide Marker                      |
-|                       | Ctrl LMB              | Add Marker and Slide              |
-| Console               | LMB                   | Set Selection                     |
-| File Browser Main     | LMB                   | Activate/Select File              |
-|                       | Alt LMB               |                                   |
-|                       | Ctrl LMB              | Rename File or Directory          |
-|                       | Double LMB            | Execute File Window               |
-|                       | Shift LMB             | Activate/Select File              |
-| Gesture Border        | LMB                   |                                   |
-|                       | Any LMB               |                                   |
-|                       | Shift LMB             |                                   |
-| Gesture Straight Line | LMB                   |                                   |
-| Gesture Zoom Border   | LMB                   |                                   |
-| Grease Pencil         | LMB D                 | Grease Pencil Draw                |
-|                       | Ctrl LMB D            |                                   |
-| Image Paint           | LMB                   | Image Paint                       |
-|                       | Ctrl LMB              |                                   |
-| Knife Tool Modal Map  | Any LMB               |                                   |
-| Logic Editor          | Ctrl LMB              | Cut Links                         |
-| NLA Channels          | LMB                   | Mouse Click on NLA Channels       |
-|                       | Shift LMB             |                                   |
-| Node Editor           | LMB                   | Link Nodes                        |
-|                       | LMB                   | Resize Node                       |
-|                       | Ctrl LMB              | Cut Links                         |
-|                       | Ctrl LMB              | Link Nodes                        |
-|                       | Shift LMB             | Add Reroute                       |
-|                       | Shift Ctrl LMB        | Link Viewer                       |
-| Outliner              | LMB                   | Activate Item                     |
-|                       | Ctrl LMB              |                                   |
-|                       | Ctrl LMB              | Rename Item                       |
-|                       | Double LMB            |                                   |
-|                       | Shift LMB             | Activate Item                     |
-|                       | Shift Ctrl LMB        |                                   |
-| Particle              | LMB                   | Brush Edit                        |
-|                       | Any LMB               | 3D Manipulator                    |
-|                       | Shift LMB             | Brush Edit                        |
-| Screen Editing        | LMB                   | Handle Area Action Zones          |
-|                       | LMB                   | Move Area Edges                   |
-|                       | Ctrl LMB              | Handle Area Action Zones          |
-|                       | Shift LMB             |                                   |
-| Sculpt                | LMB                   | Sculpt                            |
-|                       | Ctrl LMB              |                                   |
-|                       | Shift LMB             |                                   |
-| Standard Modal Map    | Any LMB               |                                   |
-| Text                  | LMB                   | Scrollbar                         |
-|                       | LMB                   | Set Cursor                        |
-|                       | Double LMB            | Select Word                       |
-|                       | Shift LMB             | Set Selection                     |
-| Transform Modal Map   | Any LMB               |                                   |
-| UV Sculpt             | LMB                   | Sculpt UVs                        |
-|                       | Ctrl LMB              |                                   |
-|                       | Shift LMB             |                                   |
-| Vertex Paint          | LMB                   | Vertex Paint                      |
-| View2D                | LMB                   | Scroller Activate                 |
-| View2D Buttons List   | LMB                   | Scroller Activate                 |
-| View3D Fly Modal      | Any LMB               |                                   |
-| View3D Gesture Circle | LMB                   |                                   |
-|                       | Shift LMB             |                                   |
-| Weight Paint          | LMB                   | Weight Paint                      |
-|                       | Alt LMB               | Weight Gradient                   |
-|                       | Ctrl Alt LMB          |                                   |
-|-----------------------+-----------------------+-----------------------------------|
-| 3D View               | MMB                   | Rotate View                       |
-|                       | Ctrl MMB              | Zoom View                         |
-|                       | Shift MMB             | Move View                         |
-|                       | Shift Ctrl MMB        | Dolly View                        |
-| Clip Editor           | MMB                   | View Pan                          |
-|                       | Ctrl MMB              | View Zoom                         |
-|                       | Shift MMB             | View Pan                          |
-| Gesture Border        | MMB                   |                                   |
-| Gesture Zoom Border   | MMB                   |                                   |
-| Image                 | MMB                   | View Pan                          |
-|                       | Ctrl MMB              | View Zoom                         |
-|                       | Shift MMB             | View Pan                          |
-| Node Editor           | Alt MMB               | Background Image Move             |
-| Text                  | MMB                   | Scroll                            |
-|                       | MMB                   | Scrollbar                         |
-| View2D                | MMB                   | Pan View                          |
-|                       | MMB                   | Scroller Activate                 |
-|                       | Ctrl MMB              | Zoom 2D View                      |
-|                       | Shift MMB             | Pan View                          |
-| View2D Buttons List   | MMB                   | Pan View                          |
-|                       | MMB                   | Scroller Activate                 |
-|                       | Ctrl MMB              | Zoom 2D View                      |
-| View3D Dolly Modal    | Any MMB               |                                   |
-| View3D Fly Modal      | Any MMB               |                                   |
-| View3D Gesture Circle | MMB                   |                                   |
-| View3D Move Modal     | Any MMB               |                                   |
-| View3D Rotate Modal   | Any MMB               |                                   |
-| View3D Zoom Modal     | Any MMB               |                                   |
-|-----------------------+-----------------------+-----------------------------------|
-| 3D View               | MOUSEROTATE           | Rotate View                       |
-|-----------------------+-----------------------+-----------------------------------|
-| Armature              | Move                  | Draw Preview                      |
-|                       | Ctrl Move             |                                   |
-| File Browser Main     | Any Move              | Highlight File                    |
-|-----------------------+-----------------------+-----------------------------------|
-| 3D View               | Pan                   | Rotate View                       |
-|                       | Ctrl Pan              | Zoom View                         |
-|                       | Shift Pan             | Move View                         |
-| Clip Editor           | Pan                   | View Pan                          |
-|                       | Ctrl Pan              | View Zoom                         |
-| Image                 | Pan                   | View Pan                          |
-|                       | Ctrl Pan              | View Zoom                         |
-| Text                  | Pan                   | Scroll                            |
-| Transform Modal Map   | Pan                   |                                   |
-| View2D                | Pan                   | Pan View                          |
-|                       | Ctrl Pan              | Zoom 2D View                      |
-| View2D Buttons List   | Pan                   | Pan View                          |
-|                       | Ctrl Pan              | Zoom 2D View                      |
-| View3D Fly Modal      | Pan                   |                                   |
-| View3D Gesture Circle | Pan                   |                                   |
-|-----------------------+-----------------------+-----------------------------------|
-| 3D View               | RMB                   | Activate/Select                   |
-|                       | Alt RMB               |                                   |
-|                       | Ctrl RMB              |                                   |
-|                       | Shift RMB             |                                   |
-|                       | Ctrl Alt RMB          |                                   |
-|                       | Shift Alt RMB         |                                   |
-|                       | Shift Ctrl RMB        |                                   |
-|                       | Shift Ctrl Alt RMB    |                                   |
-| Armature              | RMB                   | End Stroke                        |
-| Clip Editor           | RMB                   | Select                            |
-|                       | Shift RMB             |                                   |
-| Clip Graph Editor     | RMB                   | Select                            |
-|                       | Shift RMB             |                                   |
-| Dopesheet             | RMB                   | Mouse Select Keys                 |
-|                       | Alt RMB               |                                   |
-|                       | Ctrl RMB              | Select Left/Right                 |
-|                       | Shift RMB             | Mouse Select Keys                 |
-|                       | Shift Alt RMB         |                                   |
-|                       | Shift Ctrl RMB        | Select Left/Right                 |
-| File Browser Main     | RMB                   | Activate/Select File              |
-|                       | Alt RMB               |                                   |
-|                       | Shift RMB             |                                   |
-| Gesture Border        | Any RMB               |                                   |
-| Gesture Straight Line | Any RMB               |                                   |
-| Gesture Zoom Border   | Any RMB               |                                   |
-| Graph Editor          | RMB                   | Mouse Select Keys                 |
-|                       | Alt RMB               |                                   |
-|                       | Ctrl RMB              | Select Left/Right                 |
-|                       | Shift RMB             | Mouse Select Keys                 |
-|                       | Ctrl Alt RMB          |                                   |
-|                       | Shift Alt RMB         |                                   |
-|                       | Shift Ctrl RMB        | Select Left/Right                 |
-|                       | Shift Ctrl Alt RMB    | Mouse Select Keys                 |
-| Grease Pencil         | RMB D                 | Grease Pencil Draw                |
-|                       | Ctrl RMB D            |                                   |
-| Header                | RMB                   | Header Toolbox                    |
-| Image Paint           | RMB                   | Grab Clone                        |
-|                       | RMB                   | Stencil Brush Control             |
-|                       | Alt RMB               |                                   |
-|                       | Ctrl RMB              |                                   |
-|                       | Shift RMB             |                                   |
-|                       | Ctrl Alt RMB          |                                   |
-|                       | Shift Alt RMB         |                                   |
-| Info                  | RMB                   | Select Report                     |
-| Knife Tool Modal Map  | Any RMB               |                                   |
-| Markers               | RMB                   | Select Time Marker                |
-|                       | Ctrl RMB              |                                   |
-|                       | Shift RMB             |                                   |
-|                       | Shift Ctrl RMB        |                                   |
-| Mask Editing          | RMB                   | Select                            |
-|                       | Ctrl RMB              |                                   |
-|                       | Shift RMB             |                                   |
-| Mesh                  | Alt RMB               | Loop Select                       |
-|                       | Ctrl RMB              | Pick Shortest Path                |
-|                       | Ctrl Alt RMB          | Edge Ring Select                  |
-|                       | Shift Alt RMB         | Loop Select                       |
-|                       | Shift Ctrl Alt RMB    | Edge Ring Select                  |
-| NLA Editor            | RMB                   | Mouse Select                      |
-|                       | Ctrl RMB              | Select Left/Right                 |
-|                       | Shift RMB             | Mouse Select                      |
-|                       | Shift Ctrl RMB        | Select Left/Right                 |
-| Node Editor           | RMB                   | Select                            |
-|                       | Alt RMB               |                                   |
-|                       | Ctrl RMB              |                                   |
-|                       | Shift RMB             |                                   |
-|                       | Ctrl Alt RMB          |                                   |
-|                       | Shift Alt RMB         |                                   |
-|                       | Shift Ctrl RMB        |                                   |
-|                       | Shift Ctrl Alt RMB    |                                   |
-| Outliner              | RMB                   | Execute Operation                 |
-| Property Editor       | RMB                   | Toolbox                           |
-| Screen Editing        | RMB                   | Area Options                      |
-| Sculpt                | RMB                   | Stencil Brush Control             |
-|                       | Alt RMB               |                                   |
-|                       | Ctrl RMB              |                                   |
-|                       | Shift RMB             |                                   |
-|                       | Ctrl Alt RMB          |                                   |
-|                       | Shift Alt RMB         |                                   |
-| Sequencer             | RMB                   | Activate/Select                   |
-|                       | Alt RMB               |                                   |
-|                       | Ctrl RMB              |                                   |
-|                       | Shift RMB             |                                   |
-|                       | Shift Alt RMB         |                                   |
-|                       | Shift Ctrl RMB        |                                   |
-| Text                  | Any RMB               | Call Menu                         |
-| UV Editor             | RMB                   | Select                            |
-|                       | Alt RMB               | Loop Select                       |
-|                       | Shift RMB             | Select                            |
-|                       | Shift Alt RMB         | Loop Select                       |
-| Vertex Paint          | RMB                   | Stencil Brush Control             |
-|                       | Alt RMB               |                                   |
-|                       | Ctrl RMB              |                                   |
-|                       | Shift RMB             |                                   |
-|                       | Ctrl Alt RMB          |                                   |
-|                       | Shift Alt RMB         |                                   |
-| View3D Fly Modal      | Any RMB               |                                   |
-| View3D Gesture Circle | Any RMB               |                                   |
-| Weight Paint          | RMB                   | Stencil Brush Control             |
-|                       | Alt RMB               |                                   |
-|                       | Ctrl RMB              |                                   |
-|                       | Shift RMB             |                                   |
-|                       | Ctrl Alt RMB          |                                   |
-|                       | Shift Alt RMB         |                                   |
-|-----------------------+-----------------------+-----------------------------------|
-| 3D View               | Ctrl WheelDn          | View Pan                          |
-|                       | Shift WheelDn         |                                   |
-|                       | Ctrl Alt WheelDn      | View Orbit                        |
-|                       | Shift Alt WheelDn     |                                   |
-| Console               | Ctrl WheelDn          | Context Int Cycle                 |
-| Frames                | Alt WheelDn           | Frame Offset                      |
-| Text                  | WheelDn               | Scroll                            |
-|                       | Ctrl WheelDn          | Context Int Cycle                 |
-| Transform Modal Map   | WheelDn               |                                   |
-|                       | Alt WheelDn           |                                   |
-|                       | Shift WheelDn         |                                   |
-| View2D                | WheelDn               | Scroll Down                       |
-|                       | WheelDn               | Scroll Right                      |
-|                       | Ctrl WheelDn          |                                   |
-|                       | Shift WheelDn         | Scroll Down                       |
-| View2D Buttons List   | WheelDn               | Scroll Down                       |
-| View3D Fly Modal      | Any WheelDn           |                                   |
-| View3D Gesture Circle | WheelDn               |                                   |
-|-----------------------+-----------------------+-----------------------------------|
-| 3D View               | WheelIn               | Zoom View                         |
-| Clip Editor           | WheelIn               | View Zoom In                      |
-| Image                 | WheelIn               | View Zoom In                      |
-| View2D                | WheelIn               | Zoom In                           |
-|-----------------------+-----------------------+-----------------------------------|
-| 3D View               | WheelOut              | Zoom View                         |
-| Clip Editor           | WheelOut              | View Zoom Out                     |
-| Image                 | WheelOut              | View Zoom Out                     |
-| View2D                | WheelOut              | Zoom Out                          |
-|-----------------------+-----------------------+-----------------------------------|
-| 3D View               | Ctrl WheelUp          | View Pan                          |
-|                       | Shift WheelUp         |                                   |
-|                       | Ctrl Alt WheelUp      | View Orbit                        |
-|                       | Shift Alt WheelUp     |                                   |
-| Console               | Ctrl WheelUp          | Context Int Cycle                 |
-| Frames                | Alt WheelUp           | Frame Offset                      |
-| Text                  | WheelUp               | Scroll                            |
-|                       | Ctrl WheelUp          | Context Int Cycle                 |
-| Transform Modal Map   | WheelUp               |                                   |
-|                       | Alt WheelUp           |                                   |
-|                       | Shift WheelUp         |                                   |
-| View2D                | WheelUp               | Scroll Left                       |
-|                       | WheelUp               | Scroll Up                         |
-|                       | Ctrl WheelUp          | Scroll Left                       |
-|                       | Shift WheelUp         | Scroll Up                         |
-| View2D Buttons List   | WheelUp               | Scroll Up                         |
-| View3D Fly Modal      | Any WheelUp           |                                   |
-| View3D Gesture Circle | WheelUp               |                                   |
-|-----------------------+-----------------------+-----------------------------------|
-| 3D View               | Zoom                  | Zoom View                         |
-| Clip Editor           | Zoom                  | View Zoom                         |
-| Image                 | Zoom                  | View Zoom                         |
-| View2D                | Zoom                  | Zoom 2D View                      |
-| View2D Buttons List   | Zoom                  | Zoom 2D View                      |
-|-----------------------+-----------------------+-----------------------------------|
+|-----------------------+--------------------+-----------------------------------|
+| File Browser Main     | 4MB                | Previous Folder                   |
+|-----------------------+--------------------+-----------------------------------|
+| File Browser Main     | 5MB                | Next Folder                       |
+|-----------------------+--------------------+-----------------------------------|
+| 3D View               | LMB                | Set 3D Cursor                     |
+|                       | Any LMB            | 3D Manipulator                    |
+| Animation             | LMB                | Change Frame                      |
+| Animation Channels    | LMB                | Mouse Click on Channels           |
+|                       | Ctrl LMB           | Rename Channels                   |
+|                       | Shift LMB          | Mouse Click on Channels           |
+|                       | Shift Ctrl LMB     |                                   |
+| Armature              | LMB                | Draw Stroke                       |
+|                       | Ctrl LMB           | Click-Extrude                     |
+|                       | Ctrl LMB           | Draw Stroke                       |
+|                       | Shift LMB          | Gesture                           |
+| Clip Dopesheet Editor | LMB                | Select Channel                    |
+| Clip Editor           | LMB                | Change Frame                      |
+|                       | LMB                | Slide Marker                      |
+|                       | Ctrl LMB           | Add Marker and Slide              |
+| Clip Graph Editor     | LMB                | Change Frame                      |
+| Console               | LMB                | Set Selection                     |
+| Curve                 | Ctrl LMB           | Add Vertex                        |
+| File Browser Main     | LMB                | Activate/Select File              |
+|                       | Alt LMB            |                                   |
+|                       | Ctrl LMB           | Rename File or Directory          |
+|                       | Double LMB         | Execute File Window               |
+|                       | Shift LMB          | Activate/Select File              |
+| Gesture Border        | LMB                |                                   |
+|                       | Any LMB            |                                   |
+|                       | Shift LMB          |                                   |
+| Gesture Straight Line | LMB                |                                   |
+| Gesture Zoom Border   | LMB                |                                   |
+| Graph Editor          | LMB                | Set Cursor                        |
+|                       | Ctrl LMB           | Click-Insert Keyframes            |
+| Grease Pencil         | LMB D              | Grease Pencil Draw                |
+|                       | Ctrl LMB D         |                                   |
+| Image                 | LMB                | Sample Color                      |
+|                       | Ctrl LMB           | Set Curves Point                  |
+|                       | Shift LMB          |                                   |
+| Image Paint           | LMB                | Image Paint                       |
+|                       | Ctrl LMB           |                                   |
+| Knife Tool Modal Map  | Any LMB            |                                   |
+| Logic Editor          | Ctrl LMB           | Cut Links                         |
+| Mask Editing          | LMB                | Set 2D Cursor                     |
+|                       | LMB                | Slide Point                       |
+|                       | Ctrl LMB           | Add Vertex and Slide              |
+|                       | Shift LMB          | Add Feather Vertex and Slide      |
+| Mesh                  | Ctrl LMB           | Duplicate or Extrude at 3D Cursor |
+|                       | Shift Ctrl LMB     |                                   |
+| NLA Channels          | LMB                | Mouse Click on NLA Channels       |
+|                       | Shift LMB          |                                   |
+| Node Editor           | LMB                | Link Nodes                        |
+|                       | LMB                | Resize Node                       |
+|                       | LMB                | Select                            |
+|                       | Alt LMB            | Backimage Sample                  |
+|                       | Alt LMB            | Select                            |
+|                       | Ctrl LMB           | Cut Links                         |
+|                       | Ctrl LMB           | Link Nodes                        |
+|                       | Ctrl LMB           | Select                            |
+|                       | Shift LMB          | Add Reroute                       |
+|                       | Shift LMB          | Select                            |
+|                       | Ctrl Alt LMB       |                                   |
+|                       | Shift Alt LMB      |                                   |
+|                       | Shift Ctrl LMB     | Link Viewer                       |
+|                       | Shift Ctrl LMB     | Select                            |
+|                       | Shift Ctrl Alt LMB |                                   |
+| Outliner              | LMB                | Activate Item                     |
+|                       | Ctrl LMB           |                                   |
+|                       | Ctrl LMB           | Rename Item                       |
+|                       | Double LMB         |                                   |
+|                       | Shift LMB          | Activate Item                     |
+|                       | Shift Ctrl LMB     |                                   |
+| Particle              | LMB                | Brush Edit                        |
+|                       | Any LMB            | 3D Manipulator                    |
+|                       | Shift LMB          | Brush Edit                        |
+| Screen Editing        | LMB                | Handle Area Action Zones          |
+|                       | LMB                | Move Area Edges                   |
+|                       | Ctrl LMB           | Handle Area Action Zones          |
+|                       | Shift LMB          |                                   |
+| Sculpt                | LMB                | Sculpt                            |
+|                       | Ctrl LMB           |                                   |
+|                       | Shift LMB          |                                   |
+| SequencerPreview      | LMB                | Sample Color                      |
+| Standard Modal Map    | Any LMB            |                                   |
+| Text                  | LMB                | Scrollbar                         |
+|                       | LMB                | Set Cursor                        |
+|                       | Double LMB         | Select Word                       |
+|                       | Shift LMB          | Set Selection                     |
+| Transform Modal Map   | Any LMB            |                                   |
+| UV Editor             | LMB                | Set 2D Cursor                     |
+|                       | Shift LMB          | Set Tile                          |
+| UV Sculpt             | LMB                | Sculpt UVs                        |
+|                       | Ctrl LMB           |                                   |
+|                       | Shift LMB          |                                   |
+| Vertex Paint          | LMB                | Vertex Paint                      |
+| View2D                | LMB                | Scroller Activate                 |
+| View2D Buttons List   | LMB                | Scroller Activate                 |
+| View3D Fly Modal      | Any LMB            |                                   |
+| View3D Gesture Circle | LMB                |                                   |
+|                       | Shift LMB          |                                   |
+| Weight Paint          | LMB                | Weight Paint                      |
+|                       | Alt LMB            | Weight Gradient                   |
+|                       | Ctrl LMB           | Weight Paint Sample Weight        |
+|                       | Shift LMB          | Weight Paint Sample Group         |
+|                       | Ctrl Alt LMB       | Weight Gradient                   |
+|-----------------------+--------------------+-----------------------------------|
+| 3D View               | MMB                | Rotate View                       |
+|                       | Ctrl MMB           | Zoom View                         |
+|                       | Shift MMB          | Move View                         |
+|                       | Shift Ctrl MMB     | Dolly View                        |
+| Clip Editor           | MMB                | View Pan                          |
+|                       | Ctrl MMB           | View Zoom                         |
+|                       | Shift MMB          | View Pan                          |
+| Gesture Border        | MMB                |                                   |
+| Gesture Zoom Border   | MMB                |                                   |
+| Image                 | MMB                | View Pan                          |
+|                       | Ctrl MMB           | View Zoom                         |
+|                       | Shift MMB          | View Pan                          |
+| Node Editor           | Alt MMB            | Background Image Move             |
+| Text                  | MMB                | Scroll                            |
+|                       | MMB                | Scrollbar                         |
+| View2D                | MMB                | Pan View                          |
+|                       | MMB                | Scroller Activate                 |
+|                       | Ctrl MMB           | Zoom 2D View                      |
+|                       | Shift MMB          | Pan View                          |
+| View2D Buttons List   | MMB                | Pan View                          |
+|                       | MMB                | Scroller Activate                 |
+|                       | Ctrl MMB           | Zoom 2D View                      |
+| View3D Dolly Modal    | Any MMB            |                                   |
+| View3D Fly Modal      | Any MMB            |                                   |
+| View3D Gesture Circle | MMB                |                                   |
+| View3D Move Modal     | Any MMB            |                                   |
+| View3D Rotate Modal   | Any MMB            |                                   |
+| View3D Zoom Modal     | Any MMB            |                                   |
+|-----------------------+--------------------+-----------------------------------|
+| 3D View               | MOUSEROTATE        | Rotate View                       |
+|-----------------------+--------------------+-----------------------------------|
+| Armature              | Move               | Draw Preview                      |
+|                       | Ctrl Move          |                                   |
+| File Browser Main     | Any Move           | Highlight File                    |
+|-----------------------+--------------------+-----------------------------------|
+| 3D View               | Pan                | Rotate View                       |
+|                       | Ctrl Pan           | Zoom View                         |
+|                       | Shift Pan          | Move View                         |
+| Clip Editor           | Pan                | View Pan                          |
+|                       | Ctrl Pan           | View Zoom                         |
+| Image                 | Pan                | View Pan                          |
+|                       | Ctrl Pan           | View Zoom                         |
+| Text                  | Pan                | Scroll                            |
+| Transform Modal Map   | Pan                |                                   |
+| View2D                | Pan                | Pan View                          |
+|                       | Ctrl Pan           | Zoom 2D View                      |
+| View2D Buttons List   | Pan                | Pan View                          |
+|                       | Ctrl Pan           | Zoom 2D View                      |
+| View3D Fly Modal      | Pan                |                                   |
+| View3D Gesture Circle | Pan                |                                   |
+|-----------------------+--------------------+-----------------------------------|
+| 3D View               | RMB                | Activate/Select                   |
+|                       | Alt RMB            |                                   |
+|                       | Ctrl RMB           |                                   |
+|                       | Shift RMB          |                                   |
+|                       | Ctrl Alt RMB       |                                   |
+|                       | Shift Alt RMB      |                                   |
+|                       | Shift Ctrl RMB     |                                   |
+|                       | Shift Ctrl Alt RMB |                                   |
+| Armature              | RMB                | End Stroke                        |
+| Clip Editor           | RMB                | Select                            |
+|                       | Shift RMB          |                                   |
+| Clip Graph Editor     | RMB                | Select                            |
+|                       | Shift RMB          |                                   |
+| Dopesheet             | RMB                | Mouse Select Keys                 |
+|                       | Alt RMB            |                                   |
+|                       | Ctrl RMB           | Select Left/Right                 |
+|                       | Shift RMB          | Mouse Select Keys                 |
+|                       | Shift Alt RMB      |                                   |
+|                       | Shift Ctrl RMB     | Select Left/Right                 |
+| File Browser Main     | RMB                | Activate/Select File              |
+|                       | Alt RMB            |                                   |
+|                       | Shift RMB          |                                   |
+| Gesture Border        | Any RMB            |                                   |
+| Gesture Straight Line | Any RMB            |                                   |
+| Gesture Zoom Border   | Any RMB            |                                   |
+| Graph Editor          | RMB                | Mouse Select Keys                 |
+|                       | Alt RMB            |                                   |
+|                       | Ctrl RMB           | Select Left/Right                 |
+|                       | Shift RMB          | Mouse Select Keys                 |
+|                       | Ctrl Alt RMB       |                                   |
+|                       | Shift Alt RMB      |                                   |
+|                       | Shift Ctrl RMB     | Select Left/Right                 |
+|                       | Shift Ctrl Alt RMB | Mouse Select Keys                 |
+| Grease Pencil         | RMB D              | Grease Pencil Draw                |
+|                       | Ctrl RMB D         |                                   |
+| Header                | RMB                | Header Toolbox                    |
+| Image Paint           | RMB                | Grab Clone                        |
+|                       | RMB                | Stencil Brush Control             |
+|                       | Alt RMB            |                                   |
+|                       | Ctrl RMB           |                                   |
+|                       | Shift RMB          |                                   |
+|                       | Ctrl Alt RMB       |                                   |
+|                       | Shift Alt RMB      |                                   |
+| Info                  | RMB                | Select Report                     |
+| Knife Tool Modal Map  | Any RMB            |                                   |
+| Markers               | RMB                | Select Time Marker                |
+|                       | Ctrl RMB           |                                   |
+|                       | Shift RMB          |                                   |
+|                       | Shift Ctrl RMB     |                                   |
+| Mask Editing          | RMB                | Select                            |
+|                       | Ctrl RMB           |                                   |
+|                       | Shift RMB          |                                   |
+| Mesh                  | Alt RMB            | Loop Select                       |
+|                       | Ctrl RMB           | Pick Shortest Path                |
+|                       | Ctrl Alt RMB       | Edge Ring Select                  |
+|                       | Shift Alt RMB      | Loop Select                       |
+|                       | Shift Ctrl Alt RMB | Edge Ring Select                  |
+| NLA Editor            | RMB                | Mouse Select                      |
+|                       | Ctrl RMB           | Select Left/Right                 |
+|                       | Shift RMB          | Mouse Select                      |
+|                       | Shift Ctrl RMB     | Select Left/Right                 |
+| Node Editor           | RMB                | Select                            |
+|                       | Alt RMB            |                                   |
+|                       | Ctrl RMB           |                                   |
+|                       | Shift RMB          |                                   |
+|                       | Ctrl Alt RMB       |                                   |
+|                       | Shift Alt RMB      |                                   |
+|                       | Shift Ctrl RMB     |                                   |
+|                       | Shift Ctrl Alt RMB |                                   |
+| Outliner              | RMB                | Execute Operation                 |
+| Property Editor       | RMB                | Toolbox                           |
+| Screen Editing        | RMB                | Area Options                      |
+| Sculpt                | RMB                | Stencil Brush Control             |
+|                       | Alt RMB            |                                   |
+|                       | Ctrl RMB           |                                   |
+|                       | Shift RMB          |                                   |
+|                       | Ctrl Alt RMB       |                                   |
+|                       | Shift Alt RMB      |                                   |
+| Sequencer             | RMB                | Activate/Select                   |
+|                       | Alt RMB            |                                   |
+|                       | Ctrl RMB           |                                   |
+|                       | Shift RMB          |                                   |
+|                       | Shift Alt RMB      |                                   |
+|                       | Shift Ctrl RMB     |                                   |
+| Text                  | Any RMB            | Call Menu                         |
+| UV Editor             | RMB                | Select                            |
+|                       | Alt RMB            | Loop Select                       |
+|                       | Shift RMB          | Select                            |
+|                       | Shift Alt RMB      | Loop Select                       |
+| Vertex Paint          | RMB                | Stencil Brush Control             |
+|                       | Alt RMB            |                                   |
+|                       | Ctrl RMB           |                                   |
+|                       | Shift RMB          |                                   |
+|                       | Ctrl Alt RMB       |                                   |
+|                       | Shift Alt RMB      |                                   |
+| View3D Fly Modal      | Any RMB            |                                   |
+| View3D Gesture Circle | Any RMB            |                                   |
+| Weight Paint          | RMB                | Stencil Brush Control             |
+|                       | Alt RMB            |                                   |
+|                       | Ctrl RMB           |                                   |
+|                       | Shift RMB          |                                   |
+|                       | Ctrl Alt RMB       |                                   |
+|                       | Shift Alt RMB      |                                   |
+|-----------------------+--------------------+-----------------------------------|
+| 3D View               | Ctrl WheelDn       | View Pan                          |
+|                       | Shift WheelDn      |                                   |
+|                       | Ctrl Alt WheelDn   | View Orbit                        |
+|                       | Shift Alt WheelDn  |                                   |
+| Console               | Ctrl WheelDn       | Context Int Cycle                 |
+| Frames                | Alt WheelDn        | Frame Offset                      |
+| Text                  | WheelDn            | Scroll                            |
+|                       | Ctrl WheelDn       | Context Int Cycle                 |
+| Transform Modal Map   | WheelDn            |                                   |
+|                       | Alt WheelDn        |                                   |
+|                       | Shift WheelDn      |                                   |
+| View2D                | WheelDn            | Scroll Down                       |
+|                       | WheelDn            | Scroll Right                      |
+|                       | Ctrl WheelDn       |                                   |
+|                       | Shift WheelDn      | Scroll Down                       |
+| View2D Buttons List   | WheelDn            | Scroll Down                       |
+| View3D Fly Modal      | Any WheelDn        |                                   |
+| View3D Gesture Circle | WheelDn            |                                   |
+|-----------------------+--------------------+-----------------------------------|
+| 3D View               | WheelIn            | Zoom View                         |
+| Clip Editor           | WheelIn            | View Zoom In                      |
+| Image                 | WheelIn            | View Zoom In                      |
+| View2D                | WheelIn            | Zoom In                           |
+|-----------------------+--------------------+-----------------------------------|
+| 3D View               | WheelOut           | Zoom View                         |
+| Clip Editor           | WheelOut           | View Zoom Out                     |
+| Image                 | WheelOut           | View Zoom Out                     |
+| View2D                | WheelOut           | Zoom Out                          |
+|-----------------------+--------------------+-----------------------------------|
+| 3D View               | Ctrl WheelUp       | View Pan                          |
+|                       | Shift WheelUp      |                                   |
+|                       | Ctrl Alt WheelUp   | View Orbit                        |
+|                       | Shift Alt WheelUp  |                                   |
+| Console               | Ctrl WheelUp       | Context Int Cycle                 |
+| Frames                | Alt WheelUp        | Frame Offset                      |
+| Text                  | WheelUp            | Scroll                            |
+|                       | Ctrl WheelUp       | Context Int Cycle                 |
+| Transform Modal Map   | WheelUp            |                                   |
+|                       | Alt WheelUp        |                                   |
+|                       | Shift WheelUp      |                                   |
+| View2D                | WheelUp            | Scroll Left                       |
+|                       | WheelUp            | Scroll Up                         |
+|                       | Ctrl WheelUp       | Scroll Left                       |
+|                       | Shift WheelUp      | Scroll Up                         |
+| View2D Buttons List   | WheelUp            | Scroll Up                         |
+| View3D Fly Modal      | Any WheelUp        |                                   |
+| View3D Gesture Circle | WheelUp            |                                   |
+|-----------------------+--------------------+-----------------------------------|
+| 3D View               | Zoom               | Zoom View                         |
+| Clip Editor           | Zoom               | View Zoom                         |
+| Image                 | Zoom               | View Zoom                         |
+| View2D                | Zoom               | Zoom 2D View                      |
+| View2D Buttons List   | Zoom               | Zoom 2D View                      |
+|-----------------------+--------------------+-----------------------------------|
 * Ndof
 |-------------+--------------------+---------------------------|
 | 3D View     | BUTTON_BACK        | View Numpad               |
