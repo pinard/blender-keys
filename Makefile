@@ -2,18 +2,23 @@
 BLENDER = blender
 BLENDER = $(HOME)/etc/bin/blender
 
-all: blender-keys.org operators.org
+all: blender-keys.org
 	@echo
 	@echo blender-keys.org
 	@echo ----------------
 	@echo
 	@cat blender-keys.org
 	@echo
-	@echo operators.org
+	@echo blender-modes.org
+	@echo ----------------
+	@echo
+	@cat blender-modes.org
+	@echo
+	@echo blender-operators.org
 	@echo -------------
 	@echo
-	@cat operators.org
+	@cat blender-operators.org
 
-blender-keys.org operators.org: blender-keys
-# The >2 /dev/null is a kludge to hide a spurious traceback from Blender.
-	$(BLENDER) -b -P blender-keys 2> /dev/null
+blender-keys.org: blender-keys Makefile
+	rm -f blender-keys.org blender-modes.org blender-operators.org
+	$(BLENDER) -b -P blender-keys

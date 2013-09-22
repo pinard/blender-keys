@@ -281,6 +281,39 @@
 #+BEGIN_SRC python
   .update_data_paths()
 #+END_SRC
+* bpy.ops.api_navigator
+** Clear the filter
+#+BEGIN_SRC python
+  .clear_filter()
+#+END_SRC
+** Subscript to this Item
+#+BEGIN_SRC python
+  .subscript(subscription="")
+#+END_SRC
+** The list is not displayed completely
+#+BEGIN_SRC python
+  .fake_button()
+#+END_SRC
+** Toggle on or off api_doc_ Text
+#+BEGIN_SRC python
+  .toggle_doc()
+#+END_SRC
+** Update the tree structure
+#+BEGIN_SRC python
+  .update()
+#+END_SRC
+** go back to module bpy
+#+BEGIN_SRC python
+  .back_to_bpy()
+#+END_SRC
+** go to Parent Module
+#+BEGIN_SRC python
+  .parent()
+#+END_SRC
+** go to this Module
+#+BEGIN_SRC python
+  .down(pointed_module="")
+#+END_SRC
 * bpy.ops.armature
 ** Add a new bone located at the 3D-Cursor
 #+BEGIN_SRC python
@@ -1087,6 +1120,10 @@
 #+BEGIN_SRC python
   .switch_direction()
 #+END_SRC
+** simplify
+#+BEGIN_SRC python
+  .simplify(mode='DISTANCE', output='INPUT', k_thresh=0, pointsNr=5, error=0, degreeOut=5, dis_error=0, keepShort=True)
+#+END_SRC
 * bpy.ops.cycles
 ** Enable nodes on a material, world or lamp
 #+BEGIN_SRC python
@@ -1130,36 +1167,10 @@
 #+BEGIN_SRC python
   .undo()
 #+END_SRC
-* bpy.ops.export_anim
-** Save a BVH motion capture file from an armature
-#+BEGIN_SRC python
-  .bvh(check_existing=True, filepath="", filter_glob="*.bvh", global_scale=1, frame_start=0, frame_end=0, rotate_mode='NATIVE', root_transform_only=False)
-#+END_SRC
 * bpy.ops.export_mesh
-** Export a single object as a Stanford PLY with normals, colors and texture coordinates
+** Save Raw triangle mesh data
 #+BEGIN_SRC python
-  .ply(check_existing=True, filepath="", filter_glob="*.ply", use_mesh_modifiers=True, use_normals=True, use_uv_coords=True, use_colors=True, axis_forward='Y', axis_up='Z', global_scale=1)
-#+END_SRC
-** Save STL triangle mesh data from the active object
-#+BEGIN_SRC python
-  .stl(check_existing=True, filepath="", filter_glob="*.stl", ascii=False, use_mesh_modifiers=True, axis_forward='Y', axis_up='Z', global_scale=1)
-#+END_SRC
-* bpy.ops.export_scene
-** Export selection to Extensible 3D file (.x3d)
-#+BEGIN_SRC python
-  .x3d(check_existing=True, filepath="", filter_glob="*.x3d", use_selection=False, use_mesh_modifiers=True, use_triangulate=False, use_normals=False, use_compress=False, use_hierarchy=True, name_decorations=True, use_h3d=False, axis_forward='Z', axis_up='Y', global_scale=1, path_mode='AUTO')
-#+END_SRC
-** Export to 3DS file format (.3ds)
-#+BEGIN_SRC python
-  .autodesk_3ds(check_existing=True, filepath="", filter_glob="*.3ds", use_selection=False, axis_forward='Y', axis_up='Z')
-#+END_SRC
-** Save a Wavefront OBJ File
-#+BEGIN_SRC python
-  .obj(check_existing=True, filepath="", filter_glob="*.obj;*.mtl", use_selection=False, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_normals=False, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, axis_forward='-Z', axis_up='Y', global_scale=1, path_mode='AUTO')
-#+END_SRC
-** Selection to an ASCII Autodesk FBX
-#+BEGIN_SRC python
-  .fbx(check_existing=True, filepath="", filter_glob="*.fbx", use_selection=False, global_scale=1, axis_forward='-Z', axis_up='Y', object_types={'EMPTY', 'CAMERA', 'LAMP', 'ARMATURE', 'MESH'}, use_mesh_modifiers=True, mesh_smooth_type='FACE', use_mesh_edges=False, use_armature_deform_only=False, use_anim=True, use_anim_action_all=True, use_default_take=True, use_anim_optimize=True, anim_optimize_precision=6, path_mode='AUTO', use_rotate_workaround=False, xna_validate=False, batch_mode='OFF', use_batch_own_dir=True, use_metadata=True)
+  .raw(check_existing=True, filepath="", filter_glob="*.raw", apply_modifiers=True, triangulate=True)
 #+END_SRC
 * bpy.ops.file
 ** Activate/select file
@@ -1550,6 +1561,10 @@
 #+BEGIN_SRC python
   .select_all_toggle(invert=False)
 #+END_SRC
+** simplify
+#+BEGIN_SRC python
+  .simplify(mode='DISTANCE', k_thresh=0, pointsNr=5, error=0, degreeOut=5, dis_error=0)
+#+END_SRC
 * bpy.ops.group
 ** Add the object to an object group that contains the active object
 #+BEGIN_SRC python
@@ -1688,37 +1703,15 @@
 #+BEGIN_SRC python
   .view_zoom_out(location=(0, 0))
 #+END_SRC
-* bpy.ops.import_anim
-** Load a BVH motion capture file
-#+BEGIN_SRC python
-  .bvh(filepath="", filter_glob="*.bvh", target='ARMATURE', global_scale=1, frame_start=1, use_fps_scale=False, use_cyclic=False, rotate_mode='NATIVE', axis_forward='-Z', axis_up='Y')
-#+END_SRC
 * bpy.ops.import_curve
 ** Load a SVG file
 #+BEGIN_SRC python
   .svg(filepath="", filter_glob="*.svg")
 #+END_SRC
 * bpy.ops.import_mesh
-** Load STL triangle mesh data
+** Load Raw triangle mesh data
 #+BEGIN_SRC python
-  .stl(filepath="", filter_glob="*.stl", files=[], directory="")
-#+END_SRC
-** Load a PLY geometry file
-#+BEGIN_SRC python
-  .ply(filepath="", files=[], directory="", filter_glob="*.ply")
-#+END_SRC
-* bpy.ops.import_scene
-** Import an X3D or VRML2 file
-#+BEGIN_SRC python
-  .x3d(filepath="", filter_glob="*.x3d;*.wrl", axis_forward='Z', axis_up='Y')
-#+END_SRC
-** Import from 3DS file format (.3ds)
-#+BEGIN_SRC python
-  .autodesk_3ds(filepath="", filter_glob="*.3ds", constrain_size=10, use_image_search=True, use_apply_transform=True, axis_forward='Y', axis_up='Z')
-#+END_SRC
-** Load a Wavefront OBJ File
-#+BEGIN_SRC python
-  .obj(filepath="", filter_glob="*.obj;*.mtl", use_ngons=True, use_edges=True, use_smooth_groups=True, use_split_objects=True, use_split_groups=True, use_groups_as_vgroups=False, use_image_search=True, split_mode='ON', global_clamp_size=0, axis_forward='-Z', axis_up='Y')
+  .raw(filepath="", filter_glob="*.raw")
 #+END_SRC
 * bpy.ops.info
 ** Copy selected reports to Clipboard
@@ -2067,7 +2060,7 @@
 #+END_SRC
 ** Add a torus mesh
 #+BEGIN_SRC python
-  .primitive_torus_add(view_align=False, location=(0, 0, 0), rotation=(0, 0, 0), major_radius=1, minor_radius=0.25, major_segments=48, minor_segments=12, use_abso=False, abso_major_rad=1, abso_minor_rad=0.5)
+  .primitive_torus_add(rotation=(0, 0, 0), location=(0, 0, 0), view_align=False, major_radius=1, minor_radius=0.25, major_segments=48, minor_segments=12, use_abso=False, abso_major_rad=1, abso_minor_rad=0.5)
 #+END_SRC
 ** Add an edge or face to selected
 #+BEGIN_SRC python
@@ -2497,6 +2490,10 @@
 #+BEGIN_SRC python
   .sort_elements(type='VIEW_ZAXIS', elements=set(), reverse=False, seed=0)
 #+END_SRC
+** Tooltip
+#+BEGIN_SRC python
+  .f2()
+#+END_SRC
 ** Triangulate selected faces
 #+BEGIN_SRC python
   .quads_convert_to_tris(use_beauty=True)
@@ -2673,15 +2670,15 @@
 #+END_SRC
 ** Add a node to the active tree
 #+BEGIN_SRC python
-  .add_node(settings=[], type="", use_transform=False)
+  .add_node(type="", use_transform=False, settings=[])
 #+END_SRC
 ** Add a node to the active tree
 #+BEGIN_SRC python
-  .add_search(settings=[], type="", use_transform=False, node_item='<UNKNOWN ENUM>')
+  .add_search(type="", use_transform=False, settings=[], node_item='<UNKNOWN ENUM>')
 #+END_SRC
 ** Add a node to the active tree and link to an existing socket
 #+BEGIN_SRC python
-  .add_and_link_node(settings=[], type="", use_transform=False, link_socket_index=0)
+  .add_and_link_node(type="", use_transform=False, settings=[], link_socket_index=0)
 #+END_SRC
 ** Add a reroute node
 #+BEGIN_SRC python

@@ -1,16 +1,17 @@
 #+TITLE: Extract all Blender hotkeys and operators into Org mode files.
 
-This tool produces two Org mode files from Blender internals: the
-first holds tables showing all Blender hotkeys, the second lists all
-operators available to the Python API.
+This tool produces a few Org mode files from Blender internals: two
+hold tables showing all Blender hotkeys, but sorted and grouped
+differently, another lists all operators available to the Python API.
 
 * Hotkeys
 
-The first Org mode file is named =blender-keys.org=.  The tables it
-contains give a quick description for all Blender keys.  The result is
+Two Org mode file are named =blender-keys.org= and =blender-modes.org=.
+The tables they contain give a quick description for all Blender keys,
 edited and sorted in a way that pleases the author of the tool :-),
-but tastes may vary.  Don't hesitate to adjust things so it sorts
-and edits your way!
+but tastes may vary.  Don't hesitate to adjust things so it sorts and
+edits your way!  The first file is sorted and grouped by key, the
+second is sorted and grouped by Blender window type.
 
 The generated tables help me to get the meaning of a key when I read
 documentation saying /Use that particular key/ without explaining what
@@ -31,13 +32,13 @@ from Blender using its Python API, so it gets complete and accurate.
 
 * Operators
 
-The second Org mode file is named =operators.org=, which lists all
-available operators in the Python API.  The first level headers use
+An Org mode file named =blender-operators.org= lists all available
+operators in the Python API.  The first level headers use
 /bpy.ops.NAME/, where /NAME/ is the module name, and are sorted by that
 name.  The second level headers are the textual description of the
 operator, sorted by that description.  The content is the remainder of
 the template for the Python call, starting with a dot: this is to be
-concatenated after the text of the first level headers.
+concatenated after the text of the correcponding first level header.
 
 Whenever the textual description of an operator is missing within
 Blender, the name of the Python method is taken as the description.
@@ -52,8 +53,15 @@ some window to /Text Editor/, click on the icon immediately right of the
 
 The tool has been written using Blender 2.68a, and is sensitive to the
 version of Blender: I noticed it does not work for Blender 2.63.
-Either use the generated =blender-keys.org= and =operators.org= files, or
-adjust and use the included Makefile for creating them afresh.
+Either use the generated =blender-keys.org=, =blender-modes.org= and
+=blender-operators.org= files, or adjust and use the included Makefile
+for creating them afresh.
+
+While Blender runs, as triggerred by this tool, one or two Python
+tracebacks occur, originating from Blender itself.  I do not know what
+is the cause of these tracebacks, it looks like some Blender bug.
+Despite these tracebacks, it seems that the output of this tool stays
+dependable.
 
 Daniel Schalla created http://blenderkeys.be-untitled.eu/, which is a
 Web application interrogating the data produced by this tool, here.

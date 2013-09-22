@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
 """\
-Extract all known Blender hotkeys into an Org mode table (blender-keys.org).
-Extract all known Blender operators into an Org mode table (operators.org).
+Into blender-keys.org, extract all known Blender hotkeys, grouped by key.
+Into blender-modes.org, extract all known Blender hotkeys, grouped by mode.
+Into blender-operators.org, extract all known Blender operators.
 """
 
 import bpy
@@ -91,16 +92,15 @@ replaced_words = {
 class Main:
 
     def main(self, *arguments):
-        # Produce blender-keys.org.
-        self.key_info = {}
-        self.extract_keys()
-        self.writeorg_keys(open('blender-keys.org', 'w').write)
-        # Produce operators.org.
-        self.operator_info = {}
+        self.extract_infos()
         self.extract_operators()
-        self.writeorg_operators(open('operators.org', 'w').write)
+        self.writeorg_keys(Writer('blender-keys.org'))
+        self.writeorg_modes(Writer('blender-modes.org'))
+        self.writeorg_operators(open('blender-operators.org', 'w').write)
 
-    def extract_keys(self):
+    def extract_infos(self):
+        self.key_info = {}
+        self.mode_info = {}
         for keyconfig in bpy.data.window_managers['WinMan'].keyconfigs:
             keyconfig_name = keyconfig.name
             if keyconfig_name != 'Blender':
@@ -145,36 +145,31 @@ class Main:
                         assert keymap_item.value in (
                             'ANY', 'CLICK', 'PRESS', 'RELEASE')
                     sort2 = len(hotkey.split())
+                    value = (keymap_item.map_type, sort1, type, keymap_name,
+                             sort2, hotkey, keymap_item.name)
                     key_info = self.key_info.get(keymap_item.map_type)
                     if key_info is None:
                         key_info = self.key_info[keymap_item.map_type] = []
-                    key_info.append(
-                        (keymap_item.map_type, sort1, type,
-                         keymap_name, sort2, hotkey, keymap_item.name))
+                    key_info.append(value)
+                    mode_info = self.mode_info.get(keymap_name)
+                    if mode_info is None:
+                        mode_info = self.mode_info[keymap_name] = []
+                    mode_info.append(value)
 
-    def writeorg_keys(self, write):
-
-        def separator():
-            for counter, width in enumerate(widths):
-                if counter == 0:
-                    write('|-%s-' % ('-' * width))
-                else:
-                    write('+-%s-' % ('-' * width))
-            write('|\n')
-
-        write('#+TITLE: Blender Hot Keys\n')
+    def writeorg_keys(self, writer):
+        writer.write('#+TITLE: Blender Hot Keys, grouped by key\n')
         for map_type, key_info in sorted(self.key_info.items()):
-            write('* %s\n' % map_type.capitalize())
-            table = []
-            widths = None
+            writer.write('* %s\n' % map_type.capitalize())
+            writer.reset_table()
             previous_all = None
             previous_key = None
             previous_name = None
             previous_type = None
-            for _, _, type, keymap_name, _, hotkey, name in sorted(key_info):
+            for (_, _, type, keymap_name, _, hotkey, name
+                 ) in sorted(key_info):
                 if type != previous_type:
                     previous_type = type
-                    table.append(None)
+                    writer.add_separator()
                 all = type, keymap_name, hotkey, name
                 if all == previous_all:
                     continue
@@ -188,24 +183,39 @@ class Main:
                 else:
                     previous_key = type, keymap_name
                     previous_name = name
-                row = keymap_name, hotkey, name
-                if widths is None:
-                    widths = [0] * len(row)
-                for counter, cell in enumerate(row):
-                    if cell is not None and len(cell) > widths[counter]:
-                        widths[counter] = len(cell)
-                table.append(row)
-            table.append(None)
+                writer.add_row((keymap_name, hotkey, name))
+            writer.add_separator()
+            writer.output_table()
 
-            for row in table:
-                if row is None:
-                    separator()
+    def writeorg_modes(self, writer):
+        writer.write('#+TITLE: Blender Hot Keys, grouped by mode\n')
+        for keymap_name, mode_info in sorted(self.mode_info.items()):
+            writer.write('* %s\n' % keymap_name)
+            writer.reset_table()
+            previous_all = None
+            previous_map_type = None
+            previous_name = None
+            for (map_type, _, type, keymap_name, _, hotkey, name
+                 ) in sorted(mode_info):
+                all = map_type, type, keymap_name, hotkey, name
+                if all == previous_all:
+                    continue
+                previous_all = all
+                if map_type == previous_map_type:
+                    map_type = ''
                 else:
-                    for cell, width in zip(row, widths):
-                        write('| %*s ' % (-width, cell or ''))
-                    write('|\n')
+                    previous_map_type = map_type
+                    writer.add_separator()
+                if name == previous_name:
+                    name = ''
+                else:
+                    previous_name = name
+                writer.add_row((map_type.capitalize(), hotkey, name))
+            writer.add_separator()
+            writer.output_table()
 
     def extract_operators(self):
+        self.operator_info = {}
         for module_name in dir(bpy.ops):
             module = getattr(bpy.ops, module_name)
             for submodule_name in dir(module):
@@ -232,6 +242,46 @@ class Main:
                 write('#+BEGIN_SRC python\n')
                 write('  .%s\n' % call)
                 write('#+END_SRC\n')
+
+
+class Writer:
+
+    def __init__(self, name):
+        self.write = open(name, 'w').write
+        self.reset_table()
+
+    def add_row(self, row):
+        if self.widths is None:
+            self.widths = [0] * len(row)
+        for counter, cell in enumerate(row):
+            if cell is not None and len(cell) > self.widths[counter]:
+                self.widths[counter] = len(cell)
+        self.table.append(row)
+
+    def add_separator(self):
+        self.table.append(None)
+
+    def output_table(self):
+        for row in self.table:
+            if row is None:
+                first = True
+                for width in self.widths:
+                    if width > 0:
+                        if first:
+                            self.write('|-%s-' % ('-' * width))
+                            first = False
+                        else:
+                            self.write('+-%s-' % ('-' * width))
+                self.write('|\n')
+            else:
+                for cell, width in zip(row, self.widths):
+                    if width > 0:
+                        self.write('| %*s ' % (-width, cell or ''))
+                self.write('|\n')
+
+    def reset_table(self):
+        self.table = []
+        self.widths = None
 
 
 run = Main()
