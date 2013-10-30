@@ -19,6 +19,8 @@ all: blender-keys.org
 	@echo
 	@cat blender-operators.org
 
+pregithub: blender-keys.org
+
 blender-keys.org: blender-keys Makefile
 	rm -f blender-keys.org blender-modes.org blender-operators.org
 	$(BLENDER) -b -P blender-keys
