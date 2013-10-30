@@ -5,6 +5,7 @@
 |          | Alt ,              | Context Toggle              |
 |          | Ctrl ,             | Context Set Enum            |
 |          | Ctrl -             | Zoom View                   |
+|          | Shift Ctrl -       | Dolly View                  |
 |          | .                  | Context Set Enum            |
 |          | Alt .              |                             |
 |          | Ctrl .             |                             |
@@ -19,6 +20,7 @@
 |          | Any 8              |                             |
 |          | Any 9              |                             |
 |          | Ctrl =             | Zoom View                   |
+|          | Shift Ctrl =       | Dolly View                  |
 |          | Ctrl A             | Skin Resize                 |
 |          | B                  | Border Select               |
 |          | Alt B              | Clipping Border             |
@@ -44,13 +46,17 @@
 |          | Shift W            | Warp                        |
 |          | Z                  | Context Toggle Values       |
 |          | Alt Z              |                             |
+|          | Shift Z            |                             |
 |          | `                  | Layers                      |
 |          | Home               | View All                    |
 |          | Home               | View Camera Center          |
+|          | Home               | View Lock Center            |
 |          | Alt Home           | Center View to Cursor       |
 |          | Ctrl Home          | View All                    |
 |          | Num+               | Zoom View                   |
-|          | Num-               |                             |
+|          | Shift Num+         | Dolly View                  |
+|          | Num-               | Zoom View                   |
+|          | Shift Num-         | Dolly View                  |
 |          | Num.               | View Selected               |
 |          | Alt Num.           | View Lock Clear             |
 |          | Ctrl Num.          | View Selected               |
@@ -71,9 +77,11 @@
 |          | Shift Ctrl Num3    |                             |
 |          | Num4               | View Orbit                  |
 |          | Ctrl Num4          | View Pan                    |
+|          | Shift Num4         | View Roll                   |
 |          | Num5               | View Persp/Ortho            |
 |          | Num6               | View Orbit                  |
 |          | Ctrl Num6          | View Pan                    |
+|          | Shift Num6         | View Roll                   |
 |          | Num7               | View Numpad                 |
 |          | Ctrl Num7          |                             |
 |          | Shift Num7         |                             |
@@ -109,12 +117,14 @@
 |          | Shift WheelDn      |                             |
 |          | Ctrl Alt WheelDn   | View Orbit                  |
 |          | Shift Alt WheelDn  |                             |
+|          | Shift Ctrl WheelDn | View Roll                   |
 |          | WheelIn            | Zoom View                   |
 |          | WheelOut           |                             |
 |          | Ctrl WheelUp       | View Pan                    |
 |          | Shift WheelUp      |                             |
 |          | Ctrl Alt WheelUp   | View Orbit                  |
 |          | Shift Alt WheelUp  |                             |
+|          | Shift Ctrl WheelUp | View Roll                   |
 |          | Zoom               | Zoom View                   |
 |----------+--------------------+-----------------------------|
 | Ndof     | BUTTON_BACK        | View Numpad                 |
@@ -213,6 +223,7 @@
 |          | Shift Ctrl W |                         |
 |          | X            | Delete                  |
 |          | X            | Delete Selected Bone(s) |
+|          | Y            | Split                   |
 |          | [            | Select Hierarchy        |
 |          | Shift [      |                         |
 |          | ]            |                         |
@@ -221,6 +232,8 @@
 |          | Delete       | Delete                  |
 |          | Delete       | Delete Selected Bone(s) |
 |          | Escape       | Cancel Stroke           |
+|          | Ctrl Num+    | Select More             |
+|          | Ctrl Num-    | Select Less             |
 |----------+--------------+-------------------------|
 | Mouse    | LMB          | Draw Stroke             |
 |          | Ctrl LMB     | Click-Extrude           |
@@ -253,7 +266,11 @@
 |----------+------+----------------|
 * Clip Editor
 |----------+------------------------+----------------------|
-| Keyboard | A                      | (De)select All       |
+| Keyboard | ,                      | Context Set Enum     |
+|          | Ctrl ,                 |                      |
+|          | .                      |                      |
+|          | Ctrl .                 |                      |
+|          | A                      | (De)select All       |
 |          | B                      | Border Select        |
 |          | C                      | Circle Select        |
 |          | Alt D                  | Context Toggle       |
@@ -264,6 +281,8 @@
 |          | H                      | Hide Tracks          |
 |          | Alt H                  | Hide Tracks Clear    |
 |          | Shift H                | Hide Tracks          |
+|          | I                      | Insert keyframe      |
+|          | Alt I                  | Delete keyframe      |
 |          | Ctrl I                 | (De)select All       |
 |          | Ctrl J                 | Join Tracks          |
 |          | L                      | Context Toggle       |
@@ -301,7 +320,9 @@
 |          | Shift Ctrl Right       |                      |
 |----------+------------------------+----------------------|
 | Mouse    | LMB                    | Change Frame         |
+|          | LMB                    | Set 2D Cursor        |
 |          | LMB                    | Slide Marker         |
+|          | LMB                    | Slide Plane Marker   |
 |          | Ctrl LMB               | Add Marker and Slide |
 |          | MMB                    | View Pan             |
 |          | Ctrl MMB               | View Zoom            |
@@ -367,6 +388,7 @@
 |           | Ctrl Num+       | Context Int Cycle             |
 |           | Ctrl Num-       |                               |
 |           | NumEnter        | Console Execute               |
+|           | Shift NumEnter  | Clear Line                    |
 |           | Right           | Move Cursor                   |
 |           | Ctrl Right      |                               |
 |           | Ctrl Space      | Console Autocomplete          |
@@ -409,62 +431,65 @@
 |          | V         | Set Handle Type          |
 |          | W         | Call Menu                |
 |          | X         | Delete                   |
-|          | Delete    |                          |
+|          | Y         | Split                    |
+|          | Delete    | Delete                   |
 |          | Ctrl Num+ | Select More              |
 |          | Ctrl Num- | Select Less              |
 |----------+-----------+--------------------------|
 | Mouse    | Ctrl LMB  | Add Vertex               |
 |----------+-----------+--------------------------|
 * Dopesheet
-|----------+----------------+----------------------------|
-| Keyboard | A              | Select All                 |
-|          | B              | Border Select              |
-|          | Alt B          |                            |
-|          | Ctrl C         | Copy Keyframes             |
-|          | Shift D        | Duplicate                  |
-|          | E              | Transform                  |
-|          | Shift E        | Set Keyframe Extrapolation |
-|          | G              | Transform                  |
-|          | Ctrl G         | Jump to Keyframes          |
-|          | I              | Insert Keyframes           |
-|          | Ctrl I         | Select All                 |
-|          | K              |                            |
-|          | Alt K          |                            |
-|          | Ctrl K         |                            |
-|          | Shift K        |                            |
-|          | L              | Select Linked              |
-|          | M              | Add Time Marker            |
-|          | Ctrl M         | Rename Marker              |
-|          | Shift M        | Mirror Keys                |
-|          | O              | Clean Keyframes            |
-|          | Shift O        | Sample Keyframes           |
-|          | Ctrl Alt P     | Auto-Set Preview Range     |
-|          | R              | Set Keyframe Type          |
-|          | S              | Transform                  |
-|          | Shift S        | Snap Keys                  |
-|          | T              | Set Keyframe Interpolation |
-|          | Shift T        | Transform                  |
-|          | V              | Set Keyframe Handle Type   |
-|          | Ctrl V         | Paste Keyframes            |
-|          | X              | Delete Keyframes           |
-|          | [              | Select Left/Right          |
-|          | ]              |                            |
-|          | Delete         | Delete Keyframes           |
-|          | Home           | View All                   |
-|          | Ctrl Num+      | Select More                |
-|          | Ctrl Num-      | Select Less                |
-|          | Num.           | View Selected              |
-|          | Tab            | Toggle Channel Editability |
-|----------+----------------+----------------------------|
-| Mouse    | RMB            | Mouse Select Keys          |
-|          | Alt RMB        |                            |
-|          | Ctrl RMB       | Select Left/Right          |
-|          | Shift RMB      | Mouse Select Keys          |
-|          | Shift Alt RMB  |                            |
-|          | Shift Ctrl RMB | Select Left/Right          |
-|----------+----------------+----------------------------|
-| Tweak    | Tweak S        | Transform                  |
-|----------+----------------+----------------------------|
+|----------+--------------------+----------------------------|
+| Keyboard | A                  | Select All                 |
+|          | B                  | Border Select              |
+|          | Alt B              |                            |
+|          | Ctrl C             | Copy Keyframes             |
+|          | Shift D            | Duplicate                  |
+|          | E                  | Transform                  |
+|          | Shift E            | Set Keyframe Extrapolation |
+|          | G                  | Transform                  |
+|          | Ctrl G             | Jump to Keyframes          |
+|          | I                  | Insert Keyframes           |
+|          | Ctrl I             | Select All                 |
+|          | K                  |                            |
+|          | Alt K              |                            |
+|          | Ctrl K             |                            |
+|          | Shift K            |                            |
+|          | L                  | Select Linked              |
+|          | M                  | Add Time Marker            |
+|          | Ctrl M             | Rename Marker              |
+|          | Shift M            | Mirror Keys                |
+|          | O                  | Clean Keyframes            |
+|          | Shift O            | Sample Keyframes           |
+|          | Ctrl Alt P         | Auto-Set Preview Range     |
+|          | R                  | Set Keyframe Type          |
+|          | S                  | Transform                  |
+|          | Shift S            | Snap Keys                  |
+|          | T                  | Set Keyframe Interpolation |
+|          | Shift T            | Transform                  |
+|          | V                  | Set Keyframe Handle Type   |
+|          | Ctrl V             | Paste Keyframes            |
+|          | X                  | Delete Keyframes           |
+|          | [                  | Select Left/Right          |
+|          | ]                  |                            |
+|          | Delete             | Delete Keyframes           |
+|          | Home               | View All                   |
+|          | Ctrl Num+          | Select More                |
+|          | Ctrl Num-          | Select Less                |
+|          | Num.               | View Selected              |
+|          | Tab                | Toggle Channel Editability |
+|----------+--------------------+----------------------------|
+| Mouse    | RMB                | Mouse Select Keys          |
+|          | Alt RMB            |                            |
+|          | Ctrl RMB           | Select Left/Right          |
+|          | Shift RMB          | Mouse Select Keys          |
+|          | Ctrl Alt RMB       |                            |
+|          | Shift Alt RMB      |                            |
+|          | Shift Ctrl RMB     | Select Left/Right          |
+|          | Shift Ctrl Alt RMB | Mouse Select Keys          |
+|----------+--------------------+----------------------------|
+| Tweak    | Tweak S            | Transform                  |
+|----------+--------------------+----------------------------|
 * Face Mask
 |----------+---------+--------------------|
 | Keyboard | A       | (De)select All     |
@@ -568,28 +593,30 @@
 | Textinput | Any TEXTINPUT    | Insert Text      |
 |-----------+------------------+------------------|
 * Frames
-|----------+-----------------+------------------|
-| Keyboard | Alt A           | Play Animation   |
-|          | Shift Alt A     |                  |
-|          | Down            | Jump to Keyframe |
-|          | Shift Down      | Frame Offset     |
-|          | Shift Ctrl Down | Jump to Endpoint |
-|          | Escape          | Cancel Animation |
-|          | Left            | Frame Offset     |
-|          | Shift Left      | Jump to Endpoint |
-|          | MEDIA_FIRST     | Jump to Keyframe |
-|          | MEDIA_LAST      |                  |
-|          | MEDIA_PLAY      | Play Animation   |
-|          | MEDIA_STOP      | Cancel Animation |
-|          | Right           | Frame Offset     |
-|          | Shift Right     | Jump to Endpoint |
-|          | Up              | Jump to Keyframe |
-|          | Shift Up        | Frame Offset     |
-|          | Shift Ctrl Up   | Jump to Endpoint |
-|----------+-----------------+------------------|
-| Mouse    | Alt WheelDn     | Frame Offset     |
-|          | Alt WheelUp     |                  |
-|----------+-----------------+------------------|
+|----------+------------------+------------------|
+| Keyboard | Alt A            | Play Animation   |
+|          | Shift Alt A      |                  |
+|          | Down             | Jump to Keyframe |
+|          | Shift Down       | Frame Offset     |
+|          | Shift Ctrl Down  | Jump to Endpoint |
+|          | Escape           | Cancel Animation |
+|          | Left             | Frame Offset     |
+|          | Shift Left       | Jump to Endpoint |
+|          | Shift Ctrl Left  | Jump to Marker   |
+|          | MEDIA_FIRST      | Jump to Keyframe |
+|          | MEDIA_LAST       |                  |
+|          | MEDIA_PLAY       | Play Animation   |
+|          | MEDIA_STOP       | Cancel Animation |
+|          | Right            | Frame Offset     |
+|          | Shift Right      | Jump to Endpoint |
+|          | Shift Ctrl Right | Jump to Marker   |
+|          | Up               | Jump to Keyframe |
+|          | Shift Up         | Frame Offset     |
+|          | Shift Ctrl Up    | Jump to Endpoint |
+|----------+------------------+------------------|
+| Mouse    | Alt WheelDn      | Frame Offset     |
+|          | Alt WheelUp      |                  |
+|----------+------------------+------------------|
 * Gesture Border
 |----------+------------|
 | Keyboard | Any Escape |
@@ -703,7 +730,8 @@
 |          | 7          |                  |
 |          | 8          |                  |
 |          | 9          |                  |
-|          | Home       | View All         |
+|          | F          | View All         |
+|          | Home       |                  |
 |          | Num+       | View Zoom In     |
 |          | Num-       | View Zoom Out    |
 |          | Num.       | View Center      |
@@ -772,6 +800,7 @@
 |          | F             | Radial Control                |
 |          | Ctrl F        |                               |
 |          | Shift F       |                               |
+|          | Ctrl Alt F    |                               |
 |          | M             | Context Toggle                |
 |          | R             | Context Enum Menu             |
 |          | S             | Sample Color                  |
@@ -815,18 +844,21 @@
 |          | Any Space      |
 |----------+----------------|
 | Mouse    | Any LMB        |
+|          | Any MMB        |
 |          | Any RMB        |
 |----------+----------------|
 * Lattice
-|----------+---------+------------------------|
-| Keyboard | A       | (De)select All         |
-|          | Ctrl F  | Flip (Distortion Free) |
-|          | Ctrl H  | Call Menu              |
-|          | Ctrl I  | (De)select All         |
-|          | O       | Context Toggle Values  |
-|          | Shift O | Context Enum Cycle     |
-|          | Ctrl P  | Make Vertex Parent     |
-|----------+---------+------------------------|
+|----------+-----------+------------------------|
+| Keyboard | A         | (De)select All         |
+|          | Ctrl F    | Flip (Distortion Free) |
+|          | Ctrl H    | Call Menu              |
+|          | Ctrl I    | (De)select All         |
+|          | O         | Context Toggle Values  |
+|          | Shift O   | Context Enum Cycle     |
+|          | Ctrl P    | Make Vertex Parent     |
+|          | Ctrl Num+ | Select More            |
+|          | Ctrl Num- | Select Less            |
+|----------+-----------+------------------------|
 * Logic Editor
 |----------+----------+------------|
 | Keyboard | Shift A  | Call Menu  |
@@ -856,9 +888,11 @@
 * Mask Editing
 |----------+------------------------+------------------------------|
 | Keyboard | A                      | (De)select All               |
+|          | Shift A                | Call Menu                    |
 |          | B                      | Border Select                |
 |          | C                      | Circle Select                |
 |          | Alt C                  | Toggle Cyclic                |
+|          | Shift D                | Add Duplicate                |
 |          | G                      | Translate                    |
 |          | H                      | Set Restrict View            |
 |          | Alt H                  | Clear Restrict View          |
@@ -881,6 +915,8 @@
 |          | V                      | Set Handle Type              |
 |          | X                      | Delete                       |
 |          | Delete                 |                              |
+|          | Ctrl Num+              | Select More                  |
+|          | Ctrl Num-              | Select Less                  |
 |----------+------------------------+------------------------------|
 | Mouse    | LMB                    | Set 2D Cursor                |
 |          | LMB                    | Slide Point                  |
@@ -914,7 +950,7 @@
 |          | F                  | Make Edge/Face                    |
 |          | Alt F              | Fill                              |
 |          | Ctrl F             | Call Menu                         |
-|          | Shift Alt F        | Beautify Fill                     |
+|          | Shift Alt F        | Beautify Faces                    |
 |          | Shift Ctrl Alt F   | Select Linked Flat Faces          |
 |          | Ctrl G             | Call Menu                         |
 |          | Shift G            | Select Similar                    |
@@ -953,8 +989,10 @@
 |          | Shift V            | Vertex Slide                      |
 |          | W                  | Call Menu                         |
 |          | X                  |                                   |
+|          | Ctrl X             | Dissolve Selection                |
 |          | Y                  | Split                             |
 |          | Delete             | Call Menu                         |
+|          | Ctrl Delete        | Dissolve Selection                |
 |          | Ctrl Num+          | Select More                       |
 |          | Ctrl Num-          | Select Less                       |
 |          | Ctrl Tab           | Call Menu                         |
@@ -968,20 +1006,21 @@
 |          | Shift Ctrl Alt RMB | Edge Ring Select                  |
 |----------+--------------------+-----------------------------------|
 * Metaball
-|----------+---------+------------------------|
-| Keyboard | A       | (De)select All         |
-|          | Shift A | Add Metaball           |
-|          | Shift D | Duplicate Metaelements |
-|          | H       | Hide                   |
-|          | Alt H   | Reveal                 |
-|          | Shift H | Hide                   |
-|          | Ctrl I  | (De)select All         |
-|          | O       | Context Toggle Values  |
-|          | Alt O   |                        |
-|          | Shift O | Context Enum Cycle     |
-|          | X       | Delete                 |
-|          | Delete  |                        |
-|----------+---------+------------------------|
+|----------+---------+-----------------------|
+| Keyboard | A       | (De)select All        |
+|          | Shift A | Add Metaball          |
+|          | Shift D | Duplicate             |
+|          | Shift G | Select Similar        |
+|          | H       | Hide                  |
+|          | Alt H   | Reveal                |
+|          | Shift H | Hide                  |
+|          | Ctrl I  | (De)select All        |
+|          | O       | Context Toggle Values |
+|          | Alt O   |                       |
+|          | Shift O | Context Enum Cycle    |
+|          | X       | Delete                |
+|          | Delete  |                       |
+|----------+---------+-----------------------|
 * NLA Channels
 |----------+--------------+-----------------------------|
 | Keyboard | Shift A      | Add Tracks                  |
@@ -1083,6 +1122,7 @@
 |          | Shift ]                |                              |
 |          | Delete                 | Delete                       |
 |          | Home                   | View All                     |
+|          | Alt Home               | Background Image Fit         |
 |          | Num.                   | View Selected                |
 |          | Tab                    | Edit Group                   |
 |          | Shift Tab              |                              |
@@ -1363,72 +1403,73 @@
 | Keyboard | Shift Ctrl Alt P | Run Python File |
 |----------+------------------+-----------------|
 * Sculpt
-|----------+---------------+-------------------------------|
-| Keyboard | 0             | Set Brush Number              |
-|          | Ctrl 0        | Subdivision Set               |
-|          | Shift 0       | Set Brush Number              |
-|          | 1             |                               |
-|          | Ctrl 1        | Subdivision Set               |
-|          | Shift 1       | Set Brush Number              |
-|          | 2             |                               |
-|          | Ctrl 2        | Subdivision Set               |
-|          | Shift 2       | Set Brush Number              |
-|          | 3             |                               |
-|          | Ctrl 3        | Subdivision Set               |
-|          | Shift 3       | Set Brush Number              |
-|          | 4             |                               |
-|          | Ctrl 4        | Subdivision Set               |
-|          | Shift 4       | Set Brush Number              |
-|          | 5             |                               |
-|          | Ctrl 5        | Subdivision Set               |
-|          | Shift 5       | Set Brush Number              |
-|          | 6             |                               |
-|          | Shift 6       |                               |
-|          | 7             |                               |
-|          | Shift 7       |                               |
-|          | 8             |                               |
-|          | Shift 8       |                               |
-|          | 9             |                               |
-|          | Shift 9       |                               |
-|          | A             | Context Enum Menu             |
-|          | C             | Brush Select                  |
-|          | Shift C       |                               |
-|          | D             |                               |
-|          | Ctrl D        | Dynamic Topology Toggle       |
-|          | Shift D       | Radial Control                |
-|          | F             |                               |
-|          | Ctrl F        |                               |
-|          | Shift F       |                               |
-|          | G             | Brush Select                  |
-|          | H             | Hide/Show                     |
-|          | Alt H         |                               |
-|          | Shift H       |                               |
-|          | I             | Brush Select                  |
-|          | Ctrl I        | Mask Flood Fill               |
-|          | K             | Brush Select                  |
-|          | L             |                               |
-|          | M             |                               |
-|          | Alt M         | Mask Flood Fill               |
-|          | P             | Brush Select                  |
-|          | R             | Context Enum Menu             |
-|          | S             | Brush Select                  |
-|          | Shift S       | Context Toggle                |
-|          | Shift T       | Brush Select                  |
-|          | [             | Scale Sculpt/Paint Brush Size |
-|          | ]             |                               |
-|          | PgDn          | Subdivision Set               |
-|          | PgUp          |                               |
-|----------+---------------+-------------------------------|
-| Mouse    | LMB           | Sculpt                        |
-|          | Ctrl LMB      |                               |
-|          | Shift LMB     |                               |
-|          | RMB           | Stencil Brush Control         |
-|          | Alt RMB       |                               |
-|          | Ctrl RMB      |                               |
-|          | Shift RMB     |                               |
-|          | Ctrl Alt RMB  |                               |
-|          | Shift Alt RMB |                               |
-|----------+---------------+-------------------------------|
+|----------+----------------+-------------------------------|
+| Keyboard | 0              | Set Brush Number              |
+|          | Ctrl 0         | Subdivision Set               |
+|          | Shift 0        | Set Brush Number              |
+|          | 1              |                               |
+|          | Ctrl 1         | Subdivision Set               |
+|          | Shift 1        | Set Brush Number              |
+|          | 2              |                               |
+|          | Ctrl 2         | Subdivision Set               |
+|          | Shift 2        | Set Brush Number              |
+|          | 3              |                               |
+|          | Ctrl 3         | Subdivision Set               |
+|          | Shift 3        | Set Brush Number              |
+|          | 4              |                               |
+|          | Ctrl 4         | Subdivision Set               |
+|          | Shift 4        | Set Brush Number              |
+|          | 5              |                               |
+|          | Ctrl 5         | Subdivision Set               |
+|          | Shift 5        | Set Brush Number              |
+|          | 6              |                               |
+|          | Shift 6        |                               |
+|          | 7              |                               |
+|          | Shift 7        |                               |
+|          | 8              |                               |
+|          | Shift 8        |                               |
+|          | 9              |                               |
+|          | Shift 9        |                               |
+|          | A              | Context Enum Menu             |
+|          | C              | Brush Select                  |
+|          | Shift C        |                               |
+|          | D              |                               |
+|          | Ctrl D         | Dynamic Topology Toggle       |
+|          | Shift D        | Radial Control                |
+|          | F              |                               |
+|          | Ctrl F         |                               |
+|          | Shift F        |                               |
+|          | G              | Brush Select                  |
+|          | H              | Hide/Show                     |
+|          | Alt H          |                               |
+|          | Shift H        |                               |
+|          | I              | Brush Select                  |
+|          | Ctrl I         | Mask Flood Fill               |
+|          | K              | Brush Select                  |
+|          | L              |                               |
+|          | M              |                               |
+|          | Alt M          | Mask Flood Fill               |
+|          | P              | Brush Select                  |
+|          | R              | Context Enum Menu             |
+|          | S              | Brush Select                  |
+|          | Shift S        | Context Toggle                |
+|          | Shift T        | Brush Select                  |
+|          | [              | Scale Sculpt/Paint Brush Size |
+|          | ]              |                               |
+|          | PgDn           | Subdivision Set               |
+|          | PgUp           |                               |
+|----------+----------------+-------------------------------|
+| Mouse    | LMB            | Sculpt                        |
+|          | Ctrl LMB       |                               |
+|          | Shift LMB      |                               |
+|          | Shift Ctrl LMB | Mask Lasso Gesture            |
+|          | RMB            | Stencil Brush Control         |
+|          | Alt RMB        |                               |
+|          | Ctrl RMB       |                               |
+|          | Shift RMB      |                               |
+|          | Ctrl Alt RMB   |                               |
+|          | Shift Alt RMB  |                               |
+|----------+----------------+-------------------------------|
 * Sequencer
 |----------+-----------------+--------------------|
 | Keyboard | 0               | Cut multicam       |
@@ -1533,9 +1574,6 @@
 |           | Shift Ctrl D     | Uncomment          |
 |           | Ctrl E           | Move Cursor        |
 |           | Shift Ctrl E     |                    |
-|           | Ctrl G           | Find Next          |
-|           | Ctrl H           | Replace            |
-|           | Ctrl J           | Jump               |
 |           | Alt M            | To 3D Object       |
 |           | Ctrl M           |                    |
 |           | Ctrl N           | Create Text Block  |
@@ -1608,9 +1646,13 @@
 | Tweak     | Tweak L          | Set Selection      |
 |-----------+------------------+--------------------|
 * Text Generic
-|----------+--------+------|
-| Keyboard | Ctrl F | Find |
-|----------+--------+------|
+|----------+--------+------------|
+| Keyboard | Ctrl F | Find       |
+|          | Ctrl G | Find Next  |
+|          | Ctrl H | Replace    |
+|          | Ctrl J | Jump       |
+|          | Ctrl T | Properties |
+|----------+--------+------------|
 * Timeline
 |----------+------+-----------------|
 | Keyboard | E    | Set End Frame   |
@@ -1813,14 +1855,18 @@
 |          | W             |
 |          | X             |
 |          | Z             |
+|          | Down          |
 |          | Any Enter     |
 |          | Any Escape    |
+|          | Left          |
 |          | Any LeftCtrl  |
 |          | Any LeftShift |
 |          | Any Num+      |
 |          | Any Num-      |
 |          | Any NumEnter  |
+|          | Right         |
 |          | Any Space     |
+|          | Up            |
 |----------+---------------|
 | Mouse    | Any LMB       |
 |          | Any MMB       |

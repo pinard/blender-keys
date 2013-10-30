@@ -66,7 +66,7 @@
 #+END_SRC
 ** Select keyframes by clicking on them
 #+BEGIN_SRC python
-  .clickselect(extend=False, column=False)
+  .clickselect(extend=False, column=False, channel=False)
 #+END_SRC
 ** Select keyframes occurring in the same F-Curves as selected ones
 #+BEGIN_SRC python
@@ -281,39 +281,6 @@
 #+BEGIN_SRC python
   .update_data_paths()
 #+END_SRC
-* bpy.ops.api_navigator
-** Clear the filter
-#+BEGIN_SRC python
-  .clear_filter()
-#+END_SRC
-** Subscript to this Item
-#+BEGIN_SRC python
-  .subscript(subscription="")
-#+END_SRC
-** The list is not displayed completely
-#+BEGIN_SRC python
-  .fake_button()
-#+END_SRC
-** Toggle on or off api_doc_ Text
-#+BEGIN_SRC python
-  .toggle_doc()
-#+END_SRC
-** Update the tree structure
-#+BEGIN_SRC python
-  .update()
-#+END_SRC
-** go back to module bpy
-#+BEGIN_SRC python
-  .back_to_bpy()
-#+END_SRC
-** go to Parent Module
-#+BEGIN_SRC python
-  .parent()
-#+END_SRC
-** go to this Module
-#+BEGIN_SRC python
-  .down(pointed_module="")
-#+END_SRC
 * bpy.ops.armature
 ** Add a new bone located at the 3D-Cursor
 #+BEGIN_SRC python
@@ -361,11 +328,15 @@
 #+END_SRC
 ** Create new bones from the selected joints and move them
 #+BEGIN_SRC python
-  .extrude_forked(ARMATURE_OT_extrude={"forked":False}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "release_confirm":False})
+  .extrude_forked(ARMATURE_OT_extrude={"forked":False}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "remove_on_cancel":False, "release_confirm":False})
 #+END_SRC
 ** Create new bones from the selected joints and move them
 #+BEGIN_SRC python
-  .extrude_move(ARMATURE_OT_extrude={"forked":False}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "release_confirm":False})
+  .extrude_move(ARMATURE_OT_extrude={"forked":False}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "remove_on_cancel":False, "release_confirm":False})
+#+END_SRC
+** Deselect those bones at the boundary of each selection region
+#+BEGIN_SRC python
+  .select_less()
 #+END_SRC
 ** Flip the selection status of bones (selected -> unselected, unselected -> selected)
 #+BEGIN_SRC python
@@ -389,7 +360,7 @@
 #+END_SRC
 ** Make copies of the selected bones within the same armature and move them
 #+BEGIN_SRC python
-  .duplicate_move(ARMATURE_OT_duplicate={}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "release_confirm":False})
+  .duplicate_move(ARMATURE_OT_duplicate={}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "remove_on_cancel":False, "release_confirm":False})
 #+END_SRC
 ** Merge continuous chains of selected bones
 #+BEGIN_SRC python
@@ -415,9 +386,17 @@
 #+BEGIN_SRC python
   .select_similar(type='LENGTH', threshold=0.1)
 #+END_SRC
+** Select those bones connected to the initial selection
+#+BEGIN_SRC python
+  .select_more()
+#+END_SRC
 ** Set the active bone as the parent of the selected bones
 #+BEGIN_SRC python
   .parent_set(type='CONNECTED')
+#+END_SRC
+** Split off selected bones from connected unselected bones
+#+BEGIN_SRC python
+  .split()
 #+END_SRC
 ** Tag selected bones to not be visible in Edit Mode
 #+BEGIN_SRC python
@@ -534,11 +513,11 @@
 #+END_SRC
 ** Add new marker and move it on movie
 #+BEGIN_SRC python
-  .add_marker_move(CLIP_OT_add_marker={"location":(0, 0)}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "release_confirm":False})
+  .add_marker_move(CLIP_OT_add_marker={"location":(0, 0)}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "remove_on_cancel":False, "release_confirm":False})
 #+END_SRC
 ** Add new marker and slide it with mouse until mouse button release
 #+BEGIN_SRC python
-  .add_marker_slide(CLIP_OT_add_marker={"location":(0, 0)}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "release_confirm":False})
+  .add_marker_slide(CLIP_OT_add_marker={"location":(0, 0)}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "remove_on_cancel":False, "release_confirm":False})
 #+END_SRC
 ** Add new object for tracking
 #+BEGIN_SRC python
@@ -600,9 +579,17 @@
 #+BEGIN_SRC python
   .track_to_empty()
 #+END_SRC
+** Create new plane track out of selected point tracks
+#+BEGIN_SRC python
+  .create_plane_track()
+#+END_SRC
 ** Create vertex cloud using coordinates of reconstructed tracks
 #+BEGIN_SRC python
   .bundles_to_mesh()
+#+END_SRC
+** Delete a keyframe from selected tracks at current frame
+#+BEGIN_SRC python
+  .keyframe_delete()
 #+END_SRC
 ** Delete curve knots
 #+BEGIN_SRC python
@@ -635,6 +622,10 @@
 ** Hide selected tracks
 #+BEGIN_SRC python
   .hide_tracks(unselected=False)
+#+END_SRC
+** Insert a keyframe to selected tracks at current frame
+#+BEGIN_SRC python
+  .keyframe_insert()
 #+END_SRC
 ** Interactively change the current frame number
 #+BEGIN_SRC python
@@ -744,6 +735,10 @@
 #+BEGIN_SRC python
   .select(extend=False, location=(0, 0))
 #+END_SRC
+** Set 2D cursor location
+#+BEGIN_SRC python
+  .cursor_set(location=(0, 0))
+#+END_SRC
 ** Set active marker as origin by moving camera (or it's parent if present) in 3D space
 #+BEGIN_SRC python
   .set_origin(use_median=False)
@@ -792,6 +787,10 @@
 #+BEGIN_SRC python
   .slide_marker(offset=(0, 0))
 #+END_SRC
+** Slide plane marker areas
+#+BEGIN_SRC python
+  .slide_plane_marker()
+#+END_SRC
 ** Solve camera motion from tracks
 #+BEGIN_SRC python
   .solve_camera()
@@ -806,7 +805,7 @@
 #+END_SRC
 ** Track selected markers
 #+BEGIN_SRC python
-  .track_markers(backwards=False, sequence=False)
+  .track_markers(backwards=False, sequence=False, clip="")
 #+END_SRC
 ** Use a 3D mouse device to pan/zoom the view
 #+BEGIN_SRC python
@@ -982,27 +981,27 @@
 #+END_SRC
 ** Construct a Bezier Circle
 #+BEGIN_SRC python
-  .primitive_bezier_circle_add(view_align=False, enter_editmode=False, location=(0, 0, 0), rotation=(0, 0, 0), layers=(False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False))
+  .primitive_bezier_circle_add(radius=1, view_align=False, enter_editmode=False, location=(0, 0, 0), rotation=(0, 0, 0), layers=(False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False))
 #+END_SRC
 ** Construct a Bezier Curve
 #+BEGIN_SRC python
-  .primitive_bezier_curve_add(view_align=False, enter_editmode=False, location=(0, 0, 0), rotation=(0, 0, 0), layers=(False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False))
+  .primitive_bezier_curve_add(radius=1, view_align=False, enter_editmode=False, location=(0, 0, 0), rotation=(0, 0, 0), layers=(False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False))
 #+END_SRC
 ** Construct a Nurbs Circle
 #+BEGIN_SRC python
-  .primitive_nurbs_circle_add(view_align=False, enter_editmode=False, location=(0, 0, 0), rotation=(0, 0, 0), layers=(False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False))
+  .primitive_nurbs_circle_add(radius=1, view_align=False, enter_editmode=False, location=(0, 0, 0), rotation=(0, 0, 0), layers=(False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False))
 #+END_SRC
 ** Construct a Nurbs Curve
 #+BEGIN_SRC python
-  .primitive_nurbs_curve_add(view_align=False, enter_editmode=False, location=(0, 0, 0), rotation=(0, 0, 0), layers=(False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False))
+  .primitive_nurbs_curve_add(radius=1, view_align=False, enter_editmode=False, location=(0, 0, 0), rotation=(0, 0, 0), layers=(False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False))
 #+END_SRC
 ** Construct a Path
 #+BEGIN_SRC python
-  .primitive_nurbs_path_add(view_align=False, enter_editmode=False, location=(0, 0, 0), rotation=(0, 0, 0), layers=(False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False))
+  .primitive_nurbs_path_add(radius=1, view_align=False, enter_editmode=False, location=(0, 0, 0), rotation=(0, 0, 0), layers=(False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False))
 #+END_SRC
 ** Delete selected control points or segments
 #+BEGIN_SRC python
-  .delete(type='SELECTED')
+  .delete(type='VERT')
 #+END_SRC
 ** Deselect every other vertex
 #+BEGIN_SRC python
@@ -1010,15 +1009,15 @@
 #+END_SRC
 ** Duplicate curve and move
 #+BEGIN_SRC python
-  .duplicate_move(CURVE_OT_duplicate={}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "release_confirm":False})
+  .duplicate_move(CURVE_OT_duplicate={}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "remove_on_cancel":False, "release_confirm":False})
 #+END_SRC
-** Duplicate selected control points and segments between them
+** Duplicate selected control points
 #+BEGIN_SRC python
   .duplicate()
 #+END_SRC
 ** Extrude curve and move result
 #+BEGIN_SRC python
-  .extrude_move(CURVE_OT_extrude={"mode":'TRANSLATION'}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "release_confirm":False})
+  .extrude_move(CURVE_OT_extrude={"mode":'TRANSLATION'}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "remove_on_cancel":False, "release_confirm":False})
 #+END_SRC
 ** Extrude selected boundary row around pivot point and current view axis
 #+BEGIN_SRC python
@@ -1032,13 +1031,21 @@
 #+BEGIN_SRC python
   .smooth()
 #+END_SRC
-** Flatten radii of selected points
-#+BEGIN_SRC python
-  .smooth_radius()
-#+END_SRC
 ** Hide (un)selected control points
 #+BEGIN_SRC python
   .hide(unselected=False)
+#+END_SRC
+** Interpolate radii of selected points
+#+BEGIN_SRC python
+  .smooth_radius()
+#+END_SRC
+** Interpolate tilt of selected points
+#+BEGIN_SRC python
+  .smooth_tilt()
+#+END_SRC
+** Interpolate weight of selected points
+#+BEGIN_SRC python
+  .smooth_weight()
 #+END_SRC
 ** Join two curves by their selected ends
 #+BEGIN_SRC python
@@ -1080,7 +1087,7 @@
 #+BEGIN_SRC python
   .select_previous()
 #+END_SRC
-** Separate (partly) selected curves or surfaces into a new object
+** Separate selected points from connected unselected points into a new object
 #+BEGIN_SRC python
   .separate()
 #+END_SRC
@@ -1112,6 +1119,10 @@
 #+BEGIN_SRC python
   .reveal()
 #+END_SRC
+** Split off selected points from connected unselected points
+#+BEGIN_SRC python
+  .split()
+#+END_SRC
 ** Subdivide selected segments
 #+BEGIN_SRC python
   .subdivide(number_cuts=1)
@@ -1119,10 +1130,6 @@
 ** Switch direction of selected splines
 #+BEGIN_SRC python
   .switch_direction()
-#+END_SRC
-** simplify
-#+BEGIN_SRC python
-  .simplify(mode='DISTANCE', output='INPUT', k_thresh=0, pointsNr=5, error=0, degreeOut=5, dis_error=0, keepShort=True)
 #+END_SRC
 * bpy.ops.cycles
 ** Enable nodes on a material, world or lamp
@@ -1167,10 +1174,36 @@
 #+BEGIN_SRC python
   .undo()
 #+END_SRC
-* bpy.ops.export_mesh
-** Save Raw triangle mesh data
+* bpy.ops.export_anim
+** Save a BVH motion capture file from an armature
 #+BEGIN_SRC python
-  .raw(check_existing=True, filepath="", filter_glob="*.raw", apply_modifiers=True, triangulate=True)
+  .bvh(filepath="", check_existing=True, filter_glob="*.bvh", global_scale=1, frame_start=0, frame_end=0, rotate_mode='NATIVE', root_transform_only=False)
+#+END_SRC
+* bpy.ops.export_mesh
+** Export a single object as a Stanford PLY with normals, colors and texture coordinates
+#+BEGIN_SRC python
+  .ply(filepath="", check_existing=True, filter_glob="*.ply", use_mesh_modifiers=True, use_normals=True, use_uv_coords=True, use_colors=True, axis_forward='Y', axis_up='Z', global_scale=1)
+#+END_SRC
+** Save STL triangle mesh data from the active object
+#+BEGIN_SRC python
+  .stl(filepath="", check_existing=True, filter_glob="*.stl", ascii=False, use_mesh_modifiers=True, axis_forward='Y', axis_up='Z', global_scale=1)
+#+END_SRC
+* bpy.ops.export_scene
+** Export selection to Extensible 3D file (.x3d)
+#+BEGIN_SRC python
+  .x3d(filepath="", check_existing=True, filter_glob="*.x3d", use_selection=False, use_mesh_modifiers=True, use_triangulate=False, use_normals=False, use_compress=False, use_hierarchy=True, name_decorations=True, use_h3d=False, axis_forward='Z', axis_up='Y', global_scale=1, path_mode='AUTO')
+#+END_SRC
+** Export to 3DS file format (.3ds)
+#+BEGIN_SRC python
+  .autodesk_3ds(filepath="", check_existing=True, filter_glob="*.3ds", use_selection=False, axis_forward='Y', axis_up='Z')
+#+END_SRC
+** Save a Wavefront OBJ File
+#+BEGIN_SRC python
+  .obj(filepath="", check_existing=True, filter_glob="*.obj;*.mtl", use_selection=False, use_animation=False, use_mesh_modifiers=True, use_edges=True, use_smooth_groups=False, use_smooth_groups_bitflags=False, use_normals=False, use_uvs=True, use_materials=True, use_triangles=False, use_nurbs=False, use_vertex_groups=False, use_blen_objects=True, group_by_object=False, group_by_material=False, keep_vertex_order=False, axis_forward='-Z', axis_up='Y', global_scale=1, path_mode='AUTO')
+#+END_SRC
+** Selection to an ASCII Autodesk FBX
+#+BEGIN_SRC python
+  .fbx(filepath="", check_existing=True, filter_glob="*.fbx", use_selection=False, global_scale=1, axis_forward='-Z', axis_up='Y', object_types={, 'EMPTY', 'CAMERA', 'LAMP', 'ARMATURE', 'MESH'}, use_mesh_modifiers=True, mesh_smooth_type='FACE', use_mesh_edges=False, use_armature_deform_only=False, use_anim=True, use_anim_action_all=True, use_default_take=True, use_anim_optimize=True, anim_optimize_precision=6, path_mode='AUTO', batch_mode='OFF', use_batch_own_dir=True, use_metadata=True)
 #+END_SRC
 * bpy.ops.file
 ** Activate/select file
@@ -1195,7 +1228,7 @@
 #+END_SRC
 ** Delete selected bookmark
 #+BEGIN_SRC python
-  .delete_bookmark(index=-1)
+  .bookmark_delete(index=-1)
 #+END_SRC
 ** Delete selected files
 #+BEGIN_SRC python
@@ -1347,13 +1380,13 @@
 #+BEGIN_SRC python
   .open(filepath="", filter_blender=False, filter_backup=False, filter_image=False, filter_movie=False, filter_python=False, filter_font=True, filter_sound=False, filter_text=False, filter_btx=False, filter_collada=False, filter_folder=True, filemode=9, relative_path=True, display_type='FILE_DEFAULTDISPLAY')
 #+END_SRC
-** Make selection from current cursor position to new cursor position type
-#+BEGIN_SRC python
-  .move_select(type='LINE_BEGIN')
-#+END_SRC
 ** Move cursor to position type
 #+BEGIN_SRC python
   .move(type='LINE_BEGIN')
+#+END_SRC
+** Move the cursor while selecting
+#+BEGIN_SRC python
+  .move_select(type='LINE_BEGIN')
 #+END_SRC
 ** Paste contents from file
 #+BEGIN_SRC python
@@ -1561,10 +1594,6 @@
 #+BEGIN_SRC python
   .select_all_toggle(invert=False)
 #+END_SRC
-** simplify
-#+BEGIN_SRC python
-  .simplify(mode='DISTANCE', k_thresh=0, pointsNr=5, error=0, degreeOut=5, dis_error=0)
-#+END_SRC
 * bpy.ops.group
 ** Add the object to an object group that contains the active object
 #+BEGIN_SRC python
@@ -1574,11 +1603,11 @@
 #+BEGIN_SRC python
   .create(name="Group")
 #+END_SRC
-** Remove selected objects from all groups or a selected group
+** Remove selected objects from a group
 #+BEGIN_SRC python
   .objects_remove(group='<UNKNOWN ENUM>')
 #+END_SRC
-** Remove selected objects from all groups or a selected group
+** Remove selected objects from all groups
 #+BEGIN_SRC python
   .objects_remove_all()
 #+END_SRC
@@ -1689,7 +1718,7 @@
 #+END_SRC
 ** View the entire image
 #+BEGIN_SRC python
-  .view_all()
+  .view_all(fit_view=False)
 #+END_SRC
 ** Zoom in the image (centered around 2D cursor)
 #+BEGIN_SRC python
@@ -1703,15 +1732,41 @@
 #+BEGIN_SRC python
   .view_zoom_out(location=(0, 0))
 #+END_SRC
+* bpy.ops.import_anim
+** Load a BVH motion capture file
+#+BEGIN_SRC python
+  .bvh(filepath="", filter_glob="*.bvh", target='ARMATURE', global_scale=1, frame_start=1, use_fps_scale=False, use_cyclic=False, rotate_mode='NATIVE', axis_forward='-Z', axis_up='Y')
+#+END_SRC
 * bpy.ops.import_curve
 ** Load a SVG file
 #+BEGIN_SRC python
   .svg(filepath="", filter_glob="*.svg")
 #+END_SRC
 * bpy.ops.import_mesh
-** Load Raw triangle mesh data
+** Load STL triangle mesh data
 #+BEGIN_SRC python
-  .raw(filepath="", filter_glob="*.raw")
+  .stl(filepath="", filter_glob="*.stl", files=[], directory="")
+#+END_SRC
+** Load a PLY geometry file
+#+BEGIN_SRC python
+  .ply(filepath="", files=[], directory="", filter_glob="*.ply")
+#+END_SRC
+* bpy.ops.import_scene
+** Import an X3D or VRML2 file
+#+BEGIN_SRC python
+  .x3d(filepath="", filter_glob="*.x3d;*.wrl", axis_forward='Z', axis_up='Y')
+#+END_SRC
+** Import from 3DS file format (.3ds)
+#+BEGIN_SRC python
+  .autodesk_3ds(filepath="", filter_glob="*.3ds", constrain_size=10, use_image_search=True, use_apply_transform=True, axis_forward='Y', axis_up='Z')
+#+END_SRC
+** Load a FBX geometry file
+#+BEGIN_SRC python
+  .fbx(filepath="", directory="", filter_glob="*.fbx", use_image_search=True, use_alpha_decals=False, decal_offset=0, axis_forward='-Z', axis_up='Y', global_scale=1)
+#+END_SRC
+** Load a Wavefront OBJ File
+#+BEGIN_SRC python
+  .obj(filepath="", filter_glob="*.obj;*.mtl", use_ngons=True, use_edges=True, use_smooth_groups=True, use_split_objects=True, use_split_groups=True, use_groups_as_vgroups=False, use_image_search=True, split_mode='ON', global_clamp_size=0, axis_forward='-Z', axis_up='Y')
 #+END_SRC
 * bpy.ops.info
 ** Copy selected reports to Clipboard
@@ -1752,9 +1807,21 @@
 #+BEGIN_SRC python
   .select_all(action='TOGGLE')
 #+END_SRC
+** Deselect vertices at the boundary of each selection region
+#+BEGIN_SRC python
+  .select_less()
+#+END_SRC
 ** Mirror all control points without inverting the lattice deform
 #+BEGIN_SRC python
   .flip(axis='U')
+#+END_SRC
+** Randomly select UVW control points
+#+BEGIN_SRC python
+  .select_random(percent=50, extend=False)
+#+END_SRC
+** Select vertex directly linked to already selected ones
+#+BEGIN_SRC python
+  .select_more()
 #+END_SRC
 ** Select vertices without a group
 #+BEGIN_SRC python
@@ -1863,13 +1930,21 @@
 #+BEGIN_SRC python
   .select_linked_pick(deselect=False)
 #+END_SRC
+** Add new circle-shaped spline
+#+BEGIN_SRC python
+  .primitive_circle_add(size=100, location=(0, 0))
+#+END_SRC
 ** Add new mask layer for masking
 #+BEGIN_SRC python
   .layer_new(name="")
 #+END_SRC
+** Add new square-shaped spline
+#+BEGIN_SRC python
+  .primitive_square_add(size=100, location=(0, 0))
+#+END_SRC
 ** Add new vertex and slide it
 #+BEGIN_SRC python
-  .add_vertex_slide(MASK_OT_add_vertex={"location":(0, 0)}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "release_confirm":False})
+  .add_vertex_slide(MASK_OT_add_vertex={"location":(0, 0)}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "remove_on_cancel":False, "release_confirm":False})
 #+END_SRC
 ** Add new vertex to feather and slide it
 #+BEGIN_SRC python
@@ -1898,6 +1973,18 @@
 ** Delete selected control points or splines
 #+BEGIN_SRC python
   .delete()
+#+END_SRC
+** Deselect spline points at the boundary of each selection region
+#+BEGIN_SRC python
+  .select_less()
+#+END_SRC
+** Duplicate mask and move
+#+BEGIN_SRC python
+  .duplicate_move(MASK_OT_duplicate={}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "remove_on_cancel":False, "release_confirm":False})
+#+END_SRC
+** Duplicate selected control points and segments between them
+#+BEGIN_SRC python
+  .duplicate()
 #+END_SRC
 ** Hide the layer by setting the hide flag
 #+BEGIN_SRC python
@@ -1931,21 +2018,25 @@
 #+BEGIN_SRC python
   .hide_view_clear()
 #+END_SRC
-** Select all vertices linked to the active mesh
+** Select all curve points linked to already selected ones
 #+BEGIN_SRC python
   .select_linked()
 #+END_SRC
-** Select markers using border selection
+** Select curve points using border selection
 #+BEGIN_SRC python
   .select_border(gesture_mode=0, xmin=0, xmax=0, ymin=0, ymax=0, extend=True)
 #+END_SRC
-** Select markers using circle selection
+** Select curve points using circle selection
 #+BEGIN_SRC python
   .select_circle(x=0, y=0, radius=0, gesture_mode=0)
 #+END_SRC
-** Select markers using lasso selection
+** Select curve points using lasso selection
 #+BEGIN_SRC python
   .select_lasso(path=[], deselect=False, extend=True)
+#+END_SRC
+** Select more spline points connected to initial selection
+#+BEGIN_SRC python
+  .select_more()
 #+END_SRC
 ** Select spline points
 #+BEGIN_SRC python
@@ -2007,11 +2098,15 @@
 #+END_SRC
 ** Duplicate selected metaelement(s)
 #+BEGIN_SRC python
-  .duplicate_metaelems(mode='TRANSLATION')
+  .duplicate_metaelems()
 #+END_SRC
 ** Hide (un)selected metaelement(s)
 #+BEGIN_SRC python
   .hide_metaelems(unselected=False)
+#+END_SRC
+** Make copies of the selected bones within the same armature and move them
+#+BEGIN_SRC python
+  .duplicate_move(MBALL_OT_duplicate_metaelems={}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "remove_on_cancel":False, "release_confirm":False})
 #+END_SRC
 ** Randomly select metaelements
 #+BEGIN_SRC python
@@ -2020,6 +2115,10 @@
 ** Reveal all hidden metaelements
 #+BEGIN_SRC python
   .reveal_metaelems()
+#+END_SRC
+** Select similar metaballs by property types
+#+BEGIN_SRC python
+  .select_similar(type='TYPE', threshold=0.1)
 #+END_SRC
 * bpy.ops.mesh
 ** (De)select all vertices linked to the edge under the mouse cursor
@@ -2060,7 +2159,7 @@
 #+END_SRC
 ** Add a torus mesh
 #+BEGIN_SRC python
-  .primitive_torus_add(rotation=(0, 0, 0), location=(0, 0, 0), view_align=False, major_radius=1, minor_radius=0.25, major_segments=48, minor_segments=12, use_abso=False, abso_major_rad=1, abso_minor_rad=0.5)
+  .primitive_torus_add(rotation=(0, 0, 0), location=(0, 0, 0), view_align=False, major_segments=48, minor_segments=12, mode='MAJOR_MINOR', major_radius=1, minor_radius=0.25, abso_major_rad=1.25, abso_minor_rad=0.75)
 #+END_SRC
 ** Add an edge or face to selected
 #+BEGIN_SRC python
@@ -2154,9 +2253,17 @@
 #+BEGIN_SRC python
   .solidify(thickness=0.01)
 #+END_SRC
+** Create a solid wire-frame from faces
+#+BEGIN_SRC python
+  .wireframe(use_boundary=True, use_even_offset=True, use_relative_offset=False, use_crease=False, thickness=0.01, use_replace=True)
+#+END_SRC
 ** Create navigation mesh for selected objects
 #+BEGIN_SRC python
   .navmesh_make()
+#+END_SRC
+** Cut geometry along a plane (click-drag to define plane)
+#+BEGIN_SRC python
+  .bisect(plane_co=(0, 0, 0), plane_no=(0, 0, 0), use_fill=False, clear_inner=False, clear_outer=False, threshold=0.0001, xstart=0, xend=0, ystart=0, yend=0, cursor=1002)
 #+END_SRC
 ** Cut mesh loop and slide it
 #+BEGIN_SRC python
@@ -2194,21 +2301,25 @@
 #+BEGIN_SRC python
   .faces_shade_smooth()
 #+END_SRC
-** Dissolve geometry
+** Dissolve edges, merging faces
 #+BEGIN_SRC python
   .dissolve_edges(use_verts=False, use_face_split=False)
 #+END_SRC
-** Dissolve geometry
+** Dissolve faces
 #+BEGIN_SRC python
   .dissolve_faces(use_verts=False)
 #+END_SRC
-** Dissolve geometry
+** Dissolve geometry based on the selection mode
 #+BEGIN_SRC python
-  .dissolve_verts(use_face_split=False)
+  .dissolve_mode(use_verts=False, use_face_split=False)
 #+END_SRC
 ** Dissolve selected edges and verts, limited by the angle of surrounding geometry
 #+BEGIN_SRC python
   .dissolve_limited(angle_limit=0.0872665, use_dissolve_boundaries=False, delimit=set())
+#+END_SRC
+** Dissolve verts, merge edges and faces
+#+BEGIN_SRC python
+  .dissolve_verts(use_face_split=False)
 #+END_SRC
 ** Duplicate and extrude selected vertices, edges or faces towards the mouse cursor
 #+BEGIN_SRC python
@@ -2216,7 +2327,7 @@
 #+END_SRC
 ** Duplicate mesh and move
 #+BEGIN_SRC python
-  .duplicate_move(MESH_OT_duplicate={"mode":1}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "release_confirm":False})
+  .duplicate_move(MESH_OT_duplicate={"mode":1}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "remove_on_cancel":False, "release_confirm":False})
 #+END_SRC
 ** Duplicate selected vertices, edges or faces
 #+BEGIN_SRC python
@@ -2232,11 +2343,11 @@
 #+END_SRC
 ** Enforce symmetry (both form and topological) across an axis
 #+BEGIN_SRC python
-  .symmetrize(direction='NEGATIVE_X')
+  .symmetrize(direction='NEGATIVE_X', threshold=0.0001)
 #+END_SRC
 ** Extrude edges and move result
 #+BEGIN_SRC python
-  .extrude_edges_move(MESH_OT_extrude_edges_indiv={"mirror":False}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "release_confirm":False})
+  .extrude_edges_move(MESH_OT_extrude_edges_indiv={"mirror":False}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "remove_on_cancel":False, "release_confirm":False})
 #+END_SRC
 ** Extrude faces and move result
 #+BEGIN_SRC python
@@ -2256,7 +2367,11 @@
 #+END_SRC
 ** Extrude region and move result
 #+BEGIN_SRC python
-  .extrude_region_move(MESH_OT_extrude_region={"mirror":False}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "release_confirm":False})
+  .extrude_region_move(MESH_OT_extrude_region={"mirror":False}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "remove_on_cancel":False, "release_confirm":False})
+#+END_SRC
+** Extrude region and move result
+#+BEGIN_SRC python
+  .extrude_region_shrink_fatten(MESH_OT_extrude_region={"mirror":False}, TRANSFORM_OT_shrink_fatten={"value":0, "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "release_confirm":False})
 #+END_SRC
 ** Extrude region of faces
 #+BEGIN_SRC python
@@ -2276,7 +2391,7 @@
 #+END_SRC
 ** Extrude vertices and move result
 #+BEGIN_SRC python
-  .extrude_vertices_move(MESH_OT_extrude_verts_indiv={"mirror":False}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "release_confirm":False})
+  .extrude_vertices_move(MESH_OT_extrude_verts_indiv={"mirror":False}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "remove_on_cancel":False, "release_confirm":False})
 #+END_SRC
 ** Fill a selected edge loop with faces
 #+BEGIN_SRC python
@@ -2284,7 +2399,11 @@
 #+END_SRC
 ** Fill grid from two loops
 #+BEGIN_SRC python
-  .fill_grid()
+  .fill_grid(span=1, offset=0, use_interp_simple=False)
+#+END_SRC
+** Fill in holes (boundary edge loops)
+#+BEGIN_SRC python
+  .fill_holes(sides=4)
 #+END_SRC
 ** Flatten angles of selected vertices
 #+BEGIN_SRC python
@@ -2310,10 +2429,6 @@
 #+BEGIN_SRC python
   .inset(use_boundary=True, use_even_offset=True, use_relative_offset=False, thickness=0.01, depth=0, use_outset=False, use_select_inset=True, use_individual=False, use_interpolate=True)
 #+END_SRC
-** Inset new faces into selected faces
-#+BEGIN_SRC python
-  .wireframe(use_boundary=True, use_even_offset=True, use_relative_offset=False, use_crease=False, thickness=0.01, use_replace=True)
-#+END_SRC
 ** Join triangles into quads
 #+BEGIN_SRC python
   .tris_convert_to_quads(limit=0.698132, uvs=False, vcols=False, sharp=False, materials=False)
@@ -2328,7 +2443,7 @@
 #+END_SRC
 ** Make faces between two or more edge loops
 #+BEGIN_SRC python
-  .bridge_edge_loops(type='SINGLE', use_merge=False, merge_factor=0.5, number_cuts=0, interpolation='PATH', smoothness=1, profile_shape_factor=0, profile_shape='SMOOTH')
+  .bridge_edge_loops(type='SINGLE', use_merge=False, merge_factor=0.5, twist_offset=0, number_cuts=0, interpolation='PATH', smoothness=1, profile_shape_factor=0, profile_shape='SMOOTH')
 #+END_SRC
 ** Merge selected vertices
 #+BEGIN_SRC python
@@ -2364,11 +2479,11 @@
 #+END_SRC
 ** Rip polygons and move the result
 #+BEGIN_SRC python
-  .rip_move(MESH_OT_rip={"mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "release_confirm":False, "use_fill":False}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "release_confirm":False})
+  .rip_move(MESH_OT_rip={"mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "release_confirm":False, "use_fill":False}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "remove_on_cancel":False, "release_confirm":False})
 #+END_SRC
 ** Rip-fill polygons and move the result
 #+BEGIN_SRC python
-  .rip_move_fill(MESH_OT_rip={"mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "release_confirm":False, "use_fill":False}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "release_confirm":False})
+  .rip_move_fill(MESH_OT_rip={"mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "release_confirm":False, "use_fill":False}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "remove_on_cancel":False, "release_confirm":False})
 #+END_SRC
 ** Rotate UV coordinates inside faces
 #+BEGIN_SRC python
@@ -2474,6 +2589,10 @@
 #+BEGIN_SRC python
   .poke(offset=0, use_relative_offset=False, center_mode='MEAN_WEIGHTED')
 #+END_SRC
+** Split non-planar faces that exceed the angle threshold
+#+BEGIN_SRC python
+  .vert_connect_nonplanar(angle_limit=0.0872665)
+#+END_SRC
 ** Split off selected geometry from connected unselected geometry
 #+BEGIN_SRC python
   .split()
@@ -2490,13 +2609,9 @@
 #+BEGIN_SRC python
   .sort_elements(type='VIEW_ZAXIS', elements=set(), reverse=False, seed=0)
 #+END_SRC
-** Tooltip
-#+BEGIN_SRC python
-  .f2()
-#+END_SRC
 ** Triangulate selected faces
 #+BEGIN_SRC python
-  .quads_convert_to_tris(use_beauty=True)
+  .quads_convert_to_tris(quad_method='BEAUTY', ngon_method='BEAUTY')
 #+END_SRC
 ** UnSubdivide selected edges & faces
 #+BEGIN_SRC python
@@ -2549,7 +2664,7 @@
 #+END_SRC
 ** Bake object/pose loc/scale/rotation animation to a new action
 #+BEGIN_SRC python
-  .bake(frame_start=1, frame_end=250, step=1, only_selected=True, visual_keying=False, clear_constraints=False, clear_parents=False, bake_types={'POSE'})
+  .bake(frame_start=1, frame_end=250, step=1, only_selected=True, visual_keying=False, clear_constraints=False, clear_parents=False, bake_types={, 'POSE'})
 #+END_SRC
 ** Copy the F-Modifier(s) of the active NLA-Strip
 #+BEGIN_SRC python
@@ -2664,21 +2779,25 @@
 #+BEGIN_SRC python
   .add_file(filepath="", filter_blender=False, filter_backup=False, filter_image=True, filter_movie=False, filter_python=False, filter_font=False, filter_sound=False, filter_text=False, filter_btx=False, filter_collada=False, filter_folder=True, filemode=9, display_type='FILE_DEFAULTDISPLAY', name="Image")
 #+END_SRC
+** Add a mask node to the current node editor
+#+BEGIN_SRC python
+  .add_mask(name="Mask")
+#+END_SRC
 ** Add a new input to a file output node
 #+BEGIN_SRC python
   .output_file_add_socket(file_path="Image")
 #+END_SRC
 ** Add a node to the active tree
 #+BEGIN_SRC python
-  .add_node(type="", use_transform=False, settings=[])
+  .add_node(use_transform=False, type="", settings=[])
 #+END_SRC
 ** Add a node to the active tree
 #+BEGIN_SRC python
-  .add_search(type="", use_transform=False, settings=[], node_item='<UNKNOWN ENUM>')
+  .add_search(use_transform=False, type="", settings=[], node_item='<UNKNOWN ENUM>')
 #+END_SRC
 ** Add a node to the active tree and link to an existing socket
 #+BEGIN_SRC python
-  .add_and_link_node(type="", use_transform=False, settings=[], link_socket_index=0)
+  .add_and_link_node(use_transform=False, type="", settings=[], link_socket_index=0)
 #+END_SRC
 ** Add a reroute node
 #+BEGIN_SRC python
@@ -2710,7 +2829,7 @@
 #+END_SRC
 ** Create a new node tree
 #+BEGIN_SRC python
-  .new_node_tree(type='CompositorNodeTree', name="NodeTree")
+  .new_node_tree(type='ShaderNodeTree', name="NodeTree")
 #+END_SRC
 ** Delete nodes; will reconnect nodes as if deletion was muted
 #+BEGIN_SRC python
@@ -2722,7 +2841,7 @@
 #+END_SRC
 ** Detach nodes, move and attach to frame
 #+BEGIN_SRC python
-  .detach_translate_attach(NODE_OT_detach={}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "release_confirm":False}, NODE_OT_attach={})
+  .detach_translate_attach(NODE_OT_detach={}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "remove_on_cancel":False, "release_confirm":False}, NODE_OT_attach={})
 #+END_SRC
 ** Detach selected nodes
 #+BEGIN_SRC python
@@ -2738,15 +2857,19 @@
 #+END_SRC
 ** Duplicate selected nodes and move them
 #+BEGIN_SRC python
-  .duplicate_move(NODE_OT_duplicate={"keep_inputs":False}, NODE_OT_translate_attach={"TRANSFORM_OT_translate":{"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "release_confirm":False}, "NODE_OT_attach":{}})
+  .duplicate_move(NODE_OT_duplicate={"keep_inputs":False}, NODE_OT_translate_attach={"TRANSFORM_OT_translate":{"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "remove_on_cancel":False, "release_confirm":False}, "NODE_OT_attach":{}})
 #+END_SRC
 ** Duplicate selected nodes keeping input links and move them
 #+BEGIN_SRC python
-  .duplicate_move_keep_inputs(NODE_OT_duplicate={"keep_inputs":False}, NODE_OT_translate_attach={"TRANSFORM_OT_translate":{"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "release_confirm":False}, "NODE_OT_attach":{}})
+  .duplicate_move_keep_inputs(NODE_OT_duplicate={"keep_inputs":False}, NODE_OT_translate_attach={"TRANSFORM_OT_translate":{"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "remove_on_cancel":False, "release_confirm":False}, "NODE_OT_attach":{}})
 #+END_SRC
 ** Edit node group
 #+BEGIN_SRC python
   .group_edit(exit=False)
+#+END_SRC
+** Fit the background image to the view
+#+BEGIN_SRC python
+  .backimage_fit()
 #+END_SRC
 ** Go to parent node tree
 #+BEGIN_SRC python
@@ -2774,11 +2897,11 @@
 #+END_SRC
 ** Move a node to detach links
 #+BEGIN_SRC python
-  .move_detach_links(NODE_OT_links_detach={}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "release_confirm":False})
+  .move_detach_links(NODE_OT_links_detach={}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "remove_on_cancel":False, "release_confirm":False})
 #+END_SRC
 ** Move a node to detach links
 #+BEGIN_SRC python
-  .move_detach_links_release(NODE_OT_links_detach={}, NODE_OT_translate_attach={"TRANSFORM_OT_translate":{"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "release_confirm":False}, "NODE_OT_attach":{}})
+  .move_detach_links_release(NODE_OT_links_detach={}, NODE_OT_translate_attach={"TRANSFORM_OT_translate":{"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "remove_on_cancel":False, "release_confirm":False}, "NODE_OT_attach":{}})
 #+END_SRC
 ** Move a socket up or down in the current node tree's sockets stack
 #+BEGIN_SRC python
@@ -2786,7 +2909,7 @@
 #+END_SRC
 ** Move nodes and attach to frame
 #+BEGIN_SRC python
-  .translate_attach(TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "release_confirm":False}, NODE_OT_attach={})
+  .translate_attach(TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "remove_on_cancel":False, "release_confirm":False}, NODE_OT_attach={})
 #+END_SRC
 ** Move the active input of a file output node up or down the list
 #+BEGIN_SRC python
@@ -2999,7 +3122,7 @@
 #+END_SRC
 ** Add an metaball object to the scene
 #+BEGIN_SRC python
-  .metaball_add(type='BALL', view_align=False, enter_editmode=False, location=(0, 0, 0), rotation=(0, 0, 0), layers=(False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False))
+  .metaball_add(type='BALL', radius=1, view_align=False, enter_editmode=False, location=(0, 0, 0), rotation=(0, 0, 0), layers=(False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False))
 #+END_SRC
 ** Add an object to a new group
 #+BEGIN_SRC python
@@ -3075,7 +3198,7 @@
 #+END_SRC
 ** Blend selected vertex weights with unselected for the active group
 #+BEGIN_SRC python
-  .vertex_group_blend(factor=1)
+  .vertex_group_blend(group_select_mode='ACTIVE', factor=1)
 #+END_SRC
 ** Calculate motion paths for the selected objects
 #+BEGIN_SRC python
@@ -3227,11 +3350,11 @@
 #+END_SRC
 ** Duplicate selected objects and move them
 #+BEGIN_SRC python
-  .duplicate_move(OBJECT_OT_duplicate={"linked":False, "mode":'TRANSLATION'}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "release_confirm":False})
+  .duplicate_move(OBJECT_OT_duplicate={"linked":False, "mode":'TRANSLATION'}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "remove_on_cancel":False, "release_confirm":False})
 #+END_SRC
 ** Duplicate selected objects and move them
 #+BEGIN_SRC python
-  .duplicate_move_linked(OBJECT_OT_duplicate={"linked":False, "mode":'TRANSLATION'}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "release_confirm":False})
+  .duplicate_move_linked(OBJECT_OT_duplicate={"linked":False, "mode":'TRANSLATION'}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "remove_on_cancel":False, "release_confirm":False})
 #+END_SRC
 ** Enable or disable posing/selecting bones
 #+BEGIN_SRC python
@@ -3249,11 +3372,11 @@
 #+BEGIN_SRC python
   .isolate_type_render()
 #+END_SRC
-** Hook selected vertices to the first selected Object
+** Hook selected vertices to a newly created object
 #+BEGIN_SRC python
   .hook_add_newob()
 #+END_SRC
-** Hook selected vertices to the first selected Object
+** Hook selected vertices to the first selected object
 #+BEGIN_SRC python
   .hook_add_selob(use_bone=False)
 #+END_SRC
@@ -3359,7 +3482,7 @@
 #+END_SRC
 ** Normalize all weights of all vertex groups, so that for each vertex, the sum of all weights is 1.0
 #+BEGIN_SRC python
-  .vertex_group_normalize_all(lock_active=True)
+  .vertex_group_normalize_all(group_select_mode='ALL', lock_active=True)
 #+END_SRC
 ** Normalize weights of the active vertex group, so that the highest ones are now 1.0
 #+BEGIN_SRC python
@@ -3703,6 +3826,10 @@
   .object_operation(type='SELECT')
 #+END_SRC
 * bpy.ops.paint
+** Add mask within the lasso as you move the pointer
+#+BEGIN_SRC python
+  .mask_lasso_gesture(path=[])
+#+END_SRC
 ** Change selection for all faces
 #+BEGIN_SRC python
   .face_select_all(action='TOGGLE')
@@ -3710,6 +3837,10 @@
 ** Change selection for all vertices
 #+BEGIN_SRC python
   .vert_select_all(action='TOGGLE')
+#+END_SRC
+** Draw a line to apply a weight gradient to selected vertices
+#+BEGIN_SRC python
+  .weight_gradient(type='LINEAR', xstart=0, xend=0, ystart=0, yend=0, cursor=1002)
 #+END_SRC
 ** Fill the active vertex color layer with the current paint color
 #+BEGIN_SRC python
@@ -3759,10 +3890,6 @@
 #+BEGIN_SRC python
   .face_select_reveal(unselected=False)
 #+END_SRC
-** Sample a line and show it in Scope panels
-#+BEGIN_SRC python
-  .weight_gradient(type='LINEAR', xstart=0, xend=0, ystart=0, yend=0, cursor=1002)
-#+END_SRC
 ** Select a paint mode's brush by tool type
 #+BEGIN_SRC python
   .brush_select(paint_mode='ACTIVE', sculpt_tool='BLOB', vertex_paint_tool='MIX', weight_paint_tool='MIX', texture_paint_tool='DRAW', toggle=False, create_missing=False)
@@ -3771,7 +3898,7 @@
 #+BEGIN_SRC python
   .face_select_linked()
 #+END_SRC
-** Select linked faces
+** Select linked faces under the cursor
 #+BEGIN_SRC python
   .face_select_linked_pick(deselect=False)
 #+END_SRC
@@ -4176,6 +4303,10 @@
 #+BEGIN_SRC python
   .preset_add(remove_active=False, name="")
 #+END_SRC
+** Add a Sampling Preset
+#+BEGIN_SRC python
+  .cycles_sampling_preset_add(remove_active=False, name="")
+#+END_SRC
 ** Add an Integrator Preset
 #+BEGIN_SRC python
   .cycles_integrator_preset_add(remove_active=False, name="")
@@ -4194,7 +4325,7 @@
 #+END_SRC
 ** Render active scene
 #+BEGIN_SRC python
-  .render(animation=False, write_still=False, layer="", scene="")
+  .render(animation=False, write_still=False, use_viewport=False, layer="", scene="")
 #+END_SRC
 ** Toggle show render view
 #+BEGIN_SRC python
@@ -4411,6 +4542,10 @@
 #+BEGIN_SRC python
   .keyframe_jump(next=True)
 #+END_SRC
+** Jump to previous/next marker
+#+BEGIN_SRC python
+  .marker_jump(next=True)
+#+END_SRC
 ** Move current frame forward/backward by a given number
 #+BEGIN_SRC python
   .frame_offset(delta=0)
@@ -4530,13 +4665,9 @@
 #+BEGIN_SRC python
   .mask_strip_add(frame_start=0, channel=1, replace_sel=True, overlap=False, mask='<UNKNOWN ENUM>')
 #+END_SRC
-** Add a modifier to strip
+** Add a modifier to the strip
 #+BEGIN_SRC python
   .strip_modifier_add(type='COLOR_BALANCE')
-#+END_SRC
-** Add a modifier to strip
-#+BEGIN_SRC python
-  .strip_modifier_remove(name="Name")
 #+END_SRC
 ** Add a movie strip to the sequencer
 #+BEGIN_SRC python
@@ -4588,19 +4719,11 @@
 #+END_SRC
 ** Duplicate selected strips and move them
 #+BEGIN_SRC python
-  .duplicate_move(SEQUENCER_OT_duplicate={"mode":'TRANSLATION'}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "release_confirm":False})
+  .duplicate_move(SEQUENCER_OT_duplicate={"mode":'TRANSLATION'}, TRANSFORM_OT_translate={"value":(0, 0, 0), "constraint_axis":(False, False, False), "constraint_orientation":'GLOBAL', "mirror":False, "proportional":'DISABLED', "proportional_edit_falloff":'SMOOTH', "proportional_size":1, "snap":False, "snap_target":'CLOSEST', "snap_point":(0, 0, 0), "snap_align":False, "snap_normal":(0, 0, 0), "texture_space":False, "remove_on_cancel":False, "release_confirm":False})
 #+END_SRC
 ** Duplicate the selected strips
 #+BEGIN_SRC python
   .duplicate(mode='TRANSLATION')
-#+END_SRC
-** Enable border select mode
-#+BEGIN_SRC python
-  .select_border(gesture_mode=0, xmin=0, xmax=0, ymin=0, ymax=0, extend=True)
-#+END_SRC
-** Enable border select mode
-#+BEGIN_SRC python
-  .view_ghost_border(gesture_mode=0, xmin=0, xmax=0, ymin=0, ymax=0)
 #+END_SRC
 ** Erase selected strips from the sequencer
 #+BEGIN_SRC python
@@ -4662,6 +4785,10 @@
 #+BEGIN_SRC python
   .reload(adjust_length=False)
 #+END_SRC
+** Remove a modifier from the strip
+#+BEGIN_SRC python
+  .strip_modifier_remove(name="Name")
+#+END_SRC
 ** Remove gap at current frame to first strip at the right, independent of selection or locked state of strips
 #+BEGIN_SRC python
   .gap_remove(all=False)
@@ -4698,9 +4825,17 @@
 #+BEGIN_SRC python
   .select_active_side(side='BOTH')
 #+END_SRC
+** Select strips using border selection
+#+BEGIN_SRC python
+  .select_border(gesture_mode=0, xmin=0, xmax=0, ymin=0, ymax=0, extend=True)
+#+END_SRC
 ** Set render size and aspect from active sequence
 #+BEGIN_SRC python
   .rendersize()
+#+END_SRC
+** Set the boundaries of the border used for offset-view
+#+BEGIN_SRC python
+  .view_ghost_border(gesture_mode=0, xmin=0, xmax=0, ymin=0, ymax=0)
 #+END_SRC
 ** Shrink the current selection of adjacent selected strips
 #+BEGIN_SRC python
@@ -4835,27 +4970,27 @@
 * bpy.ops.surface
 ** Construct a Nurbs surface Circle
 #+BEGIN_SRC python
-  .primitive_nurbs_surface_circle_add(view_align=False, enter_editmode=False, location=(0, 0, 0), rotation=(0, 0, 0), layers=(False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False))
+  .primitive_nurbs_surface_circle_add(radius=1, view_align=False, enter_editmode=False, location=(0, 0, 0), rotation=(0, 0, 0), layers=(False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False))
 #+END_SRC
 ** Construct a Nurbs surface Curve
 #+BEGIN_SRC python
-  .primitive_nurbs_surface_curve_add(view_align=False, enter_editmode=False, location=(0, 0, 0), rotation=(0, 0, 0), layers=(False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False))
+  .primitive_nurbs_surface_curve_add(radius=1, view_align=False, enter_editmode=False, location=(0, 0, 0), rotation=(0, 0, 0), layers=(False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False))
 #+END_SRC
 ** Construct a Nurbs surface Cylinder
 #+BEGIN_SRC python
-  .primitive_nurbs_surface_cylinder_add(view_align=False, enter_editmode=False, location=(0, 0, 0), rotation=(0, 0, 0), layers=(False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False))
+  .primitive_nurbs_surface_cylinder_add(radius=1, view_align=False, enter_editmode=False, location=(0, 0, 0), rotation=(0, 0, 0), layers=(False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False))
 #+END_SRC
 ** Construct a Nurbs surface Patch
 #+BEGIN_SRC python
-  .primitive_nurbs_surface_surface_add(view_align=False, enter_editmode=False, location=(0, 0, 0), rotation=(0, 0, 0), layers=(False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False))
+  .primitive_nurbs_surface_surface_add(radius=1, view_align=False, enter_editmode=False, location=(0, 0, 0), rotation=(0, 0, 0), layers=(False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False))
 #+END_SRC
 ** Construct a Nurbs surface Sphere
 #+BEGIN_SRC python
-  .primitive_nurbs_surface_sphere_add(view_align=False, enter_editmode=False, location=(0, 0, 0), rotation=(0, 0, 0), layers=(False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False))
+  .primitive_nurbs_surface_sphere_add(radius=1, view_align=False, enter_editmode=False, location=(0, 0, 0), rotation=(0, 0, 0), layers=(False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False))
 #+END_SRC
 ** Construct a Nurbs surface Torus
 #+BEGIN_SRC python
-  .primitive_nurbs_surface_torus_add(view_align=False, enter_editmode=False, location=(0, 0, 0), rotation=(0, 0, 0), layers=(False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False))
+  .primitive_nurbs_surface_torus_add(radius=1, view_align=False, enter_editmode=False, location=(0, 0, 0), rotation=(0, 0, 0), layers=(False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False))
 #+END_SRC
 * bpy.ops.text
 ** Convert selected comment to text
@@ -4922,10 +5057,6 @@
 #+BEGIN_SRC python
   .make_internal()
 #+END_SRC
-** Make selection from current cursor position to new cursor position type
-#+BEGIN_SRC python
-  .move_select(type='LINE_BEGIN')
-#+END_SRC
 ** Move cursor to position type
 #+BEGIN_SRC python
   .move(type='LINE_BEGIN')
@@ -4933,6 +5064,10 @@
 ** Move the currently selected line(s) up/down
 #+BEGIN_SRC python
   .move_lines(direction='DOWN')
+#+END_SRC
+** Move the cursor while selecting
+#+BEGIN_SRC python
+  .move_select(type='LINE_BEGIN')
 #+END_SRC
 ** Open a new text data block
 #+BEGIN_SRC python
@@ -4969,14 +5104,6 @@
 ** Save active text file with options
 #+BEGIN_SRC python
   .save_as(filepath="", check_existing=True, filter_blender=False, filter_backup=False, filter_image=False, filter_movie=False, filter_python=True, filter_font=False, filter_sound=False, filter_text=True, filter_btx=False, filter_collada=False, filter_folder=True, filemode=9, display_type='FILE_DEFAULTDISPLAY')
-#+END_SRC
-** Scroll text screen
-#+BEGIN_SRC python
-  .scroll(lines=1)
-#+END_SRC
-** Scroll text screen
-#+BEGIN_SRC python
-  .scroll_bar(lines=1)
 #+END_SRC
 ** Select all text
 #+BEGIN_SRC python
@@ -5029,6 +5156,14 @@
 ** When external text is out of sync, resolve the conflict
 #+BEGIN_SRC python
   .resolve_conflict(resolution='IGNORE')
+#+END_SRC
+** scroll
+#+BEGIN_SRC python
+  .scroll(lines=1)
+#+END_SRC
+** scroll_bar
+#+BEGIN_SRC python
+  .scroll_bar(lines=1)
 #+END_SRC
 * bpy.ops.texture
 ** Add a new texture
@@ -5107,11 +5242,11 @@
 #+END_SRC
 ** Scale (resize) selected items
 #+BEGIN_SRC python
-  .resize(value=(1, 1, 1), constraint_axis=(False, False, False), constraint_orientation='GLOBAL', mirror=False, proportional='DISABLED', proportional_edit_falloff='SMOOTH', proportional_size=1, snap=False, snap_target='CLOSEST', snap_point=(0, 0, 0), snap_align=False, snap_normal=(0, 0, 0), texture_space=False, release_confirm=False)
+  .resize(value=(1, 1, 1), constraint_axis=(False, False, False), constraint_orientation='GLOBAL', mirror=False, proportional='DISABLED', proportional_edit_falloff='SMOOTH', proportional_size=1, snap=False, snap_target='CLOSEST', snap_point=(0, 0, 0), snap_align=False, snap_normal=(0, 0, 0), texture_space=False, remove_on_cancel=False, release_confirm=False)
 #+END_SRC
 ** Scale selected vertices' skin radii
 #+BEGIN_SRC python
-  .skin_resize(value=(1, 1, 1), constraint_axis=(False, False, False), constraint_orientation='GLOBAL', mirror=False, proportional='DISABLED', proportional_edit_falloff='SMOOTH', proportional_size=1, snap=False, snap_target='CLOSEST', snap_point=(0, 0, 0), snap_align=False, snap_normal=(0, 0, 0), texture_space=False, release_confirm=False)
+  .skin_resize(value=(1, 1, 1), constraint_axis=(False, False, False), constraint_orientation='GLOBAL', mirror=False, proportional='DISABLED', proportional_edit_falloff='SMOOTH', proportional_size=1, snap=False, snap_target='CLOSEST', snap_point=(0, 0, 0), snap_align=False, snap_normal=(0, 0, 0), texture_space=False, remove_on_cancel=False, release_confirm=False)
 #+END_SRC
 ** Select transformation orientation
 #+BEGIN_SRC python
@@ -5151,13 +5286,17 @@
 #+END_SRC
 ** Translate (move) selected items
 #+BEGIN_SRC python
-  .translate(value=(0, 0, 0), constraint_axis=(False, False, False), constraint_orientation='GLOBAL', mirror=False, proportional='DISABLED', proportional_edit_falloff='SMOOTH', proportional_size=1, snap=False, snap_target='CLOSEST', snap_point=(0, 0, 0), snap_align=False, snap_normal=(0, 0, 0), texture_space=False, release_confirm=False)
+  .translate(value=(0, 0, 0), constraint_axis=(False, False, False), constraint_orientation='GLOBAL', mirror=False, proportional='DISABLED', proportional_edit_falloff='SMOOTH', proportional_size=1, snap=False, snap_target='CLOSEST', snap_point=(0, 0, 0), snap_align=False, snap_normal=(0, 0, 0), texture_space=False, remove_on_cancel=False, release_confirm=False)
 #+END_SRC
 ** Warp selected items around the cursor
 #+BEGIN_SRC python
   .warp(value=(0,), mirror=False, proportional='DISABLED', proportional_edit_falloff='SMOOTH', proportional_size=1, snap=False, snap_target='CLOSEST', snap_point=(0, 0, 0), snap_align=False, snap_normal=(0, 0, 0), release_confirm=False)
 #+END_SRC
 * bpy.ops.ui
+** Clear the property and use default or generated value in operators
+#+BEGIN_SRC python
+  .unset_property_button()
+#+END_SRC
 ** Copy property from this object to selected objects or bones
 #+BEGIN_SRC python
   .copy_to_selected_button(all=True)
@@ -5188,7 +5327,11 @@
 #+END_SRC
 ** Sample a color from the Blender Window to store in a property
 #+BEGIN_SRC python
-  .eyedropper()
+  .eyedropper_color()
+#+END_SRC
+** Sample a color from the Blender Window to store in a property
+#+BEGIN_SRC python
+  .eyedropper_id()
 #+END_SRC
 ** Write the reports
 #+BEGIN_SRC python
@@ -5219,10 +5362,6 @@
 #+BEGIN_SRC python
   .follow_active_quads(mode='LENGTH_AVERAGE')
 #+END_SRC
-** Follow UVs from active quads along continuous face loops
-#+BEGIN_SRC python
-  .lightmap_pack(PREF_CONTEXT='SEL_FACES', PREF_PACK_IN_ONE=True, PREF_NEW_UVLAYER=False, PREF_APPLY_IMAGE=False, PREF_IMG_PX_SIZE=512, PREF_BOX_DIV=12, PREF_MARGIN_DIV=0.1)
-#+END_SRC
 ** Hide (un)selected UV vertices
 #+BEGIN_SRC python
   .hide(unselected=False)
@@ -5230,6 +5369,10 @@
 ** Mark selected UV edges as seams
 #+BEGIN_SRC python
   .mark_seam()
+#+END_SRC
+** Pack each faces UV's into the UV bounds
+#+BEGIN_SRC python
+  .lightmap_pack(PREF_CONTEXT='SEL_FACES', PREF_PACK_IN_ONE=True, PREF_NEW_UVLAYER=False, PREF_APPLY_IMAGE=False, PREF_IMG_PX_SIZE=512, PREF_BOX_DIV=12, PREF_MARGIN_DIV=0.1)
 #+END_SRC
 ** Project the UV vertices of the mesh as seen in current 3D view
 #+BEGIN_SRC python
@@ -5337,7 +5480,7 @@
 #+END_SRC
 ** Transform all islands so that they fill up the UV space as much as possible
 #+BEGIN_SRC python
-  .pack_islands(margin=0.001)
+  .pack_islands(rotate=True, margin=0.001)
 #+END_SRC
 ** Unwrap the mesh of the object being edited
 #+BEGIN_SRC python
@@ -5382,10 +5525,6 @@
 #+END_SRC
 ** Zoom in the view to the nearest item contained in the border
 #+BEGIN_SRC python
-  .smoothview(gesture_mode=0, xmin=0, xmax=0, ymin=0, ymax=0)
-#+END_SRC
-** Zoom in the view to the nearest item contained in the border
-#+BEGIN_SRC python
   .zoom_border(gesture_mode=0, xmin=0, xmax=0, ymin=0, ymax=0)
 #+END_SRC
 ** Zoom in/out the view
@@ -5395,6 +5534,10 @@
 ** Zoom out the view
 #+BEGIN_SRC python
   .zoom_out(zoomfacx=0, zoomfacy=0)
+#+END_SRC
+** smoothview
+#+BEGIN_SRC python
+  .smoothview(gesture_mode=0, xmin=0, xmax=0, ymin=0, ymax=0)
 #+END_SRC
 * bpy.ops.view3d
 ** Activate/select item(s)
@@ -5408,6 +5551,10 @@
 ** Center the camera view
 #+BEGIN_SRC python
   .view_center_camera()
+#+END_SRC
+** Center the view lock offset
+#+BEGIN_SRC python
+  .view_center_lock()
 #+END_SRC
 ** Center the view so that the cursor is in the middle of the view
 #+BEGIN_SRC python
@@ -5437,13 +5584,9 @@
 #+BEGIN_SRC python
   .enable_manipulator(translate=False, rotate=False, scale=False)
 #+END_SRC
-** Explore every angle of an object using the 3D mouse
+** Extrude and move along individual normals
 #+BEGIN_SRC python
-  .ndof_orbit()
-#+END_SRC
-** Explore every angle of an object using the 3D mouse
-#+BEGIN_SRC python
-  .ndof_orbit_zoom()
+  .edit_mesh_extrude_move_shrink_fatten()
 #+END_SRC
 ** Extrude and move along normals
 #+BEGIN_SRC python
@@ -5489,25 +5632,37 @@
 #+BEGIN_SRC python
   .view_selected(use_all_regions=False)
 #+END_SRC
+** Orbit and zoom the view using the 3D mouse
+#+BEGIN_SRC python
+  .ndof_orbit_zoom()
+#+END_SRC
 ** Orbit the view
 #+BEGIN_SRC python
   .view_orbit(type='ORBITLEFT')
+#+END_SRC
+** Orbit the view using the 3D mouse
+#+BEGIN_SRC python
+  .ndof_orbit()
+#+END_SRC
+** Pan and rotate the view with the 3D mouse
+#+BEGIN_SRC python
+  .ndof_all()
 #+END_SRC
 ** Pan the view
 #+BEGIN_SRC python
   .view_pan(type='PANLEFT')
 #+END_SRC
-** Position your viewpoint with the 3D mouse
-#+BEGIN_SRC python
-  .ndof_all()
-#+END_SRC
-** Position your viewpoint with the 3D mouse
+** Pan the view with the 3D mouse
 #+BEGIN_SRC python
   .ndof_pan()
 #+END_SRC
 ** Remove a background image from the 3D view
 #+BEGIN_SRC python
   .background_image_remove(index=0)
+#+END_SRC
+** Roll the view
+#+BEGIN_SRC python
+  .view_roll(angle=0)
 #+END_SRC
 ** Rotate the view
 #+BEGIN_SRC python
@@ -5561,7 +5716,7 @@
 #+BEGIN_SRC python
   .snap_cursor_to_selected()
 #+END_SRC
-** Snap cursor to nearest grid node
+** Snap cursor to nearest grid division
 #+BEGIN_SRC python
   .snap_cursor_to_grid()
 #+END_SRC
@@ -5571,9 +5726,9 @@
 #+END_SRC
 ** Snap selected item(s) to cursor
 #+BEGIN_SRC python
-  .snap_selected_to_cursor()
+  .snap_selected_to_cursor(use_offset=True)
 #+END_SRC
-** Snap selected item(s) to nearest grid node
+** Snap selected item(s) to nearest grid division
 #+BEGIN_SRC python
   .snap_selected_to_grid()
 #+END_SRC
@@ -5584,10 +5739,6 @@
 ** Switch the current view from perspective/orthographic projection
 #+BEGIN_SRC python
   .view_persportho()
-#+END_SRC
-** The time to animate the change of view (in milliseconds)
-#+BEGIN_SRC python
-  .smoothview()
 #+END_SRC
 ** Toggle display of selected object(s) separately and centered in view
 #+BEGIN_SRC python
@@ -5620,6 +5771,10 @@
 ** Zoom in/out in the view
 #+BEGIN_SRC python
   .zoom(delta=0, mx=0, my=0)
+#+END_SRC
+** smoothview
+#+BEGIN_SRC python
+  .smoothview()
 #+END_SRC
 * bpy.ops.wm
 ** Add a Key-config Preset
@@ -5662,13 +5817,13 @@
 #+BEGIN_SRC python
   .copy_prev_settings()
 #+END_SRC
-** Disable an addon
+** Delete the addon from the file system
 #+BEGIN_SRC python
-  .addon_disable(module="")
+  .addon_remove(module="")
 #+END_SRC
 ** Disable an addon
 #+BEGIN_SRC python
-  .addon_remove(module="")
+  .addon_disable(module="")
 #+END_SRC
 ** Display more information on this addon
 #+BEGIN_SRC python
@@ -5729,10 +5884,6 @@
 ** Load online manual
 #+BEGIN_SRC python
   .doc_view_manual(doc_id="")
-#+END_SRC
-** Load online reference docs
-#+BEGIN_SRC python
-  .doc_edit(doc_id="", doc_new="")
 #+END_SRC
 ** Load online reference docs
 #+BEGIN_SRC python
@@ -5816,7 +5967,7 @@
 #+END_SRC
 ** Save a Collada file
 #+BEGIN_SRC python
-  .collada_export(filepath="", check_existing=True, filter_blender=False, filter_backup=False, filter_image=False, filter_movie=False, filter_python=False, filter_font=False, filter_sound=False, filter_text=False, filter_btx=False, filter_collada=True, filter_folder=True, filemode=8, display_type='FILE_DEFAULTDISPLAY', apply_modifiers=False, export_mesh_type=0, export_mesh_type_selection='view', selected=False, include_children=False, include_armatures=False, include_shapekeys=True, deform_bones_only=False, active_uv_only=False, include_uv_textures=False, include_material_textures=False, use_texture_copies=True, triangulate=True, use_object_instantiation=True, sort_by_name=False, export_transformation_type=0, export_transformation_type_selection='matrix', second_life=False)
+  .collada_export(filepath="", check_existing=True, filter_blender=False, filter_backup=False, filter_image=False, filter_movie=False, filter_python=False, filter_font=False, filter_sound=False, filter_text=False, filter_btx=False, filter_collada=True, filter_folder=True, filemode=8, display_type='FILE_DEFAULTDISPLAY', apply_modifiers=False, export_mesh_type=0, export_mesh_type_selection='view', selected=False, include_children=False, include_armatures=False, include_shapekeys=True, deform_bones_only=False, active_uv_only=False, include_uv_textures=False, include_material_textures=False, use_texture_copies=True, triangulate=True, use_object_instantiation=True, sort_by_name=False, export_transformation_type=0, export_transformation_type_selection='matrix', open_sim=False)
 #+END_SRC
 ** Save the current Blender file
 #+BEGIN_SRC python
@@ -5833,6 +5984,10 @@
 ** Scale an int context value
 #+BEGIN_SRC python
   .context_scale_int(data_path="", value=1, always_step=True)
+#+END_SRC
+** Scan addon directories for new modules
+#+BEGIN_SRC python
+  .addon_refresh()
 #+END_SRC
 ** Set a context array value (useful for cycling the active mesh edit mode)
 #+BEGIN_SRC python
@@ -5866,13 +6021,17 @@
 #+BEGIN_SRC python
   .context_cycle_int(data_path="", reverse=False)
 #+END_SRC
+** Set a context value to an ID data-block
+#+BEGIN_SRC python
+  .context_set_id(data_path="", value="")
+#+END_SRC
 ** Set boolean values for a collection of items
 #+BEGIN_SRC python
   .context_collection_boolean_set(data_path_iter="", data_path_item="", type='TOGGLE')
 #+END_SRC
 ** Set some size property (like e.g. brush size) with mouse wheel
 #+BEGIN_SRC python
-  .radial_control(data_path_primary="", data_path_secondary="", use_secondary="", rotation_path="", color_path="", fill_color_path="", zoom_path="", image_id="")
+  .radial_control(data_path_primary="", data_path_secondary="", use_secondary="", rotation_path="", color_path="", fill_color_path="", zoom_path="", image_id="", secondary_tex=False)
 #+END_SRC
 ** Set the active operator to its default values
 #+BEGIN_SRC python
@@ -5889,10 +6048,6 @@
 ** Toggle a context value
 #+BEGIN_SRC python
   .context_cycle_enum(data_path="", reverse=False)
-#+END_SRC
-** Toggle a context value
-#+BEGIN_SRC python
-  .context_set_id(data_path="", value="")
 #+END_SRC
 ** Toggle a context value
 #+BEGIN_SRC python

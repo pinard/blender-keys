@@ -4,13 +4,18 @@
 | 3D View                       | ,                | Context Set Enum                  |
 |                               | Alt ,            | Context Toggle                    |
 |                               | Ctrl ,           | Context Set Enum                  |
+| Clip Editor                   | ,                | Context Set Enum                  |
+|                               | Ctrl ,           |                                   |
 | Image                         | ,                | Context Set Enum                  |
 |                               | Ctrl ,           |                                   |
 |-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Ctrl -           | Zoom View                         |
+|                               | Shift Ctrl -     | Dolly View                        |
 |-------------------------------+------------------+-----------------------------------|
 | 3D View                       | .                | Context Set Enum                  |
 |                               | Alt .            |                                   |
+|                               | Ctrl .           |                                   |
+| Clip Editor                   | .                | Context Set Enum                  |
 |                               | Ctrl .           |                                   |
 | Image                         | .                | Context Set Enum                  |
 | Outliner                      | .                | Show Active                       |
@@ -153,6 +158,7 @@
 |                               | Shift 9          |                                   |
 |-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Ctrl =           | Zoom View                         |
+|                               | Shift Ctrl =     | Dolly View                        |
 | Sequencer                     | Shift =          | Insert Gaps                       |
 |-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Ctrl A           | Skin Resize                       |
@@ -176,6 +182,7 @@
 | Logic Editor                  | Shift A          | Call Menu                         |
 | Markers                       | A                | (De)select all Markers            |
 | Mask Editing                  | A                | (De)select All                    |
+|                               | Shift A          | Call Menu                         |
 | Mesh                          | A                | (De)select All                    |
 |                               | Shift A          | Call Menu                         |
 | Metaball                      | A                | (De)select All                    |
@@ -286,8 +293,9 @@
 | Dopesheet                     | Shift D          | Duplicate                         |
 | Graph Editor                  | Shift D          | Duplicate                         |
 | Markers                       | Shift D          | Duplicate Time Marker             |
+| Mask Editing                  | Shift D          | Add Duplicate                     |
 | Mesh                          | Shift D          | Add Duplicate                     |
-| Metaball                      | Shift D          | Duplicate Metaelements            |
+| Metaball                      | Shift D          | Duplicate                         |
 | NLA Editor                    | Shift D          | Duplicate Strips                  |
 | Node Editor                   | Alt D            | Detach                            |
 |                               | Shift D          | Duplicate                         |
@@ -335,14 +343,16 @@
 |                               | Alt F            | Switch Direction                  |
 | Clip Editor                   | F                | View All                          |
 | Curve                         | F                | Make Segment                      |
+| Image                         | F                | View All                          |
 | Image Paint                   | F                | Radial Control                    |
 |                               | Ctrl F           |                                   |
 |                               | Shift F          |                                   |
+|                               | Ctrl Alt F       |                                   |
 | Lattice                       | Ctrl F           | Flip (Distortion Free)            |
 | Mesh                          | F                | Make Edge/Face                    |
 |                               | Alt F            | Fill                              |
 |                               | Ctrl F           | Call Menu                         |
-|                               | Shift Alt F      | Beautify Fill                     |
+|                               | Shift Alt F      | Beautify Faces                    |
 |                               | Shift Ctrl Alt F | Select Linked Flat Faces          |
 | NLA Editor                    | Alt F            | Swap Strips                       |
 | Node Editor                   | F                | Make Links                        |
@@ -381,6 +391,7 @@
 | Mask Editing                  | G                | Translate                         |
 | Mesh                          | Ctrl G           | Call Menu                         |
 |                               | Shift G          | Select Similar                    |
+| Metaball                      | Shift G          | Select Similar                    |
 | NLA Editor                    | G                | Transform                         |
 |                               | Alt G            | Remove Meta-Strips                |
 |                               | Shift G          | Add Meta-Strips                   |
@@ -404,7 +415,7 @@
 |                               | Alt G            | UnMeta Strip                      |
 |                               | Ctrl G           | Make Meta Strip                   |
 |                               | Shift G          | Select Grouped                    |
-| Text                          | Ctrl G           | Find Next                         |
+| Text Generic                  | Ctrl G           | Find Next                         |
 | Transform Modal Map           | G                |                                   |
 | UV Editor                     | G                | Translate                         |
 | UV Sculpt                     | G                | UV Sculpt Tool Set                |
@@ -457,14 +468,16 @@
 |                               | Alt H            | Un-Mute Strips                    |
 |                               | Shift H          | Mute Strips                       |
 |                               | Shift Alt H      | Un-Mute Strips                    |
-| Text                          | Ctrl H           | Replace                           |
+| Text Generic                  | Ctrl H           | Replace                           |
 | UV Editor                     | H                | Hide Selected                     |
 |                               | Alt H            | Reveal Hidden                     |
 |                               | Shift H          | Hide Selected                     |
 |-------------------------------+------------------+-----------------------------------|
 | Animation Channels            | Ctrl I           | Select All                        |
 | Armature                      | Ctrl I           | (De)select All                    |
-| Clip Editor                   | Ctrl I           | (De)select All                    |
+| Clip Editor                   | I                | Insert keyframe                   |
+|                               | Alt I            | Delete keyframe                   |
+|                               | Ctrl I           | (De)select All                    |
 | Clip Graph Editor             | Ctrl I           | (De)select All Markers            |
 | Curve                         | Ctrl I           | (De)select All                    |
 | Dopesheet                     | I                | Insert Keyframes                  |
@@ -509,7 +522,7 @@
 |                               | Alt J            | Tris to Quads                     |
 | Node Editor                   | Ctrl J           | Join Nodes                        |
 | Object Mode                   | Ctrl J           | Join                              |
-| Text                          | Ctrl J           | Jump                              |
+| Text Generic                  | Ctrl J           | Jump                              |
 |-------------------------------+------------------+-----------------------------------|
 | Dopesheet                     | K                | Select All                        |
 |                               | Alt K            |                                   |
@@ -813,6 +826,7 @@
 | Object Mode                   | Alt T            | Clear Track                       |
 |                               | Ctrl T           | Make Track                        |
 | Sculpt                        | Shift T          | Brush Select                      |
+| Text Generic                  | Ctrl T           | Properties                        |
 | Window                        | Ctrl Alt T       | Redraw Timer                      |
 |-------------------------------+------------------+-----------------------------------|
 | Font                          | Ctrl U           | Toggle Style                      |
@@ -888,6 +902,7 @@
 | Markers                       | X                | Delete Markers                    |
 | Mask Editing                  | X                | Delete                            |
 | Mesh                          | X                | Call Menu                         |
+|                               | Ctrl X           | Dissolve Selection                |
 | Metaball                      | X                | Delete                            |
 | NLA Channels                  | X                | Delete Tracks                     |
 | NLA Editor                    | X                | Delete Strips                     |
@@ -900,6 +915,8 @@
 | Text                          | Ctrl X           | Cut                               |
 | View3D Fly Modal              | X                |                                   |
 |-------------------------------+------------------+-----------------------------------|
+| Armature                      | Y                | Split                             |
+| Curve                         | Y                | Split                             |
 | Mesh                          | Y                | Split                             |
 | NLA Editor                    | Y                | Split Strips                      |
 | Sequencer                     | Y                | Separate Images                   |
@@ -907,6 +924,7 @@
 |-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Z                | Context Toggle Values             |
 |                               | Alt Z            |                                   |
+|                               | Shift Z          |                                   |
 | Knife Tool Modal Map          | Z                |                                   |
 | Node Editor                   | Z                | Render Changed Layer              |
 | Screen                        | Ctrl Z           | Undo                              |
@@ -988,6 +1006,7 @@
 | Info                          | Delete           | Delete Reports                    |
 | Mask Editing                  | Delete           | Delete                            |
 | Mesh                          | Delete           | Call Menu                         |
+|                               | Ctrl Delete      | Dissolve Selection                |
 | Metaball                      | Delete           | Delete                            |
 | NLA Channels                  | Delete           | Delete Tracks                     |
 | NLA Editor                    | Delete           | Delete Strips                     |
@@ -1011,6 +1030,7 @@
 | Text                          | Down             | Move Cursor                       |
 |                               | Shift Down       | Move Select                       |
 |                               | Shift Ctrl Down  | Move Lines                        |
+| View3D Fly Modal              | Down             |                                   |
 |-------------------------------+------------------+-----------------------------------|
 | Console                       | End              | Move Cursor                       |
 | Font                          | End              | Move Cursor                       |
@@ -1053,6 +1073,7 @@
 |-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Home             | View All                          |
 |                               | Home             | View Camera Center                |
+|                               | Home             | View Lock Center                  |
 |                               | Alt Home         | Center View to Cursor             |
 |                               | Ctrl Home        | View All                          |
 | Clip Dopesheet Editor         | Home             | View All                          |
@@ -1067,6 +1088,7 @@
 | Logic Editor                  | Home             | View All                          |
 | NLA Editor                    | Home             | View All                          |
 | Node Editor                   | Home             | View All                          |
+|                               | Alt Home         | Background Image Fit              |
 | Outliner                      | Home             | Show Hierarchy                    |
 | Sequencer                     | Home             | View All                          |
 | SequencerPreview              | Home             | View All                          |
@@ -1093,12 +1115,14 @@
 |                               | Shift Ctrl Left  |                                   |
 | Frames                        | Left             | Frame Offset                      |
 |                               | Shift Left       | Jump to Endpoint                  |
+|                               | Shift Ctrl Left  | Jump to Marker                    |
 | Screen                        | Ctrl Left        | Set Screen                        |
 | Sequencer                     | Alt Left         | Swap Strip                        |
 | Text                          | Left             | Move Cursor                       |
 |                               | Ctrl Left        |                                   |
 |                               | Shift Left       | Move Select                       |
 |                               | Shift Ctrl Left  |                                   |
+| View3D Fly Modal              | Left             |                                   |
 |-------------------------------+------------------+-----------------------------------|
 | View3D Rotate Modal           | Any LeftAlt      |                                   |
 |-------------------------------+------------------+-----------------------------------|
@@ -1119,8 +1143,10 @@
 | Frames                        | MEDIA_STOP       | Cancel Animation                  |
 |-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Num+             | Zoom View                         |
+|                               | Shift Num+       | Dolly View                        |
 | Animation Channels            | Num+             | Expand Channels                   |
 |                               | Ctrl Num+        |                                   |
+| Armature                      | Ctrl Num+        | Select More                       |
 | Clip Editor                   | Num+             | View Zoom In                      |
 | Console                       | Ctrl Num+        | Context Int Cycle                 |
 | Curve                         | Ctrl Num+        | Select More                       |
@@ -1133,6 +1159,8 @@
 |                               | Shift Num+       |                                   |
 | Graph Editor                  | Ctrl Num+        | Select More                       |
 | Image                         | Num+             | View Zoom In                      |
+| Lattice                       | Ctrl Num+        | Select More                       |
+| Mask Editing                  | Ctrl Num+        | Select More                       |
 | Mesh                          | Ctrl Num+        | Select More                       |
 | Outliner                      | Num+             | Show/Hide One Level               |
 | Particle                      | Ctrl Num+        | Select More                       |
@@ -1145,8 +1173,10 @@
 | View3D Gesture Circle         | Num+             |                                   |
 |-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Num-             | Zoom View                         |
+|                               | Shift Num-       | Dolly View                        |
 | Animation Channels            | Num-             | Collapse Channels                 |
 |                               | Ctrl Num-        |                                   |
+| Armature                      | Ctrl Num-        | Select Less                       |
 | Clip Editor                   | Num-             | View Zoom Out                     |
 | Console                       | Ctrl Num-        | Context Int Cycle                 |
 | Curve                         | Ctrl Num-        | Select Less                       |
@@ -1159,6 +1189,8 @@
 |                               | Shift Num-       |                                   |
 | Graph Editor                  | Ctrl Num-        | Select Less                       |
 | Image                         | Num-             | View Zoom Out                     |
+| Lattice                       | Ctrl Num-        | Select Less                       |
+| Mask Editing                  | Ctrl Num-        | Select Less                       |
 | Mesh                          | Ctrl Num-        | Select Less                       |
 | Outliner                      | Num-             | Show/Hide One Level               |
 | Particle                      | Ctrl Num-        | Select Less                       |
@@ -1215,6 +1247,7 @@
 |-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Num4             | View Orbit                        |
 |                               | Ctrl Num4        | View Pan                          |
+|                               | Shift Num4       | View Roll                         |
 | Clip Editor                   | Num4             | View Zoom Ratio                   |
 |                               | Ctrl Num4        |                                   |
 |                               | Shift Num4       |                                   |
@@ -1226,6 +1259,7 @@
 |-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Num6             | View Orbit                        |
 |                               | Ctrl Num6        | View Pan                          |
+|                               | Shift Num6       | View Roll                         |
 |-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Num7             | View Numpad                       |
 |                               | Ctrl Num7        |                                   |
@@ -1243,6 +1277,7 @@
 |-------------------------------+------------------+-----------------------------------|
 | 3D View                       | Shift NumEnter   | Zoom Camera 1:1                   |
 | Console                       | NumEnter         | Console Execute                   |
+|                               | Shift NumEnter   | Clear Line                        |
 | Knife Tool Modal Map          | Any NumEnter     |                                   |
 | Screen                        | NumEnter         | Execute File Window               |
 | Standard Modal Map            | Any NumEnter     |                                   |
@@ -1293,12 +1328,14 @@
 |                               | Shift Ctrl Right |                                   |
 | Frames                        | Right            | Frame Offset                      |
 |                               | Shift Right      | Jump to Endpoint                  |
+|                               | Shift Ctrl Right | Jump to Marker                    |
 | Screen                        | Ctrl Right       | Set Screen                        |
 | Sequencer                     | Alt Right        | Swap Strip                        |
 | Text                          | Right            | Move Cursor                       |
 |                               | Ctrl Right       |                                   |
 |                               | Shift Right      | Move Select                       |
 |                               | Shift Ctrl Right |                                   |
+| View3D Fly Modal              | Right            |                                   |
 |-------------------------------+------------------+-----------------------------------|
 | Knife Tool Modal Map          | Any RightCtrl    |                                   |
 | Transform Modal Map           | Any RightCtrl    |                                   |
@@ -1352,6 +1389,7 @@
 | Text                          | Up               | Move Cursor                       |
 |                               | Shift Up         | Move Select                       |
 |                               | Shift Ctrl Up    | Move Lines                        |
+| View3D Fly Modal              | Up               |                                   |
 |-------------------------------+------------------+-----------------------------------|
 | Window                        | F1               | Open Blender File                 |
 |                               | Shift F1         | Link/Append from Library          |
@@ -1410,7 +1448,9 @@
 |                       | Shift LMB          | Gesture                           |
 | Clip Dopesheet Editor | LMB                | Select Channel                    |
 | Clip Editor           | LMB                | Change Frame                      |
+|                       | LMB                | Set 2D Cursor                     |
 |                       | LMB                | Slide Marker                      |
+|                       | LMB                | Slide Plane Marker                |
 |                       | Ctrl LMB           | Add Marker and Slide              |
 | Clip Graph Editor     | LMB                | Change Frame                      |
 | Console               | LMB                | Set Selection                     |
@@ -1475,6 +1515,7 @@
 | Sculpt                | LMB                | Sculpt                            |
 |                       | Ctrl LMB           |                                   |
 |                       | Shift LMB          |                                   |
+|                       | Shift Ctrl LMB     | Mask Lasso Gesture                |
 | SequencerPreview      | LMB                | Sample Color                      |
 | Standard Modal Map    | Any LMB            |                                   |
 | Text                  | LMB                | Scrollbar                         |
@@ -1511,6 +1552,7 @@
 | Image                 | MMB                | View Pan                          |
 |                       | Ctrl MMB           | View Zoom                         |
 |                       | Shift MMB          | View Pan                          |
+| Knife Tool Modal Map  | Any MMB            |                                   |
 | Node Editor           | Alt MMB            | Background Image Move             |
 | Text                  | MMB                | Scroll                            |
 |                       | MMB                | Scrollbar                         |
@@ -1567,8 +1609,10 @@
 |                       | Alt RMB            |                                   |
 |                       | Ctrl RMB           | Select Left/Right                 |
 |                       | Shift RMB          | Mouse Select Keys                 |
+|                       | Ctrl Alt RMB       |                                   |
 |                       | Shift Alt RMB      |                                   |
 |                       | Shift Ctrl RMB     | Select Left/Right                 |
+|                       | Shift Ctrl Alt RMB | Mouse Select Keys                 |
 | File Browser Main     | RMB                | Activate/Select File              |
 |                       | Alt RMB            |                                   |
 |                       | Shift RMB          |                                   |
@@ -1658,6 +1702,7 @@
 |                       | Shift WheelDn      |                                   |
 |                       | Ctrl Alt WheelDn   | View Orbit                        |
 |                       | Shift Alt WheelDn  |                                   |
+|                       | Shift Ctrl WheelDn | View Roll                         |
 | Console               | Ctrl WheelDn       | Context Int Cycle                 |
 | Frames                | Alt WheelDn        | Frame Offset                      |
 | Text                  | WheelDn            | Scroll                            |
@@ -1687,6 +1732,7 @@
 |                       | Shift WheelUp      |                                   |
 |                       | Ctrl Alt WheelUp   | View Orbit                        |
 |                       | Shift Alt WheelUp  |                                   |
+|                       | Shift Ctrl WheelUp | View Roll                         |
 | Console               | Ctrl WheelUp       | Context Int Cycle                 |
 | Frames                | Alt WheelUp        | Frame Offset                      |
 | Text                  | WheelUp            | Scroll                            |
